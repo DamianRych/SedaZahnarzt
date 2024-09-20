@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic</title>
+    <style>
+        /* Basic CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 65px;
+            /* Adjust as necessary */
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #00796b;
+        }
+
+        .hero {
+            position: relative;
+            background: url('dental-background.jpg') no-repeat center center/cover;
+            height: 60vh;
+            height: 60svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .hero_address_pin {
+            height: 1.2rem;
+            min-width: 1rem;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .flex_row_anfahrt {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero_address_pin svg {
+            max-height: 1.2rem;
+            max-width: 1rem;
+        }
+
+        .hero_address {
+            height: 1.2rem;
+            width: auto;
+            min-width: 1rem;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .services,
+        .contact {
+            background: #f4f4f4;
+            margin: 20px 0;
+        }
+
+        #das-team {
+            padding: 1rem 0 4rem 0;
+            background: #f4f4f4;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            color: #111;
+            padding: 10px;
+            bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer .link {
+            cursor: pointer;
+        }
+
+        /* Simple Form Styling */
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact input,
+        .contact textarea {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact button {
+            background: #00796b;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contact button:hover {
+            background: #004d40;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .button_shape {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-decoration: none;
+            min-width: 5rem;
+            width: fit-content;
+            font-weight: 700;
+            height: 2rem;
+            max-height: 2rem;
+            gap: 0.5rem;
+            padding: 1.2rem 1rem;
+            background: #fff;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease-in-out;
+            border: black solid 0.1rem
+        }
+
+        @media (hover: hover) {
+            .button_shape:hover {
+                background: #ddd;
+            }
+        }
+
+
+        .button_icon {
+            max-width: 1.5rem;
+            max-height: 1.5rem;
+        }
+
+        section>div {
+            margin: auto;
+            max-width: 60rem;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            width: 280px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .doctor-image {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .card-content p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .flags {
+            margin: auto;
+        }
+
+        .flags img {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+
+        .center_text {
+            text-align: center;
+        }
+
+        .content_half {
+            width: 40%;
+        }
+
+        .anfahrt_flex {
+            margin: auto;
+            max-width: 80rem;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero_content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .center_flex {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .google-maps {
+            width: 100%;
+            height: 20rem;
+            margin-top: auto;
+        }
+
+        .google-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .map-flex {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .flex_opening_hour_days {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+
+        .center_flex_element * {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 728px) {
+            .anfahrt_flex {
+                justify-content: center;
+                width: 90%;
+            }
+
+            .content_half {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="logo.png" alt="Zahnarztpraxis Dr. Seda Sanli Logo">
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="https://www.identis.net/files/IMG_iDentis-sl-smart/empfangsbereich-der-zahnarztpraxis-identis-in-berlin-steglitz.jpg"
+            alt="">
+        <div class="hero_content">
+            <div class="center_flex">
+
+                <div class="flex-row">
+                    <div class="hero_address_pin">
+                        <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1r65xhm" focusable="false"
+                            aria-hidden="true" viewBox="0 0 20 26">
+                            <path
+                                d="M10 0.5C4.75 0.5 0 4.52498 0 10.75C0 14.7249 3.0625 19.3999 9.175 24.7874C9.65 25.1999 10.3625 25.1999 10.8375 24.7874C16.9375 19.3999 20 14.7249 20 10.75C20 4.52498 15.25 0.5 10 0.5ZM10 13C8.625 13 7.5 11.875 7.5 10.5C7.5 9.12497 8.625 7.99997 10 7.99997C11.375 7.99997 12.5 9.12497 12.5 10.5C12.5 11.875 11.375 13 10 13Z"
+                                fill="#fff">
+                            </path>
+                        </svg>
+                    </div>
+                    <p style="margin: 0;padding: 0;">Muster Str. 26, 10247 Berlin</p>
+                </div>
+                <div class="flex-row">
+                    <h2 style="margin: 0;padding: 0;">Ihr Zahnarzt in Berlin Charlottenburg</h2>
+                </div>
+                <div class="flex-row" style="margin-bottom: 0;">
+                    <button class="button_shape">
+                        <span class="button_icon">
+                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6 1V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H18V1H16V3H8V1H6ZM5 8H19V19H5V8ZM10.4902 11C9.56923 11.002 8.85503 11.5277 8.45703 12.3027C8.29403 12.6197 8.2237 12.9314 8.2207 13.2344C8.2057 14.6304 9.63228 15.8337 10.2383 16.3457L10.3613 16.4492C10.8673 16.8902 12.002 17.6172 12.002 17.6172C12.002 17.6172 13.1366 16.8902 13.6426 16.4492L13.7637 16.3457C14.3697 15.8337 15.7963 14.6304 15.7812 13.2344C15.7782 12.9314 15.7069 12.6187 15.5449 12.3027C15.1479 11.5277 14.4346 11.001 13.5156 11C12.9346 10.999 12.2639 11.3301 12.0039 11.7051C11.7669 11.3311 11.0712 10.999 10.4902 11Z"
+                                    fill="#212121"></path>
+                            </svg>
+                        </span>
+
+                        Termin Buchen
+                    </button>
+                    <button class="button_shape">
+                        <span class="button_icon">
+                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.023 15.488C19.393 15.473 18.6 15.436 18.099 15.348C17.557 15.252 16.905 15.066 16.446 14.923C16.086 14.811 15.694 14.91 15.427 15.176L13.21 17.38C11.678 16.573 10.451 15.633 9.412 14.588C8.367 13.549 7.427 12.322 6.62 10.79L8.824 8.572C9.09 8.304 9.189 7.913 9.077 7.553C8.935 7.095 8.748 6.442 8.652 5.9C8.564 5.399 8.527 4.607 8.512 3.976C8.499 3.432 8.055 3 7.51 3L4 3C3.562 3 3 3.328 3 4C3 8.539 4.84 12.874 7.966 16.034C11.126 19.16 15.461 21 20 21C20.672 21 21 20.438 21 20L21 16.49C21 15.945 20.568 15.501 20.023 15.488Z"
+                                    fill="#212121"></path>
+                            </svg>
+                        </span>
+                        015736602331
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <section class="fade-in" id="das-team" class="services">
+        <div>
+            <h2 class="center_text">Das Team</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://ucarecdn.com/1e6b66f3-802b-436d-ad9f-989aa22d25ae/-/format/webp/-/quality/best/-/preview/720x400/"
+                        alt="Doctor Image" class="doctor-image">
+                    <div class="card-content">
+                        <h3>Dr. med. dent. Seda Sanli</h3>
+                        <p>Zahnärztin</p>
+                        <div class="card-footer">
+                            <div class="flags">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/de.svg"
+                                    alt="German">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/gb.svg"
+                                    alt="English">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/tr.svg"
+                                    alt="Turkish">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oeffnungszeiten Section -->
+    <section class="fade-in" id="oeffnungszeiten">
+        <div>
+            <div class="map-flex">
+
+            </div>
+    </section>
+
+    <!-- Anfahrt Section -->
+    <section class="fade-in" id="Anfahrt">
+        <div>
+
+            <div class="anfahrt_flex">
+                <div class="content_half">
+                    <div class="flex-row" style="margin-bottom: 0.5rem;">
+                        <span style="width: 1.5rem;height: 1.5rem;" class="">
+                            <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
+                                aria-hidden="true" viewBox="0 0 32 35" fill="#000">
+                                <path
+                                    d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
+                                    fill="#000"></path>
+                            </svg>
+                        </span>
+                        <h2>Öffnungszeiten</h2>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Montag</b></p>
+                        <p>08:00 - 19:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Dienstag</b></p>
+                        <p>08:00 - 19:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Mittwoch</b></p>
+                        <p>08:00 - 19:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Donnerstag</b></p>
+                        <p>08:00 - 19:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Freitag</b></p>
+                        <p>08:00 - 19:00</p>
+                    </div>
+                </div>
+                <div class="content_half">
+                    <div class="google-container">
+                        <div class="google-maps">
+                            <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
+                                marginheight="0" marginwidth="0" id="gmap_canvas"
+                                src="https://maps.google.com/maps?hl=de&amp;q=Eldenaer Str.+26+10247+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="content_half">
+                    <div class="center_flex_element">
+                        <img height="50" width="40" src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/"
+                            alt="bus" loading="lazy">
+                        <h4>Öffentliche Verkehrsmittel</h4>
+                    </div>
+                    <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
+                        erreichen. Unweit der Praxis
+                        finden
+                        Sie den U-Bhf Samariterstr. sowie den S-Bhf Storkower Str. Ebenso haben Sie die Möglichkeit zur
+                        Anfahrt mit der Straßenbahn. Vor unseren Praxistüren befindet sich die Haltestation
+                        James-Hobrecht-Str.</p>
+                    <div class="flex_row_anfahrt">
+                        <img alt="U-Bahn" src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/" width="38"
+                            height="38" loading="lazy">
+                        <p>U5</p>
+                    </div>
+                    <div class="flex_row_anfahrt">
+                        <img alt="Tram" src="https://ucarecdn.com/67bc4cc6-f82b-4315-b854-465b5753fc20/" width="38"
+                            height="38" loading="lazy">
+                        <p>U5</p>
+                    </div>
+                    <div class="flex_row_anfahrt">
+                        <img alt="S-Bahn" src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/" width="38"
+                            height="38" loading="lazy">
+                        <p>U5</p>
+                    </div>
+                    <div class="flex_row_anfahrt">
+                        <img alt="Bus" src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/" width="38"
+                            height="38" loading="lazy">
+                        <p>U5</p>
+                    </div>
+                </div>
+                <div class="content_half">
+                    <div class="center_flex_element">
+                        <img height="50" width="40" src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/"
+                            alt="bus" loading="lazy">
+                        <h4>Mit dem Auto</h4>
+                    </div>
+                    <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
+                        erreichen. Unweit der Praxis
+                        finden
+                        Sie den U-Bhf Samariterstr. sowie den S-Bhf Storkower Str. Ebenso haben Sie die Möglichkeit zur
+                        Anfahrt mit der Straßenbahn. Vor unseren Praxistüren befindet sich die Haltestation
+                        James-Hobrecht-Str.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Zahnarztpraxis Dr. Seda Sanli</p>
+        <p>Datenschutz</p>
+        <p>Impressum</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once it fades in
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            fadeInElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
