@@ -26,7 +26,6 @@
 
         header img {
             height: 65px;
-            /* Adjust as necessary */
         }
 
         nav {
@@ -121,7 +120,6 @@
             cursor: pointer;
         }
 
-        /* Simple Form Styling */
         .contact form {
             display: flex;
             flex-direction: column;
@@ -300,9 +298,22 @@
             transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
 
-        .fade-in.visible {
+        .fade-in.visible-content {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .fade-out {
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .fade-out.hide {
+            opacity: 0;
+        }
+
+        .fade-in.show {
+            opacity: 1;
         }
 
         .google-maps {
@@ -339,6 +350,79 @@
             justify-content: center;
         }
 
+        .hidden {
+            opacity: 0;
+            /* display: none; */
+            pointer-events: none;
+        }
+
+        .hidden.gone {
+            display: none;
+        }
+
+        .visible {
+            opacity: 1;
+            display: block;
+            pointer-events: all;
+            animation: fadeInAnimation 0.5s ease;
+            /* Add fade-in animation */
+        }
+
+        .fade {
+            transition: opacity 0.5s ease;
+        }
+
+        #impressum_section div,
+        #datenschutz_section div {
+            margin-bottom: 5rem;
+        }
+
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .accordion {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-title {
+            padding: 15px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .accordion-content p {
+            margin: 15px 0;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+            padding: 15px;
+        }
+
         @media (max-width: 728px) {
             .anfahrt_flex {
                 justify-content: center;
@@ -355,6 +439,117 @@
 
             }
         }
+
+        .faq-container {
+            max-width: 1280px;
+            padding-bottom: 1.5em;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .mobile-expertise-faq {
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            border: solid #bebebe 1px;
+        }
+
+        p.mobile-faq-menu {
+            margin: auto;
+            padding: 20px;
+            border-bottom: solid #bebebe 1px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .expertise-faq {
+            width: 95%;
+            display: inline-block;
+        }
+
+        .contact-faq {
+            background: #f3f3f3;
+            height: 1000px;
+            width: 375px;
+            display: inline-block;
+        }
+
+        p.faq-accordion {
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            color: #444;
+            cursor: pointer;
+            padding: 18px 18px 0px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            transition: 0.4s;
+            margin-bottom: 0px;
+            border-top: solid #f4f4f4 1px;
+            font-weight: 700;
+        }
+
+        p.faq-accordion.active,
+        p.accordion:hover {
+            background-color: #fff;
+        }
+
+        p.faq-accordion:after {
+            content: '\2795';
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        p.mobile-faq-menu:after {
+            content: '\2795';
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+
+        p.faq-accordion.active:after {
+            content: "\2796";
+        }
+
+        p.mobile-faq-menu.active:after {
+            content: "\2796";
+        }
+
+        div.faq-panel {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            text-align: left;
+            padding-left: 18px;
+            width: 95%;
+        }
+
+        div.faq-panel.show {
+            opacity: 1;
+            max-height: 750px;
+        }
+
+        div.mobile-faq-panel {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            text-align: left;
+            padding-left: 18px;
+            border-bottom: solid #bebebe 1px;
+        }
+
+        div.mobile-faq-panel.show {
+            opacity: 1;
+            max-height: 750px;
+        }
     </style>
 </head>
 
@@ -362,209 +557,1015 @@
 
     <!-- Header Section -->
     <header>
-        <img src="logo.png" alt="Zahnarztpraxis Dr. Seda Sanli Logo">
+        <img id="switch_to_main" src="logo.png" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli Logo">
     </header>
+    <div id="main_page" class="visible">
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <img src="https://www.identis.net/files/IMG_iDentis-sl-smart/empfangsbereich-der-zahnarztpraxis-identis-in-berlin-steglitz.jpg"
-            alt="">
-        <div class="hero_content">
-            <div class="center_flex">
+        <!-- Hero Section -->
+        <div class="hero">
+            <img src="https://www.identis.net/files/IMG_iDentis-sl-smart/empfangsbereich-der-zahnarztpraxis-identis-in-berlin-steglitz.jpg"
+                alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli">
+            <div class="hero_content">
+                <div class="center_flex">
 
-                <div class="flex-row">
-                    <div class="hero_address_pin">
-                        <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1r65xhm" focusable="false"
-                            aria-hidden="true" viewBox="0 0 20 26">
-                            <path
-                                d="M10 0.5C4.75 0.5 0 4.52498 0 10.75C0 14.7249 3.0625 19.3999 9.175 24.7874C9.65 25.1999 10.3625 25.1999 10.8375 24.7874C16.9375 19.3999 20 14.7249 20 10.75C20 4.52498 15.25 0.5 10 0.5ZM10 13C8.625 13 7.5 11.875 7.5 10.5C7.5 9.12497 8.625 7.99997 10 7.99997C11.375 7.99997 12.5 9.12497 12.5 10.5C12.5 11.875 11.375 13 10 13Z"
-                                fill="#fff">
-                            </path>
-                        </svg>
+                    <div class="flex-row">
+                        <div class="hero_address_pin">
+                            <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1r65xhm" focusable="false"
+                                aria-hidden="true" viewBox="0 0 20 26">
+                                <path
+                                    d="M10 0.5C4.75 0.5 0 4.52498 0 10.75C0 14.7249 3.0625 19.3999 9.175 24.7874C9.65 25.1999 10.3625 25.1999 10.8375 24.7874C16.9375 19.3999 20 14.7249 20 10.75C20 4.52498 15.25 0.5 10 0.5ZM10 13C8.625 13 7.5 11.875 7.5 10.5C7.5 9.12497 8.625 7.99997 10 7.99997C11.375 7.99997 12.5 9.12497 12.5 10.5C12.5 11.875 11.375 13 10 13Z"
+                                    fill="#fff">
+                                </path>
+                            </svg>
+                        </div>
+                        <p style="margin: 0;padding: 0;">Eisenacher Str. 108, 10777 Berlin</p>
                     </div>
-                    <p style="margin: 0;padding: 0;">Muster Str. 26, 10247 Berlin</p>
-                </div>
-                <div class="flex-row">
-                    <h2 style="margin: 0;padding: 0;">Ihr Zahnarzt in Berlin</br>{Bezirk}</h2>
-                </div>
-                <div class="flex-row" style="margin-bottom: 0;">
-                    <button class="button_shape">
-                        <span class="button_icon">
-                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6 1V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H18V1H16V3H8V1H6ZM5 8H19V19H5V8ZM10.4902 11C9.56923 11.002 8.85503 11.5277 8.45703 12.3027C8.29403 12.6197 8.2237 12.9314 8.2207 13.2344C8.2057 14.6304 9.63228 15.8337 10.2383 16.3457L10.3613 16.4492C10.8673 16.8902 12.002 17.6172 12.002 17.6172C12.002 17.6172 13.1366 16.8902 13.6426 16.4492L13.7637 16.3457C14.3697 15.8337 15.7963 14.6304 15.7812 13.2344C15.7782 12.9314 15.7069 12.6187 15.5449 12.3027C15.1479 11.5277 14.4346 11.001 13.5156 11C12.9346 10.999 12.2639 11.3301 12.0039 11.7051C11.7669 11.3311 11.0712 10.999 10.4902 11Z"
-                                    fill="#212121"></path>
-                            </svg>
-                        </span>
+                    <div class="flex-row">
+                        <h2 style="margin: 0;padding: 0;">Ihr Zahnarzt in Berlin</br>Schöneberg</h2>
+                    </div>
+                    <div class="flex-row" style="margin-bottom: 0;">
+                        <button class="button_shape">
+                            <span class="button_icon">
+                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6 1V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H18V1H16V3H8V1H6ZM5 8H19V19H5V8ZM10.4902 11C9.56923 11.002 8.85503 11.5277 8.45703 12.3027C8.29403 12.6197 8.2237 12.9314 8.2207 13.2344C8.2057 14.6304 9.63228 15.8337 10.2383 16.3457L10.3613 16.4492C10.8673 16.8902 12.002 17.6172 12.002 17.6172C12.002 17.6172 13.1366 16.8902 13.6426 16.4492L13.7637 16.3457C14.3697 15.8337 15.7963 14.6304 15.7812 13.2344C15.7782 12.9314 15.7069 12.6187 15.5449 12.3027C15.1479 11.5277 14.4346 11.001 13.5156 11C12.9346 10.999 12.2639 11.3301 12.0039 11.7051C11.7669 11.3311 11.0712 10.999 10.4902 11Z"
+                                        fill="#212121"></path>
+                                </svg>
+                            </span>
 
-                        Termin Buchen
-                    </button>
-                    <button class="button_shape">
-                        <span class="button_icon">
-                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M20.023 15.488C19.393 15.473 18.6 15.436 18.099 15.348C17.557 15.252 16.905 15.066 16.446 14.923C16.086 14.811 15.694 14.91 15.427 15.176L13.21 17.38C11.678 16.573 10.451 15.633 9.412 14.588C8.367 13.549 7.427 12.322 6.62 10.79L8.824 8.572C9.09 8.304 9.189 7.913 9.077 7.553C8.935 7.095 8.748 6.442 8.652 5.9C8.564 5.399 8.527 4.607 8.512 3.976C8.499 3.432 8.055 3 7.51 3L4 3C3.562 3 3 3.328 3 4C3 8.539 4.84 12.874 7.966 16.034C11.126 19.16 15.461 21 20 21C20.672 21 21 20.438 21 20L21 16.49C21 15.945 20.568 15.501 20.023 15.488Z"
-                                    fill="#212121"></path>
-                            </svg>
-                        </span>
-                        015736602331
-                    </button>
+                            Termin Buchen
+                        </button>
+                        <a href="tel:+493021750660">
+
+                            <button class="button_shape">
+                                <span class="button_icon">
+                                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.023 15.488C19.393 15.473 18.6 15.436 18.099 15.348C17.557 15.252 16.905 15.066 16.446 14.923C16.086 14.811 15.694 14.91 15.427 15.176L13.21 17.38C11.678 16.573 10.451 15.633 9.412 14.588C8.367 13.549 7.427 12.322 6.62 10.79L8.824 8.572C9.09 8.304 9.189 7.913 9.077 7.553C8.935 7.095 8.748 6.442 8.652 5.9C8.564 5.399 8.527 4.607 8.512 3.976C8.499 3.432 8.055 3 7.51 3L4 3C3.562 3 3 3.328 3 4C3 8.539 4.84 12.874 7.966 16.034C11.126 19.16 15.461 21 20 21C20.672 21 21 20.438 21 20L21 16.49C21 15.945 20.568 15.501 20.023 15.488Z"
+                                            fill="#212121"></path>
+                                    </svg>
+                                </span>
+                                +493021750660
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Team Section -->
-    <section class="fade-in" id="das-team" class="services">
-        <div>
-            <h2 class="center_text">Das Team</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="https://ucarecdn.com/1e6b66f3-802b-436d-ad9f-989aa22d25ae/-/format/webp/-/quality/best/-/preview/720x400/"
-                        alt="Doctor Image" class="doctor-image">
-                    <div class="card-content">
-                        <h3>Dr. med. dent. Seda Sanli</h3>
-                        <p>Zahnärztin</p>
-                        <div class="card-footer">
-                            <div class="flags">
-                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/de.svg"
-                                    alt="German">
-                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/gb.svg"
-                                    alt="English">
-                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/tr.svg"
-                                    alt="Turkish">
+        <!-- Team Section -->
+        <section class="fade-in" id="das-team" class="services">
+            <div>
+                <h2 class="center_text">Das Team</h2>
+                <div class="cards">
+                    <div class="card">
+                        <img src="https://ucarecdn.com/1e6b66f3-802b-436d-ad9f-989aa22d25ae/-/format/webp/-/quality/best/-/preview/720x400/"
+                            alt="Doctor Image" class="doctor-image">
+                        <div class="card-content">
+                            <h3>Dr. med. dent. Seda Sanli</h3>
+                            <p>Zahnärztin</p>
+                            <div class="card-footer">
+                                <div class="flags">
+                                    <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/de.svg"
+                                        alt="German">
+                                    <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/gb.svg"
+                                        alt="English">
+                                    <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/tr.svg"
+                                        alt="Turkish">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Team Section -->
-    <section class="fade-in">
-        <div>
-            <h2 class="center_text">Leistungen</h2>
-            <p>...</p>
-        </div>
-    </section>
-
-    <!-- Oeffnungszeiten Section -->
-    <section class="fade-in" id="oeffnungszeiten">
-        <div>
-            <div class="map-flex">
-
-            </div>
-    </section>
-
-    <!-- Anfahrt Section -->
-    <section class="fade-in" id="Anfahrt">
-        <div>
-
-            <div class="anfahrt_flex">
-                <div class="content_half">
-                    <div class="flex-row" style="margin-bottom: 0.5rem;">
-                        <span style="width: 1.5rem;height: 1.5rem;" class="">
-                            <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
-                                aria-hidden="true" viewBox="0 0 32 35" fill="#000">
-                                <path
-                                    d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
-                                    fill="#000"></path>
-                            </svg>
-                        </span>
-                        <h2>Öffnungszeiten</h2>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Montag</b></p>
-                        <p>08:00 - 19:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Dienstag</b></p>
-                        <p>08:00 - 19:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Mittwoch</b></p>
-                        <p>08:00 - 19:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Donnerstag</b></p>
-                        <p>08:00 - 19:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Freitag</b></p>
-                        <p>08:00 - 19:00</p>
-                    </div>
-                </div>
-                <div class="content_half">
-                    <div class="google-container">
-                        <div class="google-maps">
-                            <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
-                                marginheight="0" marginwidth="0" id="gmap_canvas"
-                                src="https://maps.google.com/maps?hl=de&amp;q=Eldenaer Str.+26+10247+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                                loading="lazy">
-                            </iframe>
+        <!-- Leistungen Section -->
+        <section class="fade-in">
+            <div>
+                <h2 class="center_text">Leistungen</h2>
+                <div class="mobile-expertise-faq">
+                    <div>
+                        <p class="mobile-faq-menu">BERATUNG</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p>Es ist uns sehr wichtig, Ihnen zuzuhören und Ihre Bedürfnisse und Wünsche zu
+                                        verstehen.
+                                        Auf diese Weise können wir Ihnen die am besten geeigneten Behandlungsoptionen
+                                        anbieten
+                                        und die gesündesten und ästhetischsten Ergebnisse erzielen.</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">FÜLLUNGEN</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">Direkte
+                                        Füllungstherapie</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Als
+                                            Füllungen
+                                            werden alle Materialien bezeichnet, die für die Behandlung von Karies im
+                                            Front und Seitenzahnbereich verwendet werden. In unserer Praxis werden für
+                                            die
+                                            Seitenzähne ästhetische und kaudruckbeständige Kunststofffüllungen auf dem
+                                            neuesten
+                                            Stand der Technik verwendet, während für die Behandlung der Frontzähne
+                                            Kunststoffüllungen mit Nanotechnologie und fortschrittlichen ästhetischen
+                                            Eigenschaften
+                                            eingesetzt werden.</p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Indirekte
+                                        Füllungstherapie</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Inlays
+                                            sind
+                                            laborgefertigte oder computergefräste Einlagefüllungen im Seitenzahnbereich.
+                                            Nach Entfernung der alten, defekten Füllung oder der Karies wird ein Abdruck
+                                            der
+                                            Kavität
+                                            (d.h. des ausgebohrten Defekts) genommen. Im Labor wird dann eine
+                                            Einlagefüllung
+                                            aus
+                                            Kunststoff (der unter Wärme, Licht und Druck im Oven aushärtet) oder Keramik
+                                            hergestellt,
+                                            die die Kavität passgenau ausfüllt und die ursprüngliche Zahnform wieder
+                                            herstellt. Dieses
+                                            Inlay wird dann in der zweiten Sitzung in den Defekt eingeklebt.<br>
+                                            Größere Inlays, die auch die Zahnhöcker mit einbeziehen, werden Onlays
+                                            genannt.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">WURZELKANALBEHANDLUNG (ENDODONTIE)</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p>Das Gewebe im Inneren der Zähne, die so genannte Pulpa, die Gefäße, Nerven und
+                                        Lymphbahnen enthält, kann durch Karies, Trauma oder ähnliche Faktoren infiziert
+                                        werden.
+                                        In diesen Fällen, die sehr schmerzhaft sind, werden die Pulpakanäle in den
+                                        Zahnwurzeln
+                                        entleert, geformt und mit künstlichem Füllmaterial gefüllt, was als
+                                        Wurzelkanalbehandlung
+                                        bezeichnet wird. In unserer Praxis werden die Wurzelkanalbehandlungen mit Hilfe
+                                        digitaler
+                                        Bildgebungssysteme und modernster digitaler Geräte durchgeführt.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">KIEFERGELENKSBESCHWERDEN (CRANIOMANDIBULÄRE DYSFUNKTION-CDM)</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
+                                        Funktionsdiagnostik zur Behandlung der CMD</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">CMD ist
+                                            eine
+                                            Erkrankung der Kiefergelenke und der Kaumuskulatur. Sie äußert sich durch
+                                            Schmerzen im Bereich der Kiefergelenke und der Kaumuskulatur sowie durch
+                                            Funktionseinschränkungen des Kauorgans. Schmerzen können im Bereich vor den
+                                            Ohren
+                                            auftreten. Sie können durch Kauen oder andere Bewegungen des Unterkiefers
+                                            verstärkt
+                                            werden. Zu den Funktionseinschränkungen gehören eine eingeschränkte
+                                            Mundöffnung
+                                            oder
+                                            Geräusche (Reiben und Knacken) im Kiefergelenk. Weitere häufige Symptome
+                                            sind
+                                            eine
 
+                                            starke Abnutzung der Zähne, eine sehr ausgeprägte Kaumuskulatur oder auch
+                                            Kopf-
+                                            und
+                                            Gesichtsschmerzen.<br>
+                                            Die Therapie der CMD erfolgt in erster Linie mit Aufbissschienen.</p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Schienentherapie</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Schienen
+                                            werden am häufigsten bei Schmerzen und Verspannungen der Kaumuskulatur
+                                            eingesetzt. Darüber hinaus schützen sie vor Abrasionen der Zahnoberflächen
+                                            und
+                                            dienen der
+                                            Bissstabilisierung vor einer prothetischen Therapie.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">PROFESSIONELLE ZAHNREINIGUNG</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <h3>Prophylaxe für Kinder und Erwachsener</h3>
+                                    <p>Gesundes Zahnfleisch und frischer Atem<br>
+                                        Die wichtigsten Faktoren für ein gesundes und schönes Lächeln sind die
+                                        Gesundheit
+                                        der
+                                        Zähne und des umliegenden Gewebes. Strukturen wie Zahnbelag, Zahnstein usw., die
+                                        die
+                                        Gesundheit des Zahnfleisches und der Weichgewebe im Mund bedrohen, verursachen
+                                        Rötungen und Blutungen des Zahnfleisches und schränken die soziale Kommunikation
+                                        der
+                                        Menschen ein, da sie schlechten Atem verursachen. In unserer Praxis verhelfen
+                                        wir
+                                        unseren
+                                        Patienten zu einem frischen Atem und einem gesunden Lächeln mit Hilfe der
+                                        Zahnsteinentfernung mit Geräten der neuesten Technologie.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">ANGSTPATIENTEN</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p>Obwohl die moderne Zahnmedizin viele schmerzreduzierende Materialien entwickelt
+                                        hat,
+                                        lösen die Geräusche während der Behandlung und die Erwartung von Schmerzen
+                                        Ängste
+                                        aus.
+                                        Es macht uns große Freude, in unserer Praxis viel Zeit mit unseren
+                                        Angstpatienten zu
+                                        verbringen, auf ihre Bedürfnisse einzugehen und den Ablauf und die Dauer der
+                                        Behandlung
+                                        entsprechend zu gestalten, um mit modernen Geräten ein schnelles und gesundes
+                                        Behandlungsergebnis zu erzielen. Unser größtes Ziel ist es, mit unseren
+                                        Patienten
+                                        ein ruhiges
+                                        und energiegeladenes Team zu bilden und Stressfaktoren wie Lärm, Schmerzen und
+                                        schlechte Kommunikation während der Behandlung auszuschalten.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">DIGITALE ZAHNMEDIZIN</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
+                                        Digitale Röntgen (Einzelaufnahme, 2D(OPG) oder 3D(DVT))</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Die
+                                            Panoramaaufnahme (2D) ist unerlässlich, um sich einen Überblick über den
+                                            Gesundheitszustand aller Zähne und des Kiefers zu verschaffen. Auf dem
+                                            2D-Bild
+                                            können wir
+                                            retinierte Zähne, kariöse Zähne, die Beziehung der Zähne zu benachbarten
+                                            anatomischen
+                                            Punkten oder - bei ausreichendem Knochenangebot - die Position von
+                                            Implantaten
+                                            erkennen. Manchmal benötigen wir jedoch eine (periapikale) Einzelaufnahme,
+                                            die
+                                            ein
+                                            detaillierteres Bild liefert, um die Entzündung an der Wurzelspitze, die
+                                            Frage,
+                                            ob eine
+                                            Wurzelkanalfüllung ausreichend ist, oder die Grenzen der Karies zu erkennen.
+                                            Wir
+                                            können
+
+                                            das OPTG mit einem Familienfoto und das periapikale Röntgenbild mit einem
+                                            Passfoto
+                                            vergleichen.<br>
+                                            Wir benötigen ein 3D-Bild des Kiefers oder der Zähne (DVT) für Zwecke wie
+                                            das
+                                            Einsetzen
+                                            von Implantaten in Fällen mit grenzwertigem oder unzureichendem Knochen, um
+                                            die
+                                            Beziehung der Zähne zum Nerv oder zur Kieferhöhle zu verstehen oder um
+                                            Wurzelfrakturen
+                                            und Risse zu erkennen.<br>
+                                            In unserer Praxis werden alle diese Aufnahmen mit modernsten digitalen
+                                            Bildgebungssystemen und sehr geringer Strahlenbelastung durchgeführt.</p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Digitale Abformung
+                                    </p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">In unserer
+                                            Praxis setzen wir auch digitale 3D-Intraoralscanner ein, um die Nachteile
+                                            der
+                                            traditionellen Abformung wie Zeitaufwand und Übelkeitsreflex zu
+                                            vermeiden.<br>
+                                            Die digitale Abformung reduziert menschliche Fehler auf ein Minimum. Bei
+                                            herkömmlichen
+                                            Abformungen besteht beispielsweise die Gefahr, dass die Abformung beim
+                                            Transport
+                                            zwischen Praxis und Labor beschädigt oder verformt wird. Bei der digitalen
+                                            Abformung
+                                            hingegen werden alle Daten unverändert auf Computern gespeichert, auf denen
+                                            lizenzierte
+                                            Software installiert ist und Maßnahmen zur Datensicherheit getroffen wurden.
+                                        </p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Digitale Smile Design
+                                    </p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Schönes
+                                            Lächeln schaffen...<br>
+                                            Ein schönes Lächeln steht in direktem Zusammenhang mit dem psychologischen
+                                            Zustand
+                                            einer Person, steigert das Selbstvertrauen und verbessert den Eindruck, den
+                                            man
+                                            bei
+                                            anderen hinterlässt.<br>
+                                            In unserer Praxis behandeln wir die Zähne und das umliegende Gewebe mit
+                                            modernsten
+                                            Methoden, Geräten und durch digitale Simulationsmethoden, um ein schöneres
+                                            Lächeln zu
+                                            erreichen.
+                                        </p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Implantatchirurgie
+                                        mit
+                                        digitaler Führung</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Schnelle
+                                            Heilung in der Implantatchirurgie, Erhalt der gewünschten ästhetischen und
+                                            funktionellen Prothesen und Operationen ohne Schnitte...<br>
+                                            In unserer Praxis führen wir Implantatoperationen mit Hilfe von
+                                            Bohrschablonen
+                                            durch, die
+                                            durch die Kombination von digitalen Messungen mit 3D-Tomographen (CBCT) und
+                                            intraoralen Scannern mit Computersimulationen erstellt wurden. Dank dieser
+                                            Methode
+                                            können wir unseren Patienten einen schmerzfreien und problemlosen
+                                            Heilungsprozess und
+                                            die ästhetisch und funktionell besten Prothesen bieten.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">ZAHNAUFHELLUNG (BLEACHING)</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p>Hierbei handelt es sich um ein Verfahren zur Aufhellung der Zahnfarben mit
+                                        bestimmten
+                                        chemischen Mitteln, die unter ärztlicher Aufsicht in der Praxis angewendet
+                                        werden.
+                                        Sie
+                                        können bei Zähnen eingesetzt werden, die durch Farbstoffe wie Tabak, Kaffee, Tee
+                                        usw.
+                                        verfärbt sind. Sie können auch angeborene Zahnfarben aufhellen, die durch
+                                        genetische
+
+                                        Merkmale wie Haut-, Haar- oder Augenfarbe bedingt sind. Sie können einmal oder
+                                        mehrmals
+                                        mit Chemikalien angewendet werden, die in kurzer Zeit wirken und für die Zähne
+                                        und
+                                        das
+                                        umliegende Gewebe völlig unschädlich sind, wenn sie unter den richtigen
+                                        Bedingungen
+                                        angewendet werden.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">ESTHETISCHE ZAHNBEHANDLUNG UND SMILE DESIGN</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <h3>Ein schöneres und gesünderes Lächeln erreichen</h3>
+                                    <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Es handelt
+                                        sich um eine Reihe von Behandlungen, die darauf abzielen, verfärbte, abgenutzte,
+                                        schiefe oder entstellte Zähne, schlaffes Zahnfleisch und eine verminderte
+                                        Lippenstütze
+                                        aufgrund von Zahnstellungsproblemen zu beseitigen, die sich negativ auf das
+                                        Lächeln des
+                                        Einzelnen auswirken. Es handelt sich um eine Gesamtbehandlung, die darauf
+                                        abzielt, einen
+                                        oder mehrere oder manchmal auch alle dieser Zustände zu beseitigen, die das
+                                        soziale Leben
+                                        und das Selbstvertrauen beeinträchtigen. Sie kann auch durch digitale
+                                        Simulationsmethoden
+                                        durchgeführt werden.</p>
+                                    <h4>Zahnästhetik (Gesundheit, Form, Farbe und Niveau der Zähne)</h4>
+                                    <ul>
+                                        <li>Veneers (Keramikverblendschalen), Kronen und Brücken aus Keramik</li>
+                                        <li>Zahnfarbene Kompositfüllungen</li>
+                                        <li>Bleaching</li>
+                                        <li>Unsichtbare Zahnspangen für kleine Zahnfehlstellungen</li>
+                                    </ul>
+                                    <h4>Zahnfleischästhetik (Zahnfleischgesundheit, -form und -niveau)</h4>
+                                    <ul>
+                                        <li>Parodontalchirurgie bei Zahnfleischrückgang (Rezession) oder zu viel
+                                            sichtbarem
+                                            Zahnfleisch (Gummy Smile)</li>
+                                        <li>Herausnehmbare Zahnfleischmaske bei großen Zahnfleischdefekten</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">PROTHETISCHE ZAHNBEHANDLUNGEN</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
+                                        Veneers</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
+                                            Aufgeklebte
+                                            Verblendschalen aus Keramik. Die Beseitigung von leichten Fehlstellungen,
+                                            Lücken, Form- und Farbkorrekturen gelingt mit hervorragenden ästhetischen
+                                            Ergebnissen.
+                                            Die ästhetischen Ergebnisse sind immer wieder beeindruckend.</p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
+                                        Teilprothese und Kombinationenprothese</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Die
+                                            Teilprothese ist die prothetische Versorgung bei teilweisem Zahnverlust. Die
+                                            Prothesenbasis liegt an der Schleimhaut an. Zur sicheren Befestigung ist ein
+                                            Halteelement
+                                            erforderlich. Diese Halteelemente können eine Klammer, ein Geschiebe oder
+                                            eine
+                                            Teleskopkrone sein. Heutzutage werden auch flexible Kunststoffprothesen
+                                            verwendet, die
+                                            ästhetischere Lösungen für Halteelemente bieten.</p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
+                                        Totalprothese</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Diese Art
+                                            der
+                                            prothetischen Versorgung besteht aus zahnfleischfarbenem Kunststoff und
+                                            künstlichen Zähnen. Der Kunststoff bedeckt im Oberkiefer den Kieferkamm und
+                                            den
+                                            Gaumen, im Unterkiefer nur den Kieferkamm. Die Totalprothese ersetzt die
+                                            gesamte
+                                            obere
+                                            und/oder untere Zahnreihe.</p>
+                                    </div>
+                                    <h3>Zahnstützende Krone und Brücke</h3>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Metallgestützte
+                                        Porzellan-Krone/Brücke</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Es handelt
+                                            sich um eine Form der Restauration, die durch die Beschichtung von Porzellan
+                                            auf
+                                            einer Infrastruktur aus einer Chrom-Kobalt-Legierung, im Volksmund als
+                                            rostfreier Stahl
+                                            bekannt, hergestellt wird. Es handelt sich um die am häufigsten verwendete,
+                                            dauerhafte,
+                                            ästhetische und haltbare Verblendprothese in der Zahnmedizin, die im Falle
+                                            von
+                                            Zahndefekten in Form einer Brücke hergestellt und durch Aufkleben auf die
+                                            Zähne
+                                            befestigt
+                                            wird. Im Vergleich zu anderen Arten von Verblendschalen wird sie sehr
+                                            bevorzugt,
+                                            weil sie
+                                            Wirtschaftlichkeit, Funktionalität und Ästhetik miteinander verbindet. Sie
+                                            können sowohl auf
+                                            Zähnen als auch auf Implantaten mit künstlichen Zahnwurzeln angebracht
+                                            werden,
+                                            und
+                                            aufgrund ihrer Langlebigkeit können sie bei Bedarf als lange Brücken
+                                            gestaltet
+                                            werden.
+                                        </p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
+                                        Zirkoniumoxid-Keramikkronen/Brücken</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Obwohl es
+                                            sich
+                                            bei Zirkoniumoxid technisch gesehen um eine Metalllegierung handelt, ist es
+                                            in Fällen, in denen Ästhetik und Optik wichtig sind, eine sehr günstige
+                                            Restaurationsmethode, da sein stabiler Zustand in der Natur weiß ist. Wie
+                                            bei
+                                            metallgestützten Kronen/Brücken aus Keramik kann es durch Beschichtung von
+                                            Keramik auf
+                                            einem Zirkoniumoxidgerüst hergestellt werden, wobei es auch monolithische
+                                            Typen
+                                            gibt, die
+                                            nur aus Zirkoniumoxid hergestellt werden. Wenn sie als Brücken hergestellt
+                                            werden, die
+                                            nicht lang sind, haben sie eine Haltbarkeit, die nicht mit der von
+                                            metallgestütztem Porzellan
+                                            vergleichbar ist, aber sie können in einer dünneren und eleganteren Form
+                                            hergestellt
+                                            werden, da ihr natürlicher Zustand der Farbe der Zähne sehr ähnlich ist.
+                                            Zirkonoxid-
+                                            Beschichtungen, die besonders bei Smile-Design-Behandlungen bevorzugt
+                                            werden,
+                                            können
+                                            sowohl auf Zähnen als auch auf Implantaten angebracht werden.
+                                        </p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
+                                        Glaskeramik-Restaurationen (Empress, E-max press, E-max CAD usw.)</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Es handelt
+                                            sich um eine Form der Restauration, die aufgrund ihrer optischen
+                                            Eigenschaften,
+                                            die den natürlichen Zähnen sehr nahe kommen, eine hervorragende Ästhetik
+                                            aufweist. Es
+                                            handelt sich um eine keramische Restauration mit glasartigem Aussehen, die
+                                            direkt auf ein
+                                            spezielles Keramiksubstrat ohne Metall- oder Zirkoniumsubstrat aufgetragen
+                                            wird.
+                                            Es
+                                            handelt sich um eine elegante Hightech-Restaurationsform, die aufgrund ihrer
+                                            hohen
+                                            Lichtdurchlässigkeit der Natur am nächsten kommt und insbesondere für den
+                                            Aufbau
+                                            von
+                                            Lamellen im Frontzahnbereich verwendet wird. Es kann auch als ästhetisches
+                                            Füllungsmaterial (Inlay, Onlay, Overlay, usw.) verwendet werden, das von
+                                            Zahntechnikern
+                                            auf Modellen hergestellt wird, die durch orale Messungen gewonnen wurden.
+                                        </p>
+                                    </div>
+                                    <h3>Implantatstützende Zahnersatzt Möglichkeiten</h3>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
+                                        Herausnehmbar Prothese</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Implantate
+                                            helfen, Totalprothesen zu stabilisieren und damit die Kaufunktion zu
+                                            verbessern.
+                                            Teleskopprothesen, Locator, Octa-System oder Stegverbindung sind Beispiele
+                                            für
+                                            Stabilisierungssysteme von Totalprothesen.
+                                        </p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
+                                        All-On-Four-Implantat-Behandlung</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Implantate
+                                            helfen, Totalprothesen zu stabilisieren und damit die Kaufunktion zu
+                                            verbessern.
+                                            In Fällen, in denen alle Zähne im Ober- oder Unterkiefer oder in beiden
+                                            verloren
+                                            gegangen
+                                            sind, handelt es sich um eine Behandlungsmethode, bei der Prothesen mit
+                                            Schrauben auf
+                                            vier Implantaten befestigt werden, die mit speziellen, für diese
+                                            Behandlungsmethode
+                                            entwickelten Implantaten und Passstücken in den Kiefer eingesetzt werden. Da
+                                            es
+                                            sich um
+                                            eine Behandlung handelt, bei der die Implantate unmittelbar nach dem
+                                            chirurgischen Eingriff
+                                            vorübergehend belastet werden können, sorgt sie schnell für Komfort. Die
+                                            provisorischen
+                                            Prothesen werden am Ende des dreimonatigen Zeitraums, in dem die Integration
+                                            der
+                                            Implantate in den Knochen abgeschlossen ist, durch permanente Prothesen
+                                            ersetzt.
+                                            Es
+                                            handelt sich um eine sichere Methode, mit der komplizierte Operationen
+                                            vermieden
+                                            werden
+                                            können, insbesondere bei Personen, die keine Implantate im Seitenzahnbereich
+                                            einsetzen
+                                            können.
+                                        </p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
+                                        Festsitzender Zahnersatz</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Bei
+                                            vollständigem oder teilweisem Zahnverlust können wir Ihren Zahnverlust mit
+                                            einem
+                                            festsitzenden Zahnersatz beheben. Die Implantate werden überkront und die
+                                            Lücke
+                                            mit
+                                            einem festsitzenden Zahnersatz oder mit Brückenzwischengliedern geschlossen.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">IMPLANTOLOGIE</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p>Sie sind künstliche Zahnwurzeln, die in der Regel aus einer Titanlegierung
+                                        hergestellt
+                                        werden. Sie können bei Einzelzahn-, Mehrzahn- und Ganzkieferdefekten eingesetzt
+                                        werden
+                                        und ermöglichen, wenn sie in ausreichender Zahl eingesetzt werden, die
+                                        Anfertigung
+                                        von
+                                        festsitzendem Zahnersatz auch in völlig zahnlosen Mündern. Auf den Implantaten
+                                        können
+                                        metallgestützte Porzellan-, Zirkonium- und sogar Glaskeramikversorgungen
+                                        angebracht
+                                        werden, deren chirurgische Eingriffe mit den sich entwickelnden Technologien
+                                        viel
+                                        einfacher
+                                        geworden sind. Die Genesung nach der Operation ist schnell und schmerzlos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu">ORAL CHIRURGIE</p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
+                                        Weissheitszahn Extraktionen</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Die
+                                            Entfernung
+                                            retinierter oder teilretinierter Weisheitszähne wird in unserer Praxis mit
+                                            großer Erfahrung, präzisem und modernem Chirurgiemotor und Hilfe von 2D-
+                                            oder
+                                            3D-
+                                            Röntgen mit sehr geringer Strahlenbelastung durchgeführt.</p>
+                                    </div>
+                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Chirurgische
+                                        Vorbehandlungen für esthetische und funktionelle Prothese</p>
+                                    <div class="faq-panel">
+                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
+                                            Chirurgische
+                                            Vorbereitungen für festsitzenden und herausnehmbaren Zahnersatz helfen uns,
+                                            funktionellere, dauerhaftere, stabilere und ästhetischere Ergebnisse für
+                                            unsere
+                                            Patienten zu
+                                            erzielen. Dazu gehören Behandlungen wie die Entfernung des Lippenbändchens
+
+                                            (Frenektomie), die Entfernung von hypertrophem und beweglichem Weichgewebe
+                                            und
+                                            die
+                                            Kronenverlängerung.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mobile-faq-menu" style="border-bottom: none;">PARADONTOLOGIE und PARADONTAL CHIRURGIE
+                        </p>
+                        <div class="mobile-faq-panel">
+                            <div class="expertise-faq">
+                                <div style="border-bottom: solid #f4f4f4 1px;">
+                                    <p>Eine Entzündung des Zahnhalteapparates wird als Paradontitis bezeichnet. Bei
+                                        dieser
+                                        Krankheit baut sich der Knochen mit der Zeit ab. Die Grundlage jeder Therapie
+                                        bildet
+                                        die
+                                        Reinigung der bakterienbesiedelten Zahnoberfläche und Entfernung des
+                                        Entzündungsgewebes. Die Reinigung verteilt sich auf mehrere Termine.</p>
+                                    <ul>
+                                        <li>Nichtchirurgische Parodontitisbehandlung (geschlossene Kurettage)</li>
+                                        <li>Chirurgische Parodontitisbehandlung (offene Kurettage)</li>
+                                        <li>Regenerative Masnahmen (eine Membran gesteuerte Geweberegeneration mit dem
+                                            Knochenersatzmaterial oder eine biologisch gesteuerte Regeneration mit einer
+                                            Schmelzproteinmatrix)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="content_half">
-                    <div class="center_flex_element">
-                        <img height="50" width="40" src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/"
-                            alt="bus" loading="lazy">
-                        <h4>Öffentliche Verkehrsmittel</h4>
+            </div>
+        </section>
+
+        <!-- Anfahrt Section -->
+        <section class="fade-in" id="Anfahrt">
+            <div>
+                <div class="anfahrt_flex">
+                    <div class="content_half">
+                        <div class="flex-row" style="margin-bottom: 0.5rem;">
+                            <span style="width: 1.5rem;height: 1.5rem;" class="">
+                                <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
+                                    aria-hidden="true" viewBox="0 0 32 35" fill="#000">
+                                    <path
+                                        d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
+                                        fill="#000"></path>
+                                </svg>
+                            </span>
+                            <h2>Öffnungszeiten</h2>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b>Montag</b></p>
+                            <p>08:00 - 15:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b>Dienstag</b></p>
+                            <p>09:00 - 19:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b>Mittwoch</b></p>
+                            <p>08:00 - 15:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b>Donnerstag</b></p>
+                            <p>09:00 - 19:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b>Freitag</b></p>
+                            <p>Nach Vereinbarung</p>
+                        </div>
                     </div>
-                    <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
-                        erreichen. Unweit der Praxis
-                        finden
-                        Sie den U-Bhf Samariterstr. sowie den S-Bhf Storkower Str. Ebenso haben Sie die Möglichkeit zur
-                        Anfahrt mit der Straßenbahn. Vor unseren Praxistüren befindet sich die Haltestation
-                        James-Hobrecht-Str.</p>
-                    <div class="flex_row_anfahrt">
-                        <img alt="U-Bahn" src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/" width="38"
-                            height="38" loading="lazy">
-                        <p>U5</p>
+                    <div class="content_half">
+                        <div class="google-container">
+                            <div class="google-maps">
+                                <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
+                                    marginheight="0" marginwidth="0" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?hl=de&amp;q=Eisenacher Str.+108+10777+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="flex_row_anfahrt">
+                    <div class="content_half">
+                        <div class="center_flex_element">
+                            <img height="50" width="40" src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/"
+                                alt="bus" loading="lazy">
+                            <h4>Öffentliche Verkehrsmittel</h4>
+                        </div>
+                        <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
+                            erreichen. Unweit der Praxis
+                            finden
+                            Sie den U-Bhf Nollendorfplatz sowie Viktoria-Luise-Platz. Als auch den S-Bhf York Str.
+                            Ebenso haben Sie die Möglichkeit
+                            zur
+                            Anfahrt mit dem Bus. Nicht weit weg unseren Praxistüren befinden sich die Haltestationen
+                            Hohenstaufenstr. und Motzstr.</p>
+                        <div class="flex_row_anfahrt">
+                            <img alt="U-Bahn" src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/"
+                                width="38" height="38" loading="lazy">
+                            <p>U1,U2,U3,U4</p>
+                        </div>
+                        <!-- <div class="flex_row_anfahrt">
                         <img alt="Tram" src="https://ucarecdn.com/67bc4cc6-f82b-4315-b854-465b5753fc20/" width="38"
                             height="38" loading="lazy">
                         <p>U5</p>
+                    </div> -->
+                        <div class="flex_row_anfahrt">
+                            <img alt="S-Bahn" src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/"
+                                width="38" height="38" loading="lazy">
+                            <p>S1</p>
+                        </div>
+                        <div class="flex_row_anfahrt">
+                            <img alt="Bus" src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/" width="38"
+                                height="38" loading="lazy">
+                            <p>M46, 204</p>
+                        </div>
                     </div>
-                    <div class="flex_row_anfahrt">
-                        <img alt="S-Bahn" src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/" width="38"
-                            height="38" loading="lazy">
-                        <p>U5</p>
+                    <div class="content_half">
+                        <div class="center_flex_element">
+                            <img height="50" width="40" src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/"
+                                alt="bus" loading="lazy">
+                            <h4>Mit dem Auto</h4>
+                        </div>
+                        <p style="text-align: justify;">Sie finden unsere Praxis in der
+                            Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den anliegenden
+                            Straßen viele
+                            Parkmöglichkeiten für die Anfahrt mit dem Auto.</p>
                     </div>
-                    <div class="flex_row_anfahrt">
-                        <img alt="Bus" src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/" width="38"
-                            height="38" loading="lazy">
-                        <p>U5</p>
-                    </div>
-                </div>
-                <div class="content_half">
-                    <div class="center_flex_element">
-                        <img height="50" width="40" src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/"
-                            alt="bus" loading="lazy">
-                        <h4>Mit dem Auto</h4>
-                    </div>
-                    <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
-                        erreichen. Unweit der Praxis
-                        finden
-                        Sie den U-Bhf Samariterstr. sowie den S-Bhf Storkower Str. Ebenso haben Sie die Möglichkeit zur
-                        Anfahrt mit der Straßenbahn. Vor unseren Praxistüren befindet sich die Haltestation
-                        James-Hobrecht-Str.</p>
                 </div>
             </div>
-        </div>
 
-    </section>
+        </section>
+    </div>
+
+    <div id="datenschutz_page" class="hidden gone">
+        <section id="datenschutz_section">
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg class="switch_to_main" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <h1>Datenschutz</h1>
+            </div>
+            <div>
+                <h4>Datenschutzerklärung</h4>
+            </div>
+
+            <div>
+                <h4>Anbieter und verantwortliche Stelle im Sinne des Datenschutzgesetzes</h4>
+                <p>Zahnarztpraxis<br>
+                    Dr. Seda Sanli<br>
+                    Eisenacher Str. 108<br>
+                    10777 Berlin</p>
+            </div>
+
+            <div>
+                <h4>Geltungsbereich</h4>
+                <p>Nutzer erhalten mit dieser Datenschutzerklärung Information über die Art, den Umfang und Zweck der
+                    Erhebung und Verwendung ihrer Daten durch den verantwortlichen Anbieter erhoben und verwendet
+                    werden.
+
+                    Den rechtlichen Rahmen für den Datenschutz bilden das Bundesdatenschutzgesetz (BDSG) und das
+                    Telemediengesetz (TMG).</p>
+            </div>
+
+            <div>
+                <h4>Erfassung allgemeiner Informationen</h4>
+                <p>Diese Webseite erfasst keine Informationen über die Nutzer.</p>
+            </div>
+
+            <div>
+                <h4>Umgang mit personenbezogenen Daten
+
+                    Wir erfassen über unsere Webseite keine patientenbezogenen Daten!</h4>
+                <p>Definition: Als personenbezogene Daten gelten alle Informationen, anhand derer eine Person eindeutig
+                    identifizierbar ist. Es handelt sich somit um Daten, die zu einer Person zurückverfolgt werden
+                    können.
+
+                    Zu diesen personenbezogenen Daten zählen der Vorname und der Name, die Telefonnummer sowie die
+                    E-Mail-Adresse. Ebenso als personenbezogene Daten gelten Informationen zu Hobbies, Mitgliedschaften
+                    und Vorlieben sowie Internetseiten, die aufgerufen wurden.
+
+                    Diese Daten werden vom Anbieter nur erhoben, genutzt und gegebenenfalls weitergegeben, sofern der
+                    Gesetzgeber dies ausdrücklich erlaubt oder aber der Nutzer in die Erhebung, Bearbeitung, Nutzung und
+                    Weitergabe der Daten einwilligt. Ebenso wird der Nutzer darüber informiert, dass dieser seine
+                    Einwilligung in die Erhebung, Bearbeitung, Nutzung und Weitergabe jederzeit widerrufen kann.</p>
+            </div>
+
+            <div>
+                <h4>Registrierung für die Online Terminbuchung auf unserer Webseite</h4>
+                <p>Registrieren Sie sich für die Online Terminbuchung auf unserer Webseite, um personalisierte
+                    Leistungen in Anspruch zu nehmen, werden personenbezogene Daten erhoben. Dazu zählen der Name, die
+                    Anschrift sowie die Telefonnummer und die E-Mail-Adresse als Kontakt- und Kommunikationsdaten.
+
+                    Die Anmeldung ermöglicht den Zugriff auf Leistungen und Inhalte, die nur registrierten Nutzern zur
+                    Verfügung stehen. Bei Bedarf haben angemeldete Nutzer die Möglichkeit, die im Rahmen der
+                    Registrierung genannten Daten jederzeit zu ändern oder zu löschen. Auf Wunsch teilen wir Ihnen
+                    selbstverständlich mit, welche personenbezogenen Daten erhoben und gespeichert wurden. Darüber
+                    hinaus berichtigen oder löschen wir die Daten auf Anfrage, vorausgesetzt dem Anliegen stehen keine
+                    gesetzlichen Aufbewahrungspflichten entgegen. Für Rückfragen sowie ihre Bitte um Korrektur oder
+                    Löschung der Daten nutzen Sie bitte die in dieser Datenschutzerklärung genannten Kontaktdaten.</p>
+            </div>
+
+            <div>
+                <h4>Kontakt</h4>
+                <p>Wenn Sie uns per E-Mail kontaktieren, speichern wir die von Ihnen
+                    gemachten Angaben ausschließlich um Ihre Anfrage beantworten und mögliche Anschlussfragen stellen zu
+                    können. Diese Daten werden im Anschluss dieses Vorgangs gelöscht. Mit Nutzung des Kontaktformulars
+                    geben Sie ausdrücklich Ihr Einverständnis für die o.g. Verwendung Ihrer Daten.
+                </p>
+            </div>
+
+            <div>
+                <h4>Einbindung von Diensten und Inhalten Dritter</h4>
+                <p>Unser Angebot umfasst mitunter Inhalte, Dienste und Leistungen anderer Anbieter. Das sind zum
+                    Beispiel Karten, die von Google-Maps zur Verfügung gestellt werden, Videos von YouTube sowie
+                    Grafiken und Bilder anderer Webseiten. Damit diese Daten im Browser des Nutzers aufgerufen und
+                    dargestellt werden können, ist die Übermittlung der IP-Adresse zwingend notwendig. Die Anbieter (im
+                    Folgenden als „Dritt-Anbieter“ bezeichnet) nehmen also die IP-Adresse des jeweiligen Nutzers wahr.
+
+                    Auch wenn wir bemüht sind, ausschließlich Dritt-Anbieter zu nutzen, welche die IP-Adresse nur
+                    benötigen, um Inhalte ausliefern zu können, haben wir keinen Einfluss darauf, ob die IP-Adresse
+                    möglicherweise gespeichert wird. Dieser Vorgang dient in dem Fall unter anderem statistischen
+                    Zwecken. Sofern wir Kenntnis davon haben, dass die IP-Adresse gespeichert wird, weisen wir unsere
+                    Nutzer darauf hin.
+                </p>
+            </div>
+
+            <div>
+                <h4>Ihre Rechte auf Auskunft, Berichtigung, Sperre, Löschung und Widerspruch</h4>
+                <p>Sie haben das Recht, auf Antrag unentgeltlich eine Auskunft, über die bei uns gespeicherten
+                    personenbezogenen Daten, anzufordern und/oder eine Berichtigung, Sperrung oder Löschung zu
+                    verlangen. Ausnahmen: Es handelt sich um die vorgeschriebene Datenspeicherung zur
+                    Geschäftsabwicklung oder die Daten unterliegen der gesetzlichen Aufbewahrungspflicht.
+
+
+                    Um eine Datensperre jederzeit berücksichtigen zu können, ist es erforderlich, die Daten für
+                    Kontrollzwecke in einer Sperrdatei vorzuhalten. Besteht keine gesetzliche Archivierungspflicht,
+                    können Sie auch die Löschung der Daten verlangen. Anderenfalls sperren wir die Daten, sofern Sie
+                    dies wünschen.
+                </p>
+            </div>
+
+            <div>
+                <h4>Änderung unserer Datenschutzerklärung</h4>
+                <p>Um zu gewährleisten, dass unsere Datenschutzerklärung stets den aktuellen gesetzlichen Vorgaben
+                    entspricht, behalten wir uns jederzeit Änderungen vor. Das gilt auch für den Fall, dass die
+                    Datenschutzerklärung aufgrund neuer oder überarbeiteter Leistungen, zum Beispiel neuer
+                    Serviceleistungen, angepasst werden muss. Die neue Datenschutzerklärung greift dann bei Ihrem
+                    nächsten Besuch auf unserem Angebot.
+                </p>
+            </div>
+
+
+        </section>
+    </div>
+
+    <div id="impressum_page" class="hidden gone">
+        <section id="impressum_section">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg class="switch_to_main" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <h1>Impressum</h1>
+            </div>
+            <div>
+                <h4>Zahnarztpraxis Dr. Seda Sanli
+                </h4>
+                <p>
+                    Eisenacher Str. 108<br>
+                    10777 Berlin
+                </p>
+            </div>
+            <div>
+                <h4>Kontakt</h4>
+                <p>
+                    Telefon: +49 30 21 75 0660<br>
+                    E-Mail: praxis[at]praxis.de<br>
+                    Bitte nutzen Sie diese E-Mail Adresse nicht für Ihre Terminanfragen!<br>
+                    www.muster.de<br>
+                </p>
+
+            </div>
+            <div>
+                <h4>Zuständige Kammer</h4>
+                <p>...</p>
+            </div>
+            <div>
+                <h4>Zuständige kassenärztliche Vereinigung</h4>
+                <p>...</p>
+            </div>
+            <div>
+                <h4>Berufsbezeichnung</h4>
+                <p>...</p>
+            </div>
+            <div>
+                <h4>Berufsrechtliche Regelungen</h4>
+                <p>...</p>
+            </div>
+
+            <div>
+                <h4>Haftung für Inhalte</h4>
+                <p>Haftungsausschluss Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die
+                    Richtigkeit, Vollständigkeit und Aktualität aller Inhalte können wir jedoch keine Gewähr übernehmen.
+
+
+
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
+                    allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+                    verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen
+                    zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder
+                    Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+
+
+
+                    Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten
+                    Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese
+                    Inhalte umgehend entfernen.</p>
+            </div>
+
+            <div>
+                <h4>Informationen zur außergerichtlichen Streitbeilegung</h4>
+                <p>Im Hinblick auf eine Verpflichtung aus §§ 36, 37 VSBG setzen wir Sie davon in Kenntnis, dass unsere
+                    Praxis zu einem außergerichtlichen Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+                    i. S. d. VSBG nicht verpflichtet ist und an solchen Verfahren nicht teilnimmt. Die Zahnärztekammer
+                    Berlin hat eine Schlichtungsstelle für Streitigkeiten aus dem Berufsverhältnis nach dem Berliner
+                    Kammergesetz (BKG) eingerichtet, die von Patientinnen und Patienten bei Zweifeln an der Richtigkeit
+                    zahnärztlicher Leistungen angerufen werden kann.</p>
+            </div>
+
+            <div>
+                <h4>Informationen zum Datenschutz nach EU-DSGVO</h4>
+                <p>...</p>
+            </div>
+
+        </section>
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2024 Zahnarztpraxis Dr. Seda Sanli</p>
-        <p>Datenschutz</p>
-        <p>Impressum</p>
+        <p id="switch_to_datenschutz" style="text-decoration: underline; cursor: pointer;">Datenschutz</p>
+        <p id="switch_to_impressum" style="text-decoration: underline; cursor: pointer;">Impressum</p>
     </footer>
 
     <!-- JavaScript for Smooth Scrolling -->
@@ -583,7 +1584,7 @@
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        entry.target.classList.add('visible-content');
                         observer.unobserve(entry.target); // Stop observing once it fades in
                     }
                 });
@@ -592,7 +1593,132 @@
             fadeInElements.forEach(el => {
                 observer.observe(el);
             });
+
+            const mainPage = document.getElementById('main_page');
+            const datenschutzPage = document.getElementById('datenschutz_page');
+            const impressumPage = document.getElementById('impressum_page');
+
+            // Switch buttons
+            document.getElementById('switch_to_datenschutz').addEventListener('click', () => {
+                fadeTransition(datenschutzPage);
+            });
+
+            document.getElementById('switch_to_impressum').addEventListener('click', () => {
+                fadeTransition(impressumPage);
+            });
+
+            document.querySelectorAll('.switch_to_main').forEach(button => {
+                button.addEventListener('click', () => {
+                    fadeTransition(mainPage);
+                });
+            });
+
+            document.getElementById('switch_to_main').addEventListener('click', () => {
+                fadeTransition(mainPage);
+            });
+
+            function fadeTransition(toPage) {
+                const pages = [mainPage, datenschutzPage, impressumPage];
+                const visiblePage = pages.find(page => page.classList.contains('visible'));
+
+                if (visiblePage === toPage) {
+                    return; // Do nothing if the target page is already visible
+                }
+
+                // Start fading out the visible page by changing opacity but keep it in the layout
+                visiblePage.classList.add('fade');
+                visiblePage.classList.remove('visible');
+                visiblePage.classList.add('hidden');
+
+
+                // Delay hiding the old page until the new page is ready
+                setTimeout(() => {
+                    // visiblePage.style.display = 'none';  // Hide the old page completely now
+                    // toPage.style.display = 'block';      // Make the new page visible
+
+                    // Scroll to the top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    setTimeout(() => {
+                        toPage.classList.add('fade');
+                        toPage.classList.remove('gone');
+                        toPage.classList.remove('hidden');
+                        toPage.classList.add('visible');
+
+
+                        // Trigger the fade-in after the page is displayed
+                        setTimeout(() => {
+                            // toPage.classList.remove('hidden');
+                            // toPage.classList.add('visible');
+                            visiblePage.classList.add('gone');
+                            visiblePage.classList.remove('fade');
+                            // toPage.classList.remove('fade');
+                            // toPage.classList.add('visible');    
+
+                        }, 10); // Small delay to trigger the fade-in animation
+                    }, 500); // Wait for the smooth scroll and transition
+
+                }, 500); // Match the fade-out duration (0.5s)
+            }
+
+
+
+
+
+
         });
+
+
+
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var acc = document.getElementsByClassName("faq-accordion");
+            var panel = document.getElementsByClassName('faq-panel');
+            for (var i = 0; i < acc.length; i++) {
+                acc[i].onclick = function () {
+                    var setClasses = !this.classList.contains('active');
+                    setClass(acc, 'active', 'remove');
+                    setClass(panel, 'show', 'remove');
+                    if (setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var acc = document.getElementsByClassName("mobile-faq-menu");
+            var panel = document.getElementsByClassName('mobile-faq-panel');
+            for (var i = 0; i < acc.length; i++) {
+                acc[i].onclick = function () {
+                    var setClasses = !this.classList.contains('active');
+                    setClass(acc, 'active', 'remove');
+                    setClass(panel, 'show', 'remove');
+                    if (setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+        });
+
+
+
+
     </script>
 
 </body>
