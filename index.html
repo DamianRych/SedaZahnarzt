@@ -593,9 +593,7 @@
             width: 100%;
         }
 
-        .burger {
-            cursor: pointer;
-        }
+
 
         .burger rect {
             transition: all 0.3s ease;
@@ -652,6 +650,12 @@
         .slide-menu div {
             border-bottom: 1px solid rgba(0, 0, 0, 0.5);
             padding: 0.6rem;
+            cursor: pointer;
+        }
+
+        .burger {
+            cursor: pointer;
+            display: none;
         }
 
         /* Responsive */
@@ -686,9 +690,9 @@
         </div>
         <!-- Sliding Menu -->
         <div class="slide-menu" id="slideMenu">
-            <div><a href="#home" onclick="scrollToSection('das-team')">Das Team</a></div>
-            <div><a href="#about" onclick="scrollToSection('leistungen')">Leistungen</a></div>
-            <div><a href="#services" onclick="scrollToSection('Anfahrt')">Anfahrt</a></div>
+            <div onclick="scrollToSection('das-team')"><span>Das Team</span></div>
+            <div onclick="scrollToSection('leistungen')"><span>Leistungen</span></div>
+            <div onclick="scrollToSection('Anfahrt')"><span>Anfahrt</span></div>
         </div>
         <img id="switch_to_main" src="logo.png" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli Logo">
         <nav class="navbar">
