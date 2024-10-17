@@ -22,6 +22,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 80px;
+            box-sizing: border-box;
         }
 
         header img {
@@ -31,17 +33,6 @@
         nav {
             display: flex;
             gap: 20px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background: #00796b;
         }
 
         .hero {
@@ -551,6 +542,133 @@
             opacity: 1;
             max-height: 750px;
         }
+
+
+
+
+
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s ease-in-out;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .burger {
+            cursor: pointer;
+        }
+
+        .burger rect {
+            transition: all 0.3s ease;
+            /* Smooth animation */
+        }
+
+        .burger.active .line1 {
+            transform: rotate(45deg) translate(10px, 10px);
+            /* Rotates top line to form the top of the 'X' */
+        }
+
+        .burger.active .line2 {
+            opacity: 0;
+            /* Hides the middle line */
+        }
+
+        .burger.active .line3 {
+            transform: rotate(-45deg) translate(-65px, 0px);
+            /* Rotates bottom line to form the bottom of the 'X' */
+        }
+
+        /* Sliding Menu Styles */
+        .slide-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /* Initially hidden */
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            /* Sliding effect */
+        }
+
+        .slide-menu a {
+            color: black;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .slide-menu.active {
+            display: block;
+            /* Show the menu */
+        }
+
+        .slide-menu div:first-child {
+            border-top: 1px solid rgba(0, 0, 0, 0.5);
+            /* Adds border-top to the first div */
+        }
+
+        .slide-menu div {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            padding: 0.6rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #navLinks {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+                margin-right: 1rem;
+            }
+
+            .nav-active {
+                transform: translateX(0%);
+            }
+        }
     </style>
 </head>
 
@@ -558,8 +676,81 @@
 
     <!-- Header Section -->
     <header>
+        <!-- Burger Icon -->
+        <div class="burger" id="burger">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 100 80" width="30" height="30">
+                <rect class="line1" width="100" height="10"></rect>
+                <rect class="line2" y="30" width="100" height="10"></rect>
+                <rect class="line3" y="60" width="100" height="10"></rect>
+            </svg>
+        </div>
+        <!-- Sliding Menu -->
+        <div class="slide-menu" id="slideMenu">
+            <div><a href="#home" onclick="scrollToSection('das-team')">Das Team</a></div>
+            <div><a href="#about" onclick="scrollToSection('leistungen')">Leistungen</a></div>
+            <div><a href="#services" onclick="scrollToSection('Anfahrt')">Anfahrt</a></div>
+        </div>
         <img id="switch_to_main" src="logo.png" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli Logo">
+        <nav class="navbar">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="scrollToSection('das-team')">Das Team</a></li>
+                <li><a href="#about" onclick="scrollToSection('leistungen')">Leistungen</a></li>
+                <li><a href="#services" onclick="scrollToSection('Anfahrt')">Anfahrt</a></li>
+            </ul>
+        </nav>
     </header>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.getElementById('burger');
+            const navLinks = document.getElementById('navLinks');
+
+            const slideMenu = document.getElementById('slideMenu');
+
+            burger.addEventListener('click', () => {
+                slideMenu.classList.toggle('active');
+                burger.classList.toggle('active'); // Toggles the active class on the burger
+            });
+
+            burger.addEventListener('click', () => {
+                navLinks.classList.toggle('nav-active');
+            });
+        });
+
+        function scrollToSection(sectionId) {
+
+            const mainPage = document.getElementById('main_page');
+            const datenschutzPage = document.getElementById('datenschutz_page');
+            const impressumPage = document.getElementById('impressum_page');
+
+            // Always ensure the main page does not have 'hidden' and 'gone' classes
+            mainPage.classList.remove('hidden', 'gone');
+            mainPage.classList.add('fade', 'visible');
+
+
+            // Add 'hidden' and 'gone' classes to the other pages
+            datenschutzPage.classList.remove('fade', 'visible');
+            datenschutzPage.classList.add('hidden', 'gone');
+            impressumPage.classList.remove('fade', 'visible');
+            impressumPage.classList.add('hidden', 'gone');
+
+
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+            // Check if the slideMenu has the 'active' class, and remove it if it does
+            const slideMenu = document.getElementById('slideMenu');
+            if (slideMenu.classList.contains('active')) {
+                slideMenu.classList.remove('active');
+            }
+            const burger = document.getElementById('burger');
+            if (burger.classList.contains('active')) {
+                burger.classList.remove('active');
+            }
+
+        }
+    </script>
+
     <div id="main_page" class="visible">
 
         <!-- Hero Section -->
@@ -644,7 +835,7 @@
         </section>
 
         <!-- Leistungen Section -->
-        <section class="fade-in">
+        <section class="fade-in" id="leistungen">
             <div>
                 <h2 class="center_text">Leistungen</h2>
                 <div class="mobile-expertise-faq">
@@ -1393,27 +1584,36 @@
                 <h4>Kontakt</h4>
                 <p>
                     Telefon: +49 30 21 75 0660<br>
-                    E-Mail: praxis[at]praxis.de<br>
+                    E-Mail: zahnarztpraxis[at]dr-seda-sanli.de<br>
                     Bitte nutzen Sie diese E-Mail Adresse nicht für Ihre Terminanfragen!<br>
-                    www.muster.de<br>
+                    https://dr-seda-sanli.de/<br>
                 </p>
 
             </div>
             <div>
                 <h4>Zuständige Kammer</h4>
-                <p>...</p>
+                <p>Zahnärztekammer Berlin, Stallstraße 1, 10585 Berlin<br>
+                    www.zaek-berlin.de</p>
             </div>
             <div>
                 <h4>Zuständige kassenärztliche Vereinigung</h4>
-                <p>...</p>
+                <p>Kassenzahnärztliche Vereinigung Berlin<br>
+                    Georg-Wilhelm-Str. 16, 10711 Berlin<br>
+                    www.kzv-berlin.de
+                </p>
             </div>
             <div>
                 <h4>Berufsbezeichnung</h4>
-                <p>...</p>
+                <p>Dr. Seda Sanli (Ege-Univers., Izmir) befugt, die Berufsbezeichnung „Zahnarzt“ zu tragen.</p>
             </div>
             <div>
                 <h4>Berufsrechtliche Regelungen</h4>
-                <p>...</p>
+                <p>Es gelten das Gesetz über die Ausübung der Zahnheilkunde (ZHG), das Berliner Kammergesetz für die
+                    Heilberufe, die aktuelle Berufsordnung der Zahnärztekammer Berlin und die Gebührenordnung für
+                    Zahnärzte (GOZ) sowie die relevanten Bestimmungen nach Sozialgesetzbuch (SGB-V). Die Einsichtnahme
+                    kann unter folgenden Links erfolgen: <a href="www.zaek-berlin.de"
+                        target="_blank">www.zaek-berlin.de</a> und <a href="www.kzv-berlin.de"
+                        target="_blank">www.kzv-berlin.de</a>.</p>
             </div>
 
             <div>
@@ -1440,10 +1640,10 @@
                 <h4>Informationen zur außergerichtlichen Streitbeilegung</h4>
                 <p>Im Hinblick auf eine Verpflichtung aus §§ 36, 37 VSBG setzen wir Sie davon in Kenntnis, dass unsere
                     Praxis zu einem außergerichtlichen Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-                    i. S. d. VSBG nicht verpflichtet ist und an solchen Verfahren nicht teilnimmt. Die Zahnärztekammer
-                    Berlin hat eine Schlichtungsstelle für Streitigkeiten aus dem Berufsverhältnis nach dem Berliner
-                    Kammergesetz (BKG) eingerichtet, die von Patientinnen und Patienten bei Zweifeln an der Richtigkeit
-                    zahnärztlicher Leistungen angerufen werden kann.</p>
+                    i. S. d. VSBG nicht verpflichtet ist und an einem solchen Verfahren nicht teilnimmt. Die
+                    Zahnärztekammer Berlin hat eine Schlichtungsstelle für Streitigkeiten aus dem Berufsverhältnis nach
+                    dem Berliner Kammergesetz (BKG) eingerichtet, die von Patientinnen und Patienten bei Zweifeln an der
+                    Richtigkeit zahnärztlicher Leistungen angerufen werden kann.</p>
             </div>
 
             <!-- <div>
