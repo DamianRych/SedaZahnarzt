@@ -35,6 +35,30 @@
             gap: 20px;
         }
 
+        .farbe_haut {
+            background-color: #FFFBDF;
+        }
+
+        .farbe_hellgruen_1 {
+            background-color: #C6FFC1;
+        }
+
+        .farbe_hellgruen_2 {
+            background-color: #60e055;
+        }
+
+        .farbe_hellgruen_3 {
+            background-color: #2c8824;
+        }
+
+        .farbe_grun_blau {
+            background-color: #34656D;
+        }
+
+        .farbe_grau_blau {
+            background-color: #334443;
+        }
+
         .hero {
             position: relative;
             background: url('dental-background.jpg') no-repeat center center/cover;
@@ -442,6 +466,7 @@
             background-color: #f6f6f6;
             border-radius: 15px;
             border: solid #bebebe 1px;
+            overflow: hidden;
         }
 
         p.mobile-faq-menu {
@@ -488,20 +513,19 @@
 
         p.faq-accordion:after {
             content: '\2795';
-            font-size: 13px;
-            color: #777;
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 #fff;
             float: right;
-            margin-left: 5px;
         }
 
         p.mobile-faq-menu:after {
             content: '\2795';
-            font-size: 13px;
-            color: #777;
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 #fff;
             float: right;
-            margin-left: 5px;
         }
-
 
         p.faq-accordion.active:after {
             content: "\2796";
@@ -535,7 +559,7 @@
             opacity: 0;
             text-align: left;
             padding-left: 18px;
-            border-bottom: solid #bebebe 1px;
+            border-bottom: solid #bebebe 0px;
         }
 
         div.mobile-faq-panel.show {
@@ -759,8 +783,7 @@
 
         <!-- Hero Section -->
         <div class="hero">
-            <img src="https://www.identis.net/files/IMG_iDentis-sl-smart/empfangsbereich-der-zahnarztpraxis-identis-in-berlin-steglitz.jpg"
-                alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli">
+            <img src="" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli">
             <div class="hero_content">
                 <div class="center_flex">
 
@@ -777,7 +800,7 @@
                         <p style="margin: 0;padding: 0;">Eisenacher Str. 108, 10777 Berlin</p>
                     </div>
                     <div class="flex-row">
-                        <h2 style="margin: 0;padding: 0;">Ihr Zahnarzt in Berlin</br>Schöneberg</h2>
+                        <h2 style="margin: 0;padding: 0;">Ihre Zahnärztin in Berlin</br>Schöneberg</h2>
                     </div>
                     <div class="flex-row" style="margin-bottom: 0;">
                         <button class="button_shape">
@@ -817,11 +840,11 @@
                 <h2 class="center_text">Das Team</h2>
                 <div class="cards">
                     <div class="card">
-                        <img src="https://ucarecdn.com/1e6b66f3-802b-436d-ad9f-989aa22d25ae/-/format/webp/-/quality/best/-/preview/720x400/"
-                            alt="Doctor Image" class="doctor-image">
+                        <img src="" alt="Doctor Image" class="doctor-image">
                         <div class="card-content">
                             <h3>Dr. med. dent. Seda Sanli</h3>
                             <p>Zahnärztin</p>
+                            <!-- <h1>Lebenslauf Hinzufügen</h1> -->
                             <div class="card-footer">
                                 <div class="flags">
                                     <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/de.svg"
@@ -844,7 +867,7 @@
                 <h2 class="center_text">Leistungen</h2>
                 <div class="mobile-expertise-faq">
                     <div>
-                        <p class="mobile-faq-menu">BERATUNG</p>
+                        <p class="mobile-faq-menu" style="background-color: #C6FFC1;">BERATUNG</p>
                         <div class="mobile-faq-panel">
                             <div class="expertise-faq">
                                 <div style="border-bottom: solid #f4f4f4 1px;">
@@ -852,18 +875,20 @@
                                         Wert darauf, Ihnen zuzuhören und Ihre individuellen Bedürfnisse und Wünsche zu
                                         verstehen. So können wir Ihnen die passenden Behandlungsoptionen anbieten, die
                                         nicht nur zu Ihrer Zahngesundheit, sondern auch zu einem ästhetisch
-                                        ansprechenden Ergebnis führen. Ihr Zahnarzt in Berlin sorgt dafür, dass Sie
+                                        ansprechenden Ergebnis führen. Ihre Zahnärztin in Berlin sorgt dafür, dass Sie
                                         umfassend beraten und bestens betreut werden.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p class="mobile-faq-menu">FÜLLUNGEN</p>
+                        <p class="mobile-faq-menu" style="background-color: #34656D; color: white;">FÜLLUNGEN</p>
                         <div class="mobile-faq-panel">
                             <div class="expertise-faq">
                                 <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">Direkte
+                                    <p class="faq-accordion"
+                                        style="padding: 12px 16px 12px; margin: 12px 0; background-color: #34656D; color: white;">
+                                        Direkte
                                         Füllungstherapie</p>
                                     <div class="faq-panel">
                                         <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Als
@@ -877,7 +902,9 @@
                                             Zahnarztes in Berlin Schöneberg, um Ihre Zahngesundheit und Ihr Lächeln zu
                                             erhalten.</p>
                                     </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Indirekte
+                                    <p class="faq-accordion"
+                                        style="padding: 15px 18px; margin: 0; background-color: #334443; color: white;">
+                                        Indirekte
                                         Füllungstherapie</p>
                                     <div class="faq-panel">
                                         <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Inlays und
@@ -906,7 +933,7 @@
                                     <p>Die Wurzelkanalbehandlung, auch Endodontie genannt, ist notwendig, wenn das
                                         Gewebe im Inneren des Zahns, die sogenannte Pulpa, durch Karies, Trauma oder
                                         andere Faktoren infiziert ist. Diese Infektion kann starke Schmerzen
-                                        verursachen. In solchen Fällen entleert Ihr Zahnarzt in Berlin Schöneberg die
+                                        verursachen. In solchen Fällen entleert ihre Zahnärztin in Berlin Schöneberg die
                                         Pulpakanäle, formt sie und füllt sie mit speziellem Füllmaterial, um den Zahn zu
                                         retten. Unsere Zahnarztpraxis Dr. Seda Sanli nutzt dafür modernste digitale
                                         Bildgebungssysteme und hochpräzise Geräte, um eine erfolgreiche Behandlung
@@ -1798,12 +1825,22 @@
             for (var i = 0; i < acc.length; i++) {
                 acc[i].onclick = function () {
                     var setClasses = !this.classList.contains('active');
+                    const sibling = this.nextElementSibling;
+                    console.log(sibling.classList.contains("show"))
+                    if (sibling.classList.contains("show")) {
+                        sibling.style.borderBottom = "solid #bebebe 0px";
+                    } else {
+                        sibling.style.borderBottom = "solid #bebebe 1px";
+                    }
                     setClass(acc, 'active', 'remove');
                     setClass(panel, 'show', 'remove');
                     if (setClasses) {
                         this.classList.toggle("active");
-                        this.nextElementSibling.classList.toggle("show");
+                        sibling.classList.toggle("show");
+
+                        // Check if the 'show' class is present and set the border style accordingly
                     }
+
                 }
             }
             function setClass(els, className, fnName) {
