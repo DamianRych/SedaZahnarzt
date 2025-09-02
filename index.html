@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="logo_ico.png">
+    <link rel="preload" as="image" href="Grup_1.jpg" fetchpriority="high">
     <title>Zahnarztpraxis Seda Sanli | In Berlin Schöneberg</title>
 
     <style>
@@ -158,8 +159,24 @@
             left: 0;
             right: 0;
             bottom: 0;
+            background: linear-gradient(135deg, #a1985e 0%, #34656D 100%);
+            z-index: 1;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('Grup_1.jpg') no-repeat center center/cover;
             z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .hero-image.loaded {
+            opacity: 1;
         }
 
         .hero::after {
@@ -1288,7 +1305,7 @@
         <img id="switch_to_main" src="logo.png" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli Logo">
         <nav class="navbar">
             <ul class="nav-links" id="navLinks">
-                <li><a href="#praxis" onclick="scrollToSection('praxis')">P raxis</a></li>
+                <li><a href="#praxis" onclick="scrollToSection('praxis')">Praxis</a></li>
                 <li><a href="#home" onclick="scrollToSection('das-team')">Das Team</a></li>
                 <li><a href="#about" onclick="scrollToSection('lebenslauf')">Lebenslauf</a></li>
                 <li><a href="#services" onclick="scrollToSection('leistungen')">Leistungen</a></li>
@@ -1313,6 +1330,22 @@
             burger.addEventListener('click', () => {
                 navLinks.classList.toggle('nav-active');
             });
+
+            // Hero image loading with priority
+            const heroImage = document.getElementById('heroImage');
+
+            // Use the preloaded image
+            const img = new Image();
+            img.onload = function () {
+                heroImage.classList.add('loaded');
+            };
+            img.onerror = function () {
+                // Fallback: still show the gradient if image fails to load
+                console.log('Hero image failed to load, showing gradient background');
+            };
+
+            // Start loading immediately with high priority
+            img.src = 'Grup_1.jpg';
         });
 
         function scrollToSection(sectionId) {
@@ -1361,6 +1394,7 @@
 
         <!-- Hero Section -->
         <div class="hero">
+            <div class="hero-image" id="heroImage"></div>
             <div class="hero_content">
                 <div class="center_flex">
 
@@ -1439,7 +1473,7 @@
                     <div class="card">
                         <div class="doctor-image-container">
                             <img src="Seda1.jpg" alt="Dr. Seda Sanli - Zahnärztin in Berlin Schöneberg"
-                                class="doctor-image">
+                                class="doctor-image" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h3>Dr. Seda Sanli</h3>
@@ -1449,11 +1483,11 @@
                             <div class="card-footer">
                                 <div class="flags">
                                     <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/de.svg"
-                                        alt="German">
+                                        alt="German" loading="lazy">
                                     <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/gb.svg"
-                                        alt="English">
+                                        alt="English" loading="lazy">
                                     <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/1x1/tr.svg"
-                                        alt="Turkish">
+                                        alt="Turkish" loading="lazy">
                                 </div>
                             </div>
                         </div>
