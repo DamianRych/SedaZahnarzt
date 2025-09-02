@@ -39,22 +39,29 @@
         }
 
         .doctolib-widget a {
-            display: block;
-            color: #00264c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
             text-decoration: none;
-            padding: 6px;
-            margin-top: 5px;
-            background: #fff;
-            border-radius: 4px;
-            font-weight: 700;
-            transition: .2s
+            padding: 8px 12px;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            font-weight: 400;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            gap: 4px;
         }
 
         .doctolib-widget a:hover,
         .doctolib-widget a:focus {
-            opacity: .9;
-            outline: 2px solid #f5f5f5;
-            outline-offset: 2px
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .doctolib-widget img {
@@ -133,15 +140,38 @@
 
         .hero {
             position: relative;
-            background: url('dental-background.jpg') no-repeat center center/cover;
-            height: 90vh;
-            height: 90svh;
+            height: 90.5vh;
+            height: 90.5svh;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
             text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('Grup_1.jpg') no-repeat center center/cover;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 70%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 2;
+            pointer-events: none;
         }
 
         .hero_address_pin {
@@ -292,10 +322,33 @@
             box-sizing: border-box;
         }
 
-        .doctor-image {
-            width: 100%;
+        .doctor-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .doctor-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 37%;
+        }
+
+        .doctor-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent 35%, rgba(0, 0, 0, 0.8) 100%);
+            pointer-events: none;
         }
 
         .card-content h3 {
@@ -352,22 +405,14 @@
             position: relative;
         }
 
-        .hero img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
+
 
         .hero_content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             color: white;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             width: 100%;
             height: 100%;
             box-sizing: border-box;
@@ -377,7 +422,7 @@
             position: relative;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -45%);
         }
 
         .fade-in {
@@ -436,6 +481,443 @@
             display: flex;
             width: 100%;
             justify-content: center;
+        }
+
+        /* CV Section Styling */
+        #lebenslauf {
+            background-color: #fffbdf;
+            padding: 3rem 0;
+        }
+
+        /* Leistungen Accordion Styling */
+        .leistungen-accordion {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .leistungen-accordion-item {
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            border: solid #bebebe 1px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .leistungen-accordion-menu {
+            margin: auto;
+            padding: 18px 25px;
+            border-bottom: solid #bebebe 1px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #444;
+            background-color: #f6f6f6;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+        }
+
+        .leistungen-accordion-menu:hover {
+            background-color: #fff;
+        }
+
+        .leistungen-accordion-menu.active {
+            background-color: #fff;
+        }
+
+        .leistungen-accordion-menu:after {
+            content: '\2795';
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 #000;
+            float: right;
+            font-size: 1.1em;
+        }
+
+        .leistungen-accordion-menu.active:after {
+            content: "\2796";
+        }
+
+        .leistungen-accordion-panel {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            text-align: left;
+            padding: 0;
+        }
+
+        .leistungen-accordion-panel.show {
+            opacity: 1;
+            max-height: 2000px;
+            padding: 20px 25px;
+        }
+
+        .leistungen-content {
+            line-height: 1.6;
+        }
+
+        .leistungen-content p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .leistungen-subsection {
+            margin-bottom: 2rem;
+        }
+
+        .leistungen-subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .leistungen-subsection h4 {
+            color: #a1985e;
+            margin-bottom: 1rem;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .leistungen-subsection p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .leistungen-subsection ul {
+            color: #666;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .leistungen-subsection li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .leistungen-subsection li:last-child {
+            margin-bottom: 0;
+        }
+
+        .leistungen-subsection h5 {
+            color: #a1985e;
+            margin-bottom: 0.8rem;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .cv-content {
+            padding: 2.5rem;
+        }
+
+        .cv-content h3 {
+            text-align: center;
+            color: #a1985e;
+            margin-bottom: 2rem;
+            font-size: 1.8em;
+        }
+
+        .cv-main-accordion {
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            border: solid #bebebe 1px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-main-menu {
+            margin: auto;
+            padding: 20px 25px;
+            border-bottom: solid #bebebe 1px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #444;
+            background-color: #f6f6f6;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .cv-main-menu:hover {
+            background-color: #fff;
+        }
+
+        .cv-main-menu.active {
+            background-color: #fff;
+        }
+
+        .cv-main-menu:after {
+            content: '\2795';
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 #000;
+            float: right;
+            font-size: 1.2em;
+        }
+
+        .cv-main-menu.active:after {
+            content: "\2796";
+        }
+
+        .cv-main-panel {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            text-align: left;
+            padding: 0;
+        }
+
+        .cv-main-panel.show {
+            opacity: 1;
+            max-height: 2000px;
+            padding: 25px;
+        }
+
+        .cv-section-accordion {
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            border: solid #bebebe 1px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .cv-section-menu {
+            margin: auto;
+            padding: 18px 25px;
+            border-bottom: solid #bebebe 1px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #444;
+            background-color: #f6f6f6;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+        }
+
+        .cv-section-menu:hover {
+            background-color: #fff;
+        }
+
+        .cv-section-menu.active {
+            background-color: #fff;
+        }
+
+        .cv-section-menu:after {
+            content: '\2795';
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 #000;
+            float: right;
+            font-size: 1.1em;
+        }
+
+        .cv-section-menu.active:after {
+            content: "\2796";
+        }
+
+        .cv-section-panel {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            text-align: left;
+            padding: 0;
+        }
+
+        .cv-section-panel.show {
+            opacity: 1;
+            max-height: 1000px;
+            padding: 20px 25px;
+        }
+
+        .cv-section {
+            margin-bottom: 2rem;
+            padding-bottom: 0;
+        }
+
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-section h4 {
+            color: #34656D;
+            margin-bottom: 1rem;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .cv-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .cv-year {
+            background: #a1985e;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            white-space: nowrap;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .cv-details {
+            flex: 1;
+        }
+
+        .cv-details strong {
+            color: #333;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-details p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        .cv-languages {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .cv-specialties {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cv-specialty-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f8f9fa;
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            border-left: 4px solid #a1985e;
+        }
+
+        .specialty-icon {
+            font-size: 1.5em;
+            min-width: 2rem;
+            text-align: center;
+        }
+
+        .cv-personal-note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #a1985e;
+        }
+
+        .cv-personal-note p {
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            font-style: italic;
+        }
+
+        .language-flag {
+            background: #f8f9fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            border-left: 4px solid #a1985e;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Praxis Section Styling */
+        #praxis {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+        }
+
+        .praxis-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .praxis-description {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #a1985e;
+        }
+
+        .praxis-description h3 {
+            color: #a1985e;
+            margin-bottom: 1rem;
+            font-size: 1.5em;
+        }
+
+        .praxis-description p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .praxis-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .praxis-description {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cv-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .cv-year {
+                min-width: auto;
+                align-self: flex-start;
+            }
+
+            .cv-content {
+                padding: 1.5rem;
+            }
         }
 
         .hidden {
@@ -798,15 +1280,19 @@
         <!-- Sliding Menu -->
         <div class="slide-menu" id="slideMenu">
             <div onclick="scrollToSection('das-team')"><span>Das Team</span></div>
+            <div onclick="scrollToSection('lebenslauf')"><span>Lebenslauf</span></div>
+            <div onclick="scrollToSection('praxis')"><span>Praxis</span></div>
             <div onclick="scrollToSection('leistungen')"><span>Leistungen</span></div>
             <div onclick="scrollToSection('Anfahrt')"><span>Anfahrt</span></div>
         </div>
         <img id="switch_to_main" src="logo.png" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli Logo">
         <nav class="navbar">
             <ul class="nav-links" id="navLinks">
+                <li><a href="#praxis" onclick="scrollToSection('praxis')">P raxis</a></li>
                 <li><a href="#home" onclick="scrollToSection('das-team')">Das Team</a></li>
-                <li><a href="#about" onclick="scrollToSection('leistungen')">Leistungen</a></li>
-                <li><a href="#services" onclick="scrollToSection('Anfahrt')">Anfahrt</a></li>
+                <li><a href="#about" onclick="scrollToSection('lebenslauf')">Lebenslauf</a></li>
+                <li><a href="#services" onclick="scrollToSection('leistungen')">Leistungen</a></li>
+                <li><a href="#contact" onclick="scrollToSection('Anfahrt')">Anfahrt</a></li>
             </ul>
         </nav>
     </header>
@@ -867,14 +1353,14 @@
         <div class="doctolib-widget" id="doctolib-nav" aria-label="Doctolib Schnellzugriff"><img
                 src="https://www.doctolib.de/external_button/doctolib-white-transparent.png" alt="Doctolib Logo" /><a
                 href="https://www.doctolib.de/zahnarztpraxis/berlin/zahnarztpraxis-seda-sanli" target="_blank"
-                rel="noopener noreferrer" aria-label="Termin über Doctolib buchen">Termin</a></div>
+                rel="noopener noreferrer" aria-label="Termin über Doctolib buchen">
+                Termin buchen
+            </a></div>
 
-        <a href="https://www.doctolib.de/zahnarztpraxis/berlin/zahnarztpraxis-seda-sanli" target="_blank"
-            aria-label="Termin über Doctolib buchen">Termin</a>
+
 
         <!-- Hero Section -->
         <div class="hero">
-            <img src="" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli">
             <div class="hero_content">
                 <div class="center_flex">
 
@@ -891,10 +1377,10 @@
                         <p style="margin: 0;padding: 0;">Eisenacher Str. 108, 10777 Berlin</p>
                     </div>
                     <div class="flex-row">
-                        <h2 style="margin: 0;padding: 0;">Ihre Zahnärztin in Berlin</br>Schöneberg</h2>
+                        <h2 style="margin: 0;padding: 0;">Seda Sanli</br>Ihre Zahnärztin in Berlin</br>Schöneberg</h2>
                     </div>
                     <div class="flex-row" style="margin-bottom: 0;">
-                        <button class="button_shape">
+                        <!-- <button class="button_shape">
                             <span class="button_icon">
                                 <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -905,7 +1391,7 @@
                             </span>
 
                             Termin Buchen
-                        </button>
+                        </button> -->
                         <a href="tel:+493021750660">
 
                             <button class="button_shape">
@@ -925,13 +1411,36 @@
             </div>
         </div>
 
+        <!-- Praxis Section -->
+        <section class="fade-in" id="praxis">
+            <div>
+                <h2 class="center_text">Praxis</h2>
+                <div class="praxis-container">
+                    <div class="video-wrapper">
+                        <video controls autoplay muted loop>
+                            <source src="praxis.mp4" type="video/mp4">
+                            Ihr Browser unterstützt keine Video-Wiedergabe.
+                        </video>
+                    </div>
+                    <div class="praxis-description">
+                        <h3>Willkommen in unserer Praxis</h3>
+                        <p>Entdecken Sie unsere moderne Zahnarztpraxis in Berlin Schöneberg. Wir bieten Ihnen eine
+                            angenehme Atmosphäre mit neuester Technologie für Ihre Zahngesundheit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Team Section -->
         <section class="fade-in" id="das-team" class="services">
             <div>
                 <h2 class="center_text">Das Team</h2>
                 <div class="cards">
                     <div class="card">
-                        <img src="" alt="Doctor Image" class="doctor-image">
+                        <div class="doctor-image-container">
+                            <img src="Seda1.jpg" alt="Dr. Seda Sanli - Zahnärztin in Berlin Schöneberg"
+                                class="doctor-image">
+                        </div>
                         <div class="card-content">
                             <h3>Dr. Seda Sanli</h3>
                             <span>(Ege-Univers. Izmir)</span>
@@ -953,129 +1462,249 @@
             </div>
         </section>
 
+        <!-- Lebenslauf Section -->
+        <section class="fade-in" id="lebenslauf">
+            <div>
+                <h2 class="center_text">Lebenslauf</h2>
+                <div class="cv-container">
+                    <div class="cv-content">
+                        <h3>Dr. Seda Sanli</h3>
+
+                        <!-- Main CV Accordion -->
+                        <div class="cv-main-accordion">
+                            <p class="cv-main-menu">Lebenslauf anzeigen</p>
+                            <div class="cv-main-panel">
+
+                                <!-- Schwerpunkte Section -->
+                                <div class="cv-section-accordion">
+                                    <p class="cv-section-menu">Schwerpunkte</p>
+                                    <div class="cv-section-panel">
+                                        <div class="cv-section">
+                                            <div class="cv-specialties">
+                                                <div class="cv-specialty-item">
+                                                    <span class="specialty-icon">🦷</span>
+                                                    <span>Implantologie und Oralchirurgie</span>
+                                                </div>
+                                                <div class="cv-specialty-item">
+                                                    <span class="specialty-icon">💻</span>
+                                                    <span>Digitale Zahnmedizin (3D-DVT, CAD-CAM)</span>
+                                                </div>
+                                                <div class="cv-specialty-item">
+                                                    <span class="specialty-icon">✨</span>
+                                                    <span>Ästhetische Zahnmedizin und Prothetik</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ausbildung Section -->
+                                <div class="cv-section-accordion">
+                                    <p class="cv-section-menu">Ausbildung</p>
+                                    <div class="cv-section-panel">
+                                        <div class="cv-section">
+                                            <div class="cv-item">
+                                                <span class="cv-year">2024-2025</span>
+                                                <div class="cv-details">
+                                                    <strong>Curriculum Implantologie</strong>
+                                                    <p>Philipp-Pfaff Institut, Berlin, Deutschland</p>
+                                                </div>
+                                            </div>
+                                            <div class="cv-item">
+                                                <span class="cv-year">2021</span>
+                                                <div class="cv-details">
+                                                    <strong>Approbation (Anerkennung zur Ausübung der
+                                                        Zahnheilkunde)</strong>
+                                                    <p>Landesamt für Gesundheit und Soziales Berlin</p>
+                                                </div>
+                                            </div>
+                                            <div class="cv-item">
+                                                <span class="cv-year">2009-2013</span>
+                                                <div class="cv-details">
+                                                    <strong>Promotion und Fachausbildung im Bereich Prothetik</strong>
+                                                    <p>Ege Universität, Fakultät für Zahnmedizin, Abteilung für
+                                                        Prothetik, Izmir, Türkei</p>
+                                                </div>
+                                            </div>
+                                            <div class="cv-item">
+                                                <span class="cv-year">2004-2009</span>
+                                                <div class="cv-details">
+                                                    <strong>Studium der Zahnmedizin</strong>
+                                                    <p>Universität Istanbul, Fakultät für Zahnmedizin, Istanbul, Türkei
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Beruflicher Werdegang Section -->
+                                <div class="cv-section-accordion">
+                                    <p class="cv-section-menu">Beruflicher Werdegang</p>
+                                    <div class="cv-section-panel">
+                                        <div class="cv-section">
+                                            <div class="cv-item">
+                                                <span class="cv-year">2013-2014</span>
+                                                <div class="cv-details">
+                                                    <strong>Fachzahnärztin für Prothetik</strong>
+                                                    <p>Ctg Privates Mund und Zahngesundheitszentrum, Izmir, Türkei</p>
+                                                </div>
+                                            </div>
+                                            <div class="cv-item">
+                                                <span class="cv-year">2014-2022</span>
+                                                <div class="cv-details">
+                                                    <strong>Fachzahnärztin für Prothetik</strong>
+                                                    <p>Ulukent Private Zahnarztklinik, Izmir, Türkei (eigene
+                                                        Zahnarztklinik)</p>
+                                                </div>
+                                            </div>
+                                            <div class="cv-item">
+                                                <span class="cv-year">2022-2024</span>
+                                                <div class="cv-details">
+                                                    <strong>Zahnärztin</strong>
+                                                    <p>MVZ United Dentists, Reinickendorf, Berlin</p>
+                                                </div>
+                                            </div>
+                                            <div class="cv-item">
+                                                <span class="cv-year">2024</span>
+                                                <div class="cv-details">
+                                                    <strong>Zahnärztin</strong>
+                                                    <p>Zahnarztpraxis Dr. Norbert Fischer, Nollendorf, Berlin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Persönliche Note Section -->
+                                <div class="cv-section-accordion">
+                                    <p class="cv-section-menu">Persönliche Note</p>
+                                    <div class="cv-section-panel">
+                                        <div class="cv-section">
+                                            <div class="cv-personal-note">
+                                                <p>Seit 16 Jahren begleite ich meine Patientinnen und Patienten mit
+                                                    Leidenschaft und Einfühlungsvermögen. Mein Fokus liegt auf moderner,
+                                                    digital unterstützter Zahnmedizin – von ästhetischen Behandlungen
+                                                    bis hin zur Implantologie. Wichtig ist mir, jede Therapie
+                                                    individuell und in vertrauensvoller Atmosphäre zu gestalten.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Leistungen Section -->
         <section class="fade-in" id="leistungen">
             <div>
                 <h2 class="center_text">Leistungen</h2>
-                <div class="mobile-expertise-faq">
-                    <div>
-                        <p class="mobile-faq-menu">BERATUNG</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg legen wir großen
-                                        Wert darauf, Ihnen zuzuhören und Ihre individuellen Bedürfnisse und Wünsche zu
-                                        verstehen. So können wir Ihnen die passenden Behandlungsoptionen anbieten, die
-                                        nicht nur zu Ihrer Zahngesundheit, sondern auch zu einem ästhetisch
-                                        ansprechenden Ergebnis führen. Ihre Zahnärztin in Berlin sorgt dafür, dass Sie
-                                        umfassend beraten und bestens betreut werden.</p>
+                <div class="leistungen-accordion">
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">BERATUNG</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg legen wir großen
+                                    Wert darauf, Ihnen zuzuhören und Ihre individuellen Bedürfnisse und Wünsche zu
+                                    verstehen. So können wir Ihnen die passenden Behandlungsoptionen anbieten, die
+                                    nicht nur zu Ihrer Zahngesundheit, sondern auch zu einem ästhetisch
+                                    ansprechenden Ergebnis führen. Ihre Zahnärztin in Berlin sorgt dafür, dass Sie
+                                    umfassend beraten und bestens betreut werden.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">FÜLLUNGEN</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <div class="leistungen-subsection">
+                                    <h4>Direkte Füllungstherapie</h4>
+                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
+                                        modernste Materialien für die Behandlung von Karies sowohl im Front- als
+                                        auch im Seitenzahnbereich. Für die Seitenzähne setzen wir ästhetische und
+                                        kaudruckbeständige Kunststofffüllungen ein, die nach dem neuesten Stand der
+                                        Technik entwickelt wurden. Im Frontzahnbereich kommen hochentwickelte
+                                        Kunststofffüllungen mit Nanotechnologie zum Einsatz, um Ihnen optimale
+                                        ästhetische Ergebnisse zu bieten. Vertrauen Sie auf die Expertise Ihres
+                                        Zahnarztes in Berlin Schöneberg, um Ihre Zahngesundheit und Ihr Lächeln zu
+                                        erhalten.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Indirekte Füllungstherapie</h4>
+                                    <p>Inlays und Onlays in Ihrer Zahnarztpraxis in Berlin Schöneberg
+                                        In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir
+                                        Ihnen hochwertige Inlays und Onlays zur Versorgung Ihrer Seitenzähne an.
+                                        Inlays sind laborgefertigte oder computergefräste Einlagefüllungen, die
+                                        passgenau nach Entfernung von Karies oder defekten Füllungen in die
+                                        Zahnhöhle eingesetzt werden. Wir verwenden langlebige Materialien wie
+                                        Kunststoff, der unter Wärme, Licht und Druck im Labor aushärtet, sowie
+                                        ästhetische Keramik, die Ihre Zahnform präzise wiederherstellt. Größere
+                                        Inlays, die auch die Zahnhöcker umfassen, werden als Onlays bezeichnet.
+                                        Diese versorgen wir in einer zweiten Sitzung und kleben sie sicher in den
+                                        Zahn ein, um Ihre Zahngesundheit zu optimieren.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mobile-faq-menu">FÜLLUNGEN</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0;">
-                                        Direkte
-                                        Füllungstherapie</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Als
-                                            In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
-                                            modernste Materialien für die Behandlung von Karies sowohl im Front- als
-                                            auch im Seitenzahnbereich. Für die Seitenzähne setzen wir ästhetische und
-                                            kaudruckbeständige Kunststofffüllungen ein, die nach dem neuesten Stand der
-                                            Technik entwickelt wurden. Im Frontzahnbereich kommen hochentwickelte
-                                            Kunststofffüllungen mit Nanotechnologie zum Einsatz, um Ihnen optimale
-                                            ästhetische Ergebnisse zu bieten. Vertrauen Sie auf die Expertise Ihres
-                                            Zahnarztes in Berlin Schöneberg, um Ihre Zahngesundheit und Ihr Lächeln zu
-                                            erhalten.</p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0;">
-                                        Indirekte
-                                        Füllungstherapie</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Inlays und
-                                            Onlays in Ihrer Zahnarztpraxis in Berlin Schöneberg
-                                            In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir
-                                            Ihnen hochwertige Inlays und Onlays zur Versorgung Ihrer Seitenzähne an.
-                                            Inlays sind laborgefertigte oder computergefräste Einlagefüllungen, die
-                                            passgenau nach Entfernung von Karies oder defekten Füllungen in die
-                                            Zahnhöhle eingesetzt werden. Wir verwenden langlebige Materialien wie
-                                            Kunststoff, der unter Wärme, Licht und Druck im Labor aushärtet, sowie
-                                            ästhetische Keramik, die Ihre Zahnform präzise wiederherstellt. Größere
-                                            Inlays, die auch die Zahnhöcker umfassen, werden als Onlays bezeichnet.
-                                            Diese versorgen wir in einer zweiten Sitzung und kleben sie sicher in den
-                                            Zahn ein, um Ihre Zahngesundheit zu optimieren.
-                                        </p>
-                                    </div>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">WURZELKANALBEHANDLUNG (ENDODONTIE)</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <p>Die Wurzelkanalbehandlung, auch Endodontie genannt, ist notwendig, wenn das
+                                    Gewebe im Inneren des Zahns, die sogenannte Pulpa, durch Karies, Trauma oder
+                                    andere Faktoren infiziert ist. Diese Infektion kann starke Schmerzen
+                                    verursachen. In solchen Fällen entleert ihre Zahnärztin in Berlin Schöneberg die
+                                    Pulpakanäle, formt sie und füllt sie mit speziellem Füllmaterial, um den Zahn zu
+                                    retten. Unsere Zahnarztpraxis Dr. Seda Sanli nutzt dafür modernste digitale
+                                    Bildgebungssysteme und hochpräzise Geräte, um eine erfolgreiche Behandlung
+                                    sicherzustellen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">KIEFERGELENKSBESCHWERDEN (CRANIOMANDIBULÄRE
+                            DYSFUNKTION-CDM)</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <div class="leistungen-subsection">
+                                    <h4>Funktionsdiagnostik zur Behandlung der CMD</h4>
+                                    <p>CMD (Craniomandibuläre Dysfunktion) ist eine Erkrankung, die die Kiefergelenke
+                                        und die Kaumuskulatur betrifft. Sie äußert sich durch Schmerzen im Bereich
+                                        der Kiefergelenke und der Kaumuskulatur, oft begleitet von
+                                        Funktionseinschränkungen des Kauorgans. Häufig treten Schmerzen vor den
+                                        Ohren auf, die sich beim Kauen oder Bewegen des Unterkiefers verstärken
+                                        können. Weitere Symptome können eine eingeschränkte Mundöffnung, Geräusche
+                                        im Kiefergelenk (Reiben oder Knacken) sowie starke Abnutzung der Zähne,
+                                        ausgeprägte Kaumuskulatur oder Kopf- und Gesichtsschmerzen sein. In unserer
+                                        Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg erfolgt die Therapie der
+                                        CMD in erster Linie durch das Anpassen von Aufbissschienen, die die
+                                        Kiefergelenke entlasten und die Beschwerden lindern.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Schienentherapie</h4>
+                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg wird die
+                                        Schienentherapie
+                                        häufig zur Behandlung von Schmerzen und Verspannungen der Kaumuskulatur
+                                        eingesetzt. Zudem schützen die Schienen Ihre Zähne vor Abrasionen der
+                                        Zahnoberflächen und helfen dabei, den Biss zu stabilisieren – besonders vor
+                                        einer prothetischen Therapie. Mit individuell angepassten Schienen sorgen
+                                        wir dafür, dass Ihre Kaumuskulatur entlastet und Ihre Zahngesundheit
+                                        langfristig erhalten bleibt.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mobile-faq-menu">WURZELKANALBEHANDLUNG (ENDODONTIE)</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p>Die Wurzelkanalbehandlung, auch Endodontie genannt, ist notwendig, wenn das
-                                        Gewebe im Inneren des Zahns, die sogenannte Pulpa, durch Karies, Trauma oder
-                                        andere Faktoren infiziert ist. Diese Infektion kann starke Schmerzen
-                                        verursachen. In solchen Fällen entleert ihre Zahnärztin in Berlin Schöneberg die
-                                        Pulpakanäle, formt sie und füllt sie mit speziellem Füllmaterial, um den Zahn zu
-                                        retten. Unsere Zahnarztpraxis Dr. Seda Sanli nutzt dafür modernste digitale
-                                        Bildgebungssysteme und hochpräzise Geräte, um eine erfolgreiche Behandlung
-                                        sicherzustellen.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mobile-faq-menu">KIEFERGELENKSBESCHWERDEN (CRANIOMANDIBULÄRE DYSFUNKTION-CDM)</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
-                                        Funktionsdiagnostik zur Behandlung der CMD</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">CMD
-                                            (Craniomandibuläre Dysfunktion) ist eine Erkrankung, die die Kiefergelenke
-                                            und die Kaumuskulatur betrifft. Sie äußert sich durch Schmerzen im Bereich
-                                            der Kiefergelenke und der Kaumuskulatur, oft begleitet von
-                                            Funktionseinschränkungen des Kauorgans. Häufig treten Schmerzen vor den
-                                            Ohren auf, die sich beim Kauen oder Bewegen des Unterkiefers verstärken
-                                            können. Weitere Symptome können eine eingeschränkte Mundöffnung, Geräusche
-                                            im Kiefergelenk (Reiben oder Knacken) sowie starke Abnutzung der Zähne,
-                                            ausgeprägte Kaumuskulatur oder Kopf- und Gesichtsschmerzen sein. In unserer
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg erfolgt die Therapie der
-                                            CMD in erster Linie durch das Anpassen von Aufbissschienen, die die
-                                            Kiefergelenke entlasten und die Beschwerden lindern.</p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Schienentherapie</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">In unserer
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg wird die Schienentherapie
-                                            häufig zur Behandlung von Schmerzen und Verspannungen der Kaumuskulatur
-                                            eingesetzt. Zudem schützen die Schienen Ihre Zähne vor Abrasionen der
-                                            Zahnoberflächen und helfen dabei, den Biss zu stabilisieren – besonders vor
-                                            einer prothetischen Therapie. Mit individuell angepassten Schienen sorgen
-                                            wir dafür, dass Ihre Kaumuskulatur entlastet und Ihre Zahngesundheit
-                                            langfristig erhalten bleibt.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mobile-faq-menu">PROFESSIONELLE ZAHNREINIGUNG</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <h3>Prophylaxe für Kinder und Erwachsener</h3>
-                                    <p>Gesundes Zahnfleisch und frischer Atem<br>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">PROFESSIONELLE ZAHNREINIGUNG</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <div class="leistungen-subsection">
+                                    <h4>Prophylaxe für Kinder und Erwachsener</h4>
+                                    <p><strong>Gesundes Zahnfleisch und frischer Atem</strong><br>
                                         Ein gesundes und schönes Lächeln basiert auf der Gesundheit der Zähne und des
                                         umliegenden Gewebes. Zahnbelag, Zahnstein und ähnliche Ablagerungen können die
                                         Gesundheit des Zahnfleisches gefährden und zu Rötungen, Blutungen sowie
@@ -1088,116 +1717,100 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mobile-faq-menu">ANGSTPATIENTEN</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p>Viele Menschen empfinden Zahnarztbesuche aufgrund der Geräusche und der Erwartung
-                                        von Schmerzen als stressig. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
-                                        Schöneberg nehmen wir uns besonders viel Zeit für Angstpatienten. Wir gehen
-                                        gezielt auf Ihre Bedürfnisse ein und gestalten den Behandlungsablauf
-                                        individuell, um Ängste zu reduzieren. Mit modernen Geräten sorgen wir für eine
-                                        schnelle, schmerzfreie und effektive Behandlung. Unser Ziel ist es, in einer
-                                        ruhigen Atmosphäre Stressfaktoren wie Lärm und Schmerzen auszuschalten und eine
-                                        vertrauensvolle Beziehung zu unseren Patienten aufzubauen.</p>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">ANGSTPATIENTEN</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <p>Viele Menschen empfinden Zahnarztbesuche aufgrund der Geräusche und der Erwartung
+                                    von Schmerzen als stressig. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
+                                    Schöneberg nehmen wir uns besonders viel Zeit für Angstpatienten. Wir gehen
+                                    gezielt auf Ihre Bedürfnisse ein und gestalten den Behandlungsablauf
+                                    individuell, um Ängste zu reduzieren. Mit modernen Geräten sorgen wir für eine
+                                    schnelle, schmerzfreie und effektive Behandlung. Unser Ziel ist es, in einer
+                                    ruhigen Atmosphäre Stressfaktoren wie Lärm und Schmerzen auszuschalten und eine
+                                    vertrauensvolle Beziehung zu unseren Patienten aufzubauen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">DIGITALE ZAHNMEDIZIN</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <div class="leistungen-subsection">
+                                    <h4>Digitale Röntgen</h4>
+                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg setzen wir
+                                        modernste
+                                        digitale Röntgentechnologie ein, um Ihnen die beste Diagnostik zu bieten.
+                                        Die Panoramaaufnahme (2D-OPG) ist ideal, um den gesamten Zustand Ihrer Zähne
+                                        und des Kiefers zu beurteilen. Sie ermöglicht es uns, retinierte Zähne,
+                                        Karies oder die Position von Implantaten in Bezug auf benachbarte
+                                        anatomische Strukturen zu erkennen. Für detaillierte Informationen, wie z.B.
+                                        Entzündungen an der Wurzelspitze oder die Beurteilung von
+                                        Wurzelkanalfüllungen, nutzen wir periapikale Einzelaufnahmen. Bei komplexen
+                                        Fällen, wie dem Einsetzen von Implantaten oder der Diagnose von
+                                        Wurzelfrakturen, bietet uns die 3D-Diagnostik (DVT) ein präzises Bild. Alle
+                                        diese Aufnahmen erfolgen bei uns mit minimaler Strahlenbelastung und
+                                        neuester Technologie.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Digitale Abformung</h4>
+                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
+                                        moderne
+                                        3D-Intraoralscanner, um die herkömmliche Abformung zu ersetzen. Diese
+                                        digitale Abformung vermeidet die typischen Nachteile der traditionellen
+                                        Methode, wie den Zeitaufwand und den Übelkeitsreflex. Ein weiterer Vorteil
+                                        ist die Minimierung menschlicher Fehler: Bei herkömmlichen Abformungen kann
+                                        es beim Transport zu Verformungen kommen. Mit der digitalen Abformung werden
+                                        alle Daten präzise und sicher auf Computern gespeichert, die mit
+                                        lizenzierter Software arbeiten und hohen Datenschutzstandards entsprechen.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Digitale Smile Design</h4>
+                                    <p>Ein strahlendes Lächeln kann das Selbstvertrauen steigern und den Eindruck, den
+                                        man bei anderen hinterlässt, deutlich verbessern. In unserer Zahnarztpraxis
+                                        Dr. Seda Sanli in Berlin Schöneberg bieten wir modernes digitales Smile
+                                        Design an, um ein ästhetisch ansprechendes Lächeln zu schaffen. Mithilfe
+                                        modernster Technologien und digitaler Simulationsmethoden gestalten wir
+                                        nicht nur die Zähne, sondern auch das umliegende Gewebe, um Ihnen das
+                                        perfekte Lächeln zu verleihen.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Implantatchirurgie mit digitaler Führung</h4>
+                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir moderne
+                                        Implantatchirurgie mit digitaler Führung an, um eine schnelle Heilung und
+                                        optimale ästhetische sowie funktionelle Ergebnisse zu gewährleisten. Durch
+                                        die Nutzung von Bohrschablonen, die mithilfe digitaler Messungen und
+                                        3D-Tomographien (CBCT) sowie intraoralen Scannern erstellt werden,
+                                        ermöglichen wir schnittfreie Operationen. Diese präzise Methode sorgt für
+                                        einen schmerzfreien Heilungsprozess und perfekte, passgenaue Prothesen –
+                                        sowohl funktional als auch ästhetisch.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mobile-faq-menu">DIGITALE ZAHNMEDIZIN</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
-                                        Digitale Röntgen</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">In unserer
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg setzen wir modernste
-                                            digitale Röntgentechnologie ein, um Ihnen die beste Diagnostik zu bieten.
-                                            Die Panoramaaufnahme (2D-OPG) ist ideal, um den gesamten Zustand Ihrer Zähne
-                                            und des Kiefers zu beurteilen. Sie ermöglicht es uns, retinierte Zähne,
-                                            Karies oder die Position von Implantaten in Bezug auf benachbarte
-                                            anatomische Strukturen zu erkennen. Für detaillierte Informationen, wie z.B.
-                                            Entzündungen an der Wurzelspitze oder die Beurteilung von
-                                            Wurzelkanalfüllungen, nutzen wir periapikale Einzelaufnahmen. Bei komplexen
-                                            Fällen, wie dem Einsetzen von Implantaten oder der Diagnose von
-                                            Wurzelfrakturen, bietet uns die 3D-Diagnostik (DVT) ein präzises Bild. Alle
-                                            diese Aufnahmen erfolgen bei uns mit minimaler Strahlenbelastung und
-                                            neuester Technologie.</p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Digitale Abformung
-                                    </p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">In unserer
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir moderne
-                                            3D-Intraoralscanner, um die herkömmliche Abformung zu ersetzen. Diese
-                                            digitale Abformung vermeidet die typischen Nachteile der traditionellen
-                                            Methode, wie den Zeitaufwand und den Übelkeitsreflex. Ein weiterer Vorteil
-                                            ist die Minimierung menschlicher Fehler: Bei herkömmlichen Abformungen kann
-                                            es beim Transport zu Verformungen kommen. Mit der digitalen Abformung werden
-                                            alle Daten präzise und sicher auf Computern gespeichert, die mit
-                                            lizenzierter Software arbeiten und hohen Datenschutzstandards entsprechen.
-                                        </p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Digitale Smile Design
-                                    </p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Ein
-                                            strahlendes Lächeln kann das Selbstvertrauen steigern und den Eindruck, den
-                                            man bei anderen hinterlässt, deutlich verbessern. In unserer Zahnarztpraxis
-                                            Dr. Seda Sanli in Berlin Schöneberg bieten wir modernes digitales Smile
-                                            Design an, um ein ästhetisch ansprechendes Lächeln zu schaffen. Mithilfe
-                                            modernster Technologien und digitaler Simulationsmethoden gestalten wir
-                                            nicht nur die Zähne, sondern auch das umliegende Gewebe, um Ihnen das
-                                            perfekte Lächeln zu verleihen.
-                                        </p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Implantatchirurgie
-                                        mit
-                                        digitaler Führung</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">In unserer
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir moderne
-                                            Implantatchirurgie mit digitaler Führung an, um eine schnelle Heilung und
-                                            optimale ästhetische sowie funktionelle Ergebnisse zu gewährleisten. Durch
-                                            die Nutzung von Bohrschablonen, die mithilfe digitaler Messungen und
-                                            3D-Tomographien (CBCT) sowie intraoralen Scannern erstellt werden,
-                                            ermöglichen wir schnittfreie Operationen. Diese präzise Methode sorgt für
-                                            einen schmerzfreien Heilungsprozess und perfekte, passgenaue Prothesen –
-                                            sowohl funktional als auch ästhetisch.
-                                        </p>
-                                    </div>
-                                </div>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">ZAHNAUFHELLUNG (BLEACHING)</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <p>Die Zahnaufhellung ist ein effektives Verfahren zur Aufhellung der Zahnfarbe, das
+                                    unter ärztlicher Aufsicht in unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
+                                    Schöneberg durchgeführt wird. Dieses Verfahren eignet sich besonders für Zähne,
+                                    die durch Farbstoffe wie Tabak, Kaffee oder Tee verfärbt sind. Auch angeborene
+                                    Zahnfarben, die genetisch bedingt sind, können aufgehellt werden. Die Anwendung
+                                    erfolgt mit speziellen chemischen Mitteln, die sicher und schonend für Zähne und
+                                    umliegendes Gewebe sind. In kurzer Zeit können Sie sichtbare Ergebnisse
+                                    erzielen, ohne Ihre Zahngesundheit zu gefährden.</p>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mobile-faq-menu">ZAHNAUFHELLUNG (BLEACHING)</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p>Die Zahnaufhellung ist ein effektives Verfahren zur Aufhellung der Zahnfarbe, das
-                                        unter ärztlicher Aufsicht in unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
-                                        Schöneberg durchgeführt wird. Dieses Verfahren eignet sich besonders für Zähne,
-                                        die durch Farbstoffe wie Tabak, Kaffee oder Tee verfärbt sind. Auch angeborene
-                                        Zahnfarben, die genetisch bedingt sind, können aufgehellt werden. Die Anwendung
-                                        erfolgt mit speziellen chemischen Mitteln, die sicher und schonend für Zähne und
-                                        umliegendes Gewebe sind. In kurzer Zeit können Sie sichtbare Ergebnisse
-                                        erzielen, ohne Ihre Zahngesundheit zu gefährden.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mobile-faq-menu">ÄSTHETISCHE ZAHNBEHANDLUNG UND SMILE DESIGN</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <h3>Ein schöneres und gesünderes Lächeln erreichen</h3>
-                                    <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Ein schönes
-                                        Lächeln ist entscheidend für das Selbstvertrauen und die Lebensqualität. In
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">ÄSTHETISCHE ZAHNBEHANDLUNG UND SMILE DESIGN</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <div class="leistungen-subsection">
+                                    <h4>Ein schöneres und gesünderes Lächeln erreichen</h4>
+                                    <p>Ein schönes Lächeln ist entscheidend für das Selbstvertrauen und die
+                                        Lebensqualität. In
                                         unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir eine
                                         umfassende Behandlung an, die darauf abzielt, verfärbte, abgenutzte, schiefe
                                         oder entstellte Zähne, schlaffes Zahnfleisch und eine verminderte Lippenstütze
@@ -1206,6 +1819,8 @@
                                         und das soziale Leben beeinträchtigen. Mit modernster Technologie und digitalen
                                         Simulationsmethoden gestalten wir ein Lächeln, das sowohl schön als auch gesund
                                         ist.</p>
+                                </div>
+                                <div class="leistungen-subsection">
                                     <h4>Zahnästhetik (Gesundheit, Form, Farbe und Niveau der Zähne)</h4>
                                     <ul>
                                         <li>Veneers (Keramikverblendschalen), Kronen und Brücken aus Keramik</li>
@@ -1213,83 +1828,72 @@
                                         <li>Bleaching</li>
                                         <li>Unsichtbare Zahnspangen für kleine Zahnfehlstellungen</li>
                                     </ul>
+                                </div>
+                                <div class="leistungen-subsection">
                                     <h4>Zahnfleischästhetik (Zahnfleischgesundheit, -form und -niveau)</h4>
                                     <ul>
                                         <li>Parodontalchirurgie bei Zahnfleischrückgang (Rezession) oder zu viel
-                                            sichtbarem
-                                            Zahnfleisch (Gummy Smile)</li>
+                                            sichtbarem Zahnfleisch (Gummy Smile)</li>
                                         <li>Herausnehmbare Zahnfleischmaske bei großen Zahnfleischdefekten</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mobile-faq-menu">PROTHETISCHE ZAHNBEHANDLUNGEN</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
-                                        Veneers</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
-                                            Veneers sind dünne, aufgeklebte Verblendschalen aus Keramik, die für
-                                            ästhetische Korrekturen an den Zähnen verwendet werden. Mit Veneers lassen
-                                            sich leichte Fehlstellungen, Zahnlücken sowie Form- und Farbkorrekturen
-                                            effizient beheben. Die ästhetischen Ergebnisse sind beeindruckend und
-                                            verleihen Ihnen ein strahlendes, natürliches Lächeln. In unserer
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg setzen wir Veneers ein,
-                                            um Ihnen ein perfektes Lächeln mit minimalinvasiver Behandlung zu
-                                            ermöglichen.</p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
-                                        Teilprothese und Kombinationenprothese</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
-                                            Teilprothesen sind die ideale Lösung bei teilweisem Zahnverlust. Die
-                                            Prothesenbasis liegt auf der Schleimhaut auf und benötigt Halteelemente für
-                                            sicheren Halt. Diese Halteelemente können Klammern, Geschiebe oder
-                                            Teleskopkronen sein. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
-                                            Schöneberg bieten wir auch flexible Kunststoffprothesen an, die ästhetisch
-                                            ansprechende und komfortable Lösungen für die Halteelemente bieten. Mit
-                                            modernen Prothesenoptionen sorgen wir für eine sichere und angenehme
-                                            Passform, die Ihnen sowohl funktionale als auch ästhetische Vorteile bietet.
-                                        </p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
-                                        Totalprothese</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Eine
-                                            Totalprothese dient als vollständiger Zahnersatz für den Ober- und/oder
-                                            Unterkiefer. Sie besteht aus einem zahnfleischfarbenen Kunststoff und
-                                            künstlichen Zähnen. Im Oberkiefer bedeckt die Prothese sowohl den Kieferkamm
-                                            als auch den Gaumen, während sie im Unterkiefer nur den Kieferkamm umfasst.
-                                            In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir
-                                            Ihnen maßgeschneiderte Totalprothesen, die eine vollständige Zahnreihe
-                                            ersetzen und sowohl ästhetische als auch funktionelle Vorteile bieten.</p>
-                                    </div>
-                                    <h3>Zahnstützende Krone und Brücke</h3>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Metallgestützte
-                                        Porzellan-Krone/Brücke</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Die
-                                            metallgestützte Porzellan-Krone oder Brücke ist eine langlebige und
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu">PROTHETISCHE ZAHNBEHANDLUNGEN</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <div class="leistungen-subsection">
+                                    <h4>Veneers</h4>
+                                    <p>Veneers sind dünne, aufgeklebte Verblendschalen aus Keramik, die für
+                                        ästhetische Korrekturen an den Zähnen verwendet werden. Mit Veneers lassen
+                                        sich leichte Fehlstellungen, Zahnlücken sowie Form- und Farbkorrekturen
+                                        effizient beheben. Die ästhetischen Ergebnisse sind beeindruckend und
+                                        verleihen Ihnen ein strahlendes, natürliches Lächeln. In unserer
+                                        Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg setzen wir Veneers ein,
+                                        um Ihnen ein perfektes Lächeln mit minimalinvasiver Behandlung zu
+                                        ermöglichen.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Teilprothese und Kombinationenprothese</h4>
+                                    <p>Teilprothesen sind die ideale Lösung bei teilweisem Zahnverlust. Die
+                                        Prothesenbasis liegt auf der Schleimhaut auf und benötigt Halteelemente für
+                                        sicheren Halt. Diese Halteelemente können Klammern, Geschiebe oder
+                                        Teleskopkronen sein. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
+                                        Schöneberg bieten wir auch flexible Kunststoffprothesen an, die ästhetisch
+                                        ansprechende und komfortable Lösungen für die Halteelemente bieten. Mit
+                                        modernen Prothesenoptionen sorgen wir für eine sichere und angenehme
+                                        Passform, die Ihnen sowohl funktionale als auch ästhetische Vorteile bietet.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Totalprothese</h4>
+                                    <p>Eine Totalprothese dient als vollständiger Zahnersatz für den Ober- und/oder
+                                        Unterkiefer. Sie besteht aus einem zahnfleischfarbenen Kunststoff und
+                                        künstlichen Zähnen. Im Oberkiefer bedeckt die Prothese sowohl den Kieferkamm
+                                        als auch den Gaumen, während sie im Unterkiefer nur den Kieferkamm umfasst.
+                                        In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir
+                                        Ihnen maßgeschneiderte Totalprothesen, die eine vollständige Zahnreihe
+                                        ersetzen und sowohl ästhetische als auch funktionelle Vorteile bieten.</p>
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Zahnstützende Krone und Brücke</h4>
+                                    <div class="leistungen-subsection">
+                                        <h5>Metallgestützte Porzellan-Krone/Brücke</h5>
+                                        <p>Die metallgestützte Porzellan-Krone oder Brücke ist eine langlebige und
                                             ästhetische Lösung zur Restauration von Zahndefekten. Diese Form der
                                             Verblendprothese besteht aus einer Chrom-Kobalt-Legierung, die mit Porzellan
-                                            beschichtet ist und im Volksmund als „rostfreier Stahl“ bekannt ist. Sie
+                                            beschichtet ist und im Volksmund als „rostfreier Stahl" bekannt ist. Sie
                                             wird oft für ihre Wirtschaftlichkeit, Funktionalität und Ästhetik geschätzt.
                                             In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
                                             diese Prothesen sowohl auf natürlichen Zähnen als auch auf Implantaten mit
                                             künstlichen Zahnwurzeln. Dank ihrer Langlebigkeit können sie auch für
                                             längere Brücken verwendet werden, die festen Halt und ein ästhetisch
-                                            ansprechendes Ergebnis bieten.
-                                        </p>
+                                            ansprechendes Ergebnis bieten.</p>
                                     </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
-                                        Zirkoniumoxid-Keramikkronen/Brücken</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
-                                            Zirkoniumoxid-Keramikkronen und Brücken sind eine ästhetisch ansprechende
+                                    <div class="leistungen-subsection">
+                                        <h5>Zirkoniumoxid-Keramikkronen/Brücken</h5>
+                                        <p>Zirkoniumoxid-Keramikkronen und Brücken sind eine ästhetisch ansprechende
                                             Lösung für Zahnersatz, insbesondere wenn die Optik eine wichtige Rolle
                                             spielt. Obwohl Zirkoniumoxid technisch eine Metalllegierung ist, zeichnet es
                                             sich durch seine natürliche weiße Farbe aus und bietet damit eine
@@ -1300,14 +1904,11 @@
                                             aufweisen und eine dünnere, elegantere Form haben. Besonders in der
                                             Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bevorzugen wir
                                             Zirkoniumoxid-Beschichtungen für Smile-Design-Behandlungen, die sowohl auf
-                                            natürlichen Zähnen als auch auf Implantaten angewendet werden können.
-                                        </p>
+                                            natürlichen Zähnen als auch auf Implantaten angewendet werden können.</p>
                                     </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
-                                        Glaskeramik-Restaurationen (Empress, E-max Press, E-max CAD)</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
-                                            Glaskeramik-Restaurationen wie Empress und E-max bieten eine hervorragende
+                                    <div class="leistungen-subsection">
+                                        <h5>Glaskeramik-Restaurationen (Empress, E-max Press, E-max CAD)</h5>
+                                        <p>Glaskeramik-Restaurationen wie Empress und E-max bieten eine hervorragende
                                             Ästhetik dank ihrer optischen Eigenschaften, die den natürlichen Zähnen sehr
                                             nahe kommen. Diese Hightech-Restaurationen zeichnen sich durch ihre hohe
                                             Lichtdurchlässigkeit und ihr glasartiges Aussehen aus. Sie werden direkt auf
@@ -1318,30 +1919,26 @@
                                             (Inlay, Onlay, Overlay) verwendet werden, die von Zahntechnikern anhand
                                             präziser Modelle erstellt werden. In der Zahnarztpraxis Dr. Seda Sanli in
                                             Berlin Schöneberg bieten wir diese elegante Restauration an, um Ihren Zähnen
-                                            ein natürliches und strahlendes Aussehen zu verleihen.
-
-
-                                        </p>
+                                            ein natürliches und strahlendes Aussehen zu verleihen.</p>
                                     </div>
-                                    <h3>Implantatstützende Zahnersatzt Möglichkeiten</h3>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
-                                        Herausnehmbar Prothese</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Implantate
-                                            bieten eine effektive Lösung, um herausnehmbare Totalprothesen zu
+                                </div>
+                                <div class="leistungen-subsection">
+                                    <h4>Implantatstützende Zahnersatz-Möglichkeiten</h4>
+                                    <div class="leistungen-subsection">
+                                        <h5>Herausnehmbare Prothese</h5>
+                                        <p>Implantate bieten eine effektive Lösung, um herausnehmbare Totalprothesen zu
                                             stabilisieren und die Kaufunktion deutlich zu verbessern. In unserer
                                             Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
                                             verschiedene Stabilisierungssysteme wie Teleskopprothesen, Locator,
                                             Octa-System oder Stegverbindungen, um einen festen Sitz Ihrer Prothese zu
-                                            gewährleisten. Diese Systeme sorgen für mehr Komfort und Sicherheit, sodass
-                                            Sie wieder unbeschwert essen und sprechen können.
+                                            gewährleisten. Diese Systeme sorgen für eine sichere und angenehme
+                                            Passform, die Ihnen sowohl funktionale als auch ästhetische Vorteile bietet.
                                         </p>
                                     </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
-                                        All-On-Four-Implantat-Behandlung</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Die
-                                            All-On-Four-Implantat-Behandlung bietet eine effektive Lösung für Patienten,
+                                    <div class="leistungen-subsection">
+                                        <h5>All-On-Four-Implantat-Behandlung</h5>
+                                        <p>Die All-On-Four-Implantat-Behandlung bietet eine effektive Lösung für
+                                            Patienten,
                                             die alle Zähne im Ober- oder Unterkiefer verloren haben. Dabei werden
                                             Prothesen auf vier Implantaten befestigt, die speziell für diese Methode
                                             entwickelt wurden. Diese Implantate werden mit Schrauben im Kiefer
@@ -1354,209 +1951,196 @@
                                             können, und ermöglicht eine schonende Behandlung ohne aufwändige
                                             chirurgische Eingriffe. In der Zahnarztpraxis Dr. Seda Sanli in Berlin
                                             Schöneberg sorgen wir dafür, dass Sie durch diese bewährte Methode schnell
-                                            wieder zu einem festen und komfortablen Zahnersatz gelangen.
-                                        </p>
+                                            wieder zu einem festen und komfortablen Zahnersatz gelangen.</p>
                                     </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">
-                                        Festsitzender Zahnersatz</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Bei
-                                            vollständigem oder teilweisem Zahnverlust bieten wir Ihnen in der
+                                    <div class="leistungen-subsection">
+                                        <h5>Festsitzender Zahnersatz</h5>
+                                        <p>Bei vollständigem oder teilweisem Zahnverlust bieten wir Ihnen in der
                                             Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg eine Lösung mit
                                             festsitzendem Zahnersatz. Mithilfe von Implantaten, die überkront werden,
                                             können Zahnlücken dauerhaft geschlossen werden. Alternativ verwenden wir
                                             Brückenzwischenglieder, um fehlende Zähne zu ersetzen und Ihnen wieder ein
                                             vollständiges, funktionales Gebiss zu bieten. Festsitzender Zahnersatz
                                             stellt eine ästhetisch und funktional hochwertige Lösung dar, die Stabilität
-                                            und Komfort gewährleistet.
-                                        </p>
+                                            und Komfort gewährleistet.</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mobile-faq-menu">IMPLANTOLOGIE</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p>Implantate sind künstliche Zahnwurzeln, die meist aus einer Titanlegierung
-                                        bestehen und bei Einzelzahn-, Mehrzahn- oder Ganzkieferdefekten eingesetzt
-                                        werden können. Sie ermöglichen festsitzenden Zahnersatz, selbst in völlig
-                                        zahnlosen Kiefern, wenn ausreichend Implantate vorhanden sind. Auf diesen
-                                        Implantaten können metallgestützte Porzellan-, Zirkonium- oder
-                                        Glaskeramikversorgungen angebracht werden, die eine ästhetische und langlebige
-                                        Lösung bieten. Dank fortschrittlicher Technologien sind die chirurgischen
-                                        Eingriffe heute wesentlich einfacher und die Genesung nach der Operation erfolgt
-                                        schnell und schmerzlos. In der Zahnarztpraxis Dr. Seda Sanli in Berlin
-                                        Schöneberg bieten wir Ihnen die modernsten Methoden der Implantologie für
-                                        optimale Ergebnisse.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mobile-faq-menu">ORAL CHIRURGIE</p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p class="faq-accordion" style="padding: 12px 16px 12px; margin: 12px 0">
-                                        Weissheitszahn Extraktionen</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">Die
-                                            Entfernung retinierter oder teilretinierter Weisheitszähne wird in der
-                                            Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg mit großer Sorgfalt und
-                                            Erfahrung durchgeführt. Mithilfe moderner Chirurgiemotoren und digitaler
-                                            Bildgebung (2D- oder 3D-Röntgen) mit sehr geringer Strahlenbelastung sorgen
-                                            wir für eine präzise und schonende Extraktion. Unser Ziel ist es, den
-                                            Eingriff für Sie so komfortabel und sicher wie möglich zu gestalten.</p>
-                                    </div>
-                                    <p class="faq-accordion" style="padding: 15px 18px; margin: 0">Chirurgische
-                                        Vorbehandlungen für ästhetische und funktionelle Prothese</p>
-                                    <div class="faq-panel">
-                                        <p class="faq-panel" style="margin-top: 1.25em; margin-bottom: 2.5em">
-                                            Chirurgische Vorbereitungen für festsitzenden und herausnehmbaren Zahnersatz
-                                            ermöglichen es uns, funktionellere, stabilere und ästhetisch ansprechendere
-                                            Ergebnisse für unsere Patienten zu erzielen. Zu diesen Behandlungen zählen
-                                            Eingriffe wie die Entfernung des Lippenbändchens (Frenektomie), die
-                                            Beseitigung von hypertrophem oder beweglichem Weichgewebe sowie die
-                                            Kronenverlängerung. In der Zahnarztpraxis Dr. Seda Sanli in Berlin
-                                            Schöneberg sorgen wir durch präzise chirurgische Vorbehandlungen dafür, dass
-                                            Ihr Zahnersatz optimal passt und sowohl ästhetische als auch funktionale
-                                            Anforderungen erfüllt.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mobile-faq-menu" style="border-bottom: none;">PARADONTOLOGIE und PARADONTAL CHIRURGIE
-                        </p>
-                        <div class="mobile-faq-panel">
-                            <div class="expertise-faq">
-                                <div style="border-bottom: solid #f4f4f4 1px;">
-                                    <p>Parodontitis ist eine Entzündung des Zahnhalteapparates, die unbehandelt zum
-                                        Knochenabbau führen kann. Die Grundlage jeder Therapie besteht in der
-                                        gründlichen Reinigung der von Bakterien besiedelten Zahnoberflächen und der
-                                        Entfernung des entzündeten Gewebes. Diese Reinigungsbehandlungen werden in der
-                                        Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg in mehreren Terminen
-                                        durchgeführt, um die Gesundheit des Zahnhalteapparates wiederherzustellen und
-                                        weiteren Knochenverlust zu verhindern.</p>
-                                    <ul>
-                                        <li>Nichtchirurgische Parodontitisbehandlung (geschlossene Kurettage)</li>
-                                        <li>Chirurgische Parodontitisbehandlung (offene Kurettage)</li>
-                                        <li>Regenerative Masnahmen (eine Membran gesteuerte Geweberegeneration mit dem
-                                            Knochenersatzmaterial oder eine biologisch gesteuerte Regeneration mit einer
-                                            Schmelzproteinmatrix)</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Anfahrt Section -->
-        <section class="fade-in" id="Anfahrt">
-            <div>
-                <div class="anfahrt_flex">
-                    <div class="content_half">
-                        <div class="flex-row" style="margin-bottom: 0.5rem;">
-                            <span style="width: 1.5rem;height: 1.5rem;" class="">
-                                <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
-                                    aria-hidden="true" viewBox="0 0 32 35" fill="#000">
-                                    <path
-                                        d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
-                                        fill="#000"></path>
-                                </svg>
-                            </span>
-                            <h2>Öffnungszeiten</h2>
-                        </div>
-                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                            <p style="width: 10rem;"><b>Montag</b></p>
-                            <p>08:00 - 15:00</p>
-                        </div>
-                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                            <p style="width: 10rem;"><b>Dienstag</b></p>
-                            <p>09:00 - 19:00</p>
-                        </div>
-                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                            <p style="width: 10rem;"><b>Mittwoch</b></p>
-                            <p>08:00 - 15:00</p>
-                        </div>
-                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                            <p style="width: 10rem;"><b>Donnerstag</b></p>
-                            <p>09:00 - 19:00</p>
-                        </div>
-                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                            <p style="width: 10rem;"><b>Freitag</b></p>
-                            <p>Nach Vereinbarung</p>
+                <div class="leistungen-accordion-item">
+                    <p class="leistungen-accordion-menu">IMPLANTOLOGIE</p>
+                    <div class="leistungen-accordion-panel">
+                        <div class="leistungen-content">
+                            <p>Implantate sind künstliche Zahnwurzeln, die meist aus einer Titanlegierung
+                                bestehen und bei Einzelzahn-, Mehrzahn- oder Ganzkieferdefekten eingesetzt
+                                werden können. Sie ermöglichen festsitzenden Zahnersatz, selbst in völlig
+                                zahnlosen Kiefern, wenn ausreichend Implantate vorhanden sind. Auf diesen
+                                Implantaten können metallgestützte Porzellan-, Zirkonium- oder
+                                Glaskeramikversorgungen angebracht werden, die eine ästhetische und langlebige
+                                Lösung bieten. Dank fortschrittlicher Technologien sind die chirurgischen
+                                Eingriffe heute wesentlich einfacher und die Genesung nach der Operation erfolgt
+                                schnell und schmerzlos. In der Zahnarztpraxis Dr. Seda Sanli in Berlin
+                                Schöneberg bieten wir Ihnen die modernsten Methoden der Implantologie für
+                                optimale Ergebnisse.</p>
                         </div>
                     </div>
-                    <div class="content_half">
-                        <div class="google-container">
-                            <div class="google-maps">
-                                <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
-                                    marginheight="0" marginwidth="0" id="gmap_canvas"
-                                    src="https://maps.google.com/maps?hl=de&amp;q=Eisenacher Str.+108+10777+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                                    loading="lazy">
-                                </iframe>
+                </div>
+                <div class="leistungen-accordion-item">
+                    <p class="leistungen-accordion-menu">ORAL CHIRURGIE</p>
+                    <div class="leistungen-accordion-panel">
+                        <div class="leistungen-content">
+                            <div class="leistungen-subsection">
+                                <h4>Weisheitszahn Extraktionen</h4>
+                                <p>Die Entfernung retinierter oder teilretinierter Weisheitszähne wird in der
+                                    Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg mit großer Sorgfalt und
+                                    Erfahrung durchgeführt. Mithilfe moderner Chirurgiemotoren und digitaler
+                                    Bildgebung (2D- oder 3D-Röntgen) mit sehr geringer Strahlenbelastung sorgen
+                                    wir für eine präzise und schonende Extraktion. Unser Ziel ist es, den
+                                    Eingriff für Sie so komfortabel und sicher wie möglich zu gestalten.</p>
                             </div>
-
+                            <div class="leistungen-subsection">
+                                <h4>Chirurgische Vorbehandlungen für ästhetische und funktionelle Prothese</h4>
+                                <p>Chirurgische Vorbereitungen für festsitzenden und herausnehmbaren Zahnersatz
+                                    ermöglichen es uns, funktionellere, stabilere und ästhetisch ansprechendere
+                                    Ergebnisse für unsere Patienten zu erzielen. Zu diesen Behandlungen zählen
+                                    Eingriffe wie die Entfernung des Lippenbändchens (Frenektomie), die
+                                    Beseitigung von hypertrophem oder beweglichem Weichgewebe sowie die
+                                    Kronenverlängerung. In der Zahnarztpraxis Dr. Seda Sanli in Berlin
+                                    Schöneberg sorgen wir durch präzise chirurgische Vorbehandlungen dafür, dass
+                                    Ihr Zahnersatz optimal passt und sowohl ästhetische als auch funktionale
+                                    Anforderungen erfüllt.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="content_half">
-                        <div class="center_flex_element">
-                            <img height="50" width="40" src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/"
-                                alt="bus" loading="lazy">
-                            <h4>Öffentliche Verkehrsmittel</h4>
+                </div>
+                <div class="leistungen-accordion-item">
+                    <p class="leistungen-accordion-menu">PARADONTOLOGIE und PARADONTAL CHIRURGIE</p>
+                    <div class="leistungen-accordion-panel">
+                        <div class="leistungen-content">
+                            <div class="leistungen-subsection">
+                                <p>Parodontitis ist eine Entzündung des Zahnhalteapparates, die unbehandelt zum
+                                    Knochenabbau führen kann. Die Grundlage jeder Therapie besteht in der
+                                    gründlichen Reinigung der von Bakterien besiedelten Zahnoberflächen und der
+                                    Entfernung des entzündeten Gewebes. Diese Reinigungsbehandlungen werden in der
+                                    Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg in mehreren Terminen
+                                    durchgeführt, um die Gesundheit des Zahnhalteapparates wiederherzustellen und
+                                    weiteren Knochenverlust zu verhindern.</p>
+                                <ul>
+                                    <li>Nichtchirurgische Parodontitisbehandlung (geschlossene Kurettage)</li>
+                                    <li>Chirurgische Parodontitisbehandlung (offene Kurettage)</li>
+                                    <li>Regenerative Maßnahmen (eine Membran gesteuerte Geweberegeneration mit dem
+                                        Knochenersatzmaterial oder eine biologisch gesteuerte Regeneration mit einer
+                                        Schmelzproteinmatrix)</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
-                            erreichen. Unweit der Praxis
-                            finden
-                            Sie den U-Bhf Nollendorfplatz sowie Viktoria-Luise-Platz. Als auch den S-Bhf York Str.
-                            Ebenso haben Sie die Möglichkeit
-                            zur
-                            Anfahrt mit dem Bus. Nicht weit weg unseren Praxistüren befinden sich die Haltestationen
-                            Hohenstaufenstr. und Motzstr.</p>
-                        <div class="flex_row_anfahrt">
-                            <img alt="U-Bahn" src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/"
-                                width="38" height="38" loading="lazy">
-                            <p>U1,U2,U3,U4</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+
+    <!-- Anfahrt Section -->
+    <section class="fade-in" id="Anfahrt">
+        <div>
+            <div class="anfahrt_flex">
+                <div class="content_half">
+                    <div class="flex-row" style="margin-bottom: 0.5rem;">
+                        <span style="width: 1.5rem;height: 1.5rem;" class="">
+                            <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
+                                aria-hidden="true" viewBox="0 0 32 35" fill="#000">
+                                <path
+                                    d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
+                                    fill="#000"></path>
+                            </svg>
+                        </span>
+                        <h2>Öffnungszeiten</h2>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Montag</b></p>
+                        <p>08:00 - 15:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Dienstag</b></p>
+                        <p>09:00 - 19:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Mittwoch</b></p>
+                        <p>08:00 - 15:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Donnerstag</b></p>
+                        <p>09:00 - 19:00</p>
+                    </div>
+                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                        <p style="width: 10rem;"><b>Freitag</b></p>
+                        <p>Nach Vereinbarung</p>
+                    </div>
+                </div>
+                <div class="content_half">
+                    <div class="google-container">
+                        <div class="google-maps">
+                            <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
+                                marginheight="0" marginwidth="0" id="gmap_canvas"
+                                src="https://maps.google.com/maps?hl=de&amp;q=Eisenacher Str.+108+10777+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                loading="lazy">
+                            </iframe>
                         </div>
-                        <!-- <div class="flex_row_anfahrt">
+
+                    </div>
+                </div>
+                <div class="content_half">
+                    <div class="center_flex_element">
+                        <img height="50" width="40" src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/"
+                            alt="bus" loading="lazy">
+                        <h4>Öffentliche Verkehrsmittel</h4>
+                    </div>
+                    <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
+                        erreichen. Unweit der Praxis
+                        finden
+                        Sie den U-Bhf Nollendorfplatz sowie Viktoria-Luise-Platz. Als auch den S-Bhf York Str.
+                        Ebenso haben Sie die Möglichkeit
+                        zur
+                        Anfahrt mit dem Bus. Nicht weit weg unseren Praxistüren befinden sich die Haltestationen
+                        Hohenstaufenstr. und Motzstr.</p>
+                    <div class="flex_row_anfahrt">
+                        <img alt="U-Bahn" src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/" width="38"
+                            height="38" loading="lazy">
+                        <p>U1,U2,U3,U4</p>
+                    </div>
+                    <!-- <div class="flex_row_anfahrt">
                         <img alt="Tram" src="https://ucarecdn.com/67bc4cc6-f82b-4315-b854-465b5753fc20/" width="38"
                             height="38" loading="lazy">
                         <p>U5</p>
                     </div> -->
-                        <div class="flex_row_anfahrt">
-                            <img alt="S-Bahn" src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/"
-                                width="38" height="38" loading="lazy">
-                            <p>S1</p>
-                        </div>
-                        <div class="flex_row_anfahrt">
-                            <img alt="Bus" src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/" width="38"
-                                height="38" loading="lazy">
-                            <p>M46, 204</p>
-                        </div>
+                    <div class="flex_row_anfahrt">
+                        <img alt="S-Bahn" src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/" width="38"
+                            height="38" loading="lazy">
+                        <p>S1</p>
                     </div>
-                    <div class="content_half">
-                        <div class="center_flex_element">
-                            <img height="50" width="40" src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/"
-                                alt="bus" loading="lazy">
-                            <h4>Mit dem Auto</h4>
-                        </div>
-                        <p style="text-align: justify;">Sie finden unsere Praxis in der
-                            Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den anliegenden
-                            Straßen viele
-                            Parkmöglichkeiten für die Anfahrt mit dem Auto.</p>
+                    <div class="flex_row_anfahrt">
+                        <img alt="Bus" src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/" width="38"
+                            height="38" loading="lazy">
+                        <p>M46, 204</p>
                     </div>
                 </div>
+                <div class="content_half">
+                    <div class="center_flex_element">
+                        <img height="50" width="40" src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/"
+                            alt="bus" loading="lazy">
+                        <h4>Mit dem Auto</h4>
+                    </div>
+                    <p style="text-align: justify;">Sie finden unsere Praxis in der
+                        Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den anliegenden
+                        Straßen viele
+                        Parkmöglichkeiten für die Anfahrt mit dem Auto.</p>
+                </div>
             </div>
+        </div>
 
-        </section>
+    </section>
     </div>
 
     <div id="datenschutz_page" class="hidden gone">
@@ -1936,6 +2520,44 @@
             function setClass(els, className, fnName) {
                 for (var i = 0; i < els.length; i++) {
                     els[i].classList[fnName](className);
+                }
+            }
+        });
+
+        // CV Accordion Functionality
+        document.addEventListener("DOMContentLoaded", function (event) {
+            // Main CV accordion
+            var cvMainMenu = document.getElementsByClassName("cv-main-menu");
+            var cvMainPanel = document.getElementsByClassName('cv-main-panel');
+            for (var i = 0; i < cvMainMenu.length; i++) {
+                cvMainMenu[i].onclick = function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    panel.classList.toggle("show");
+                }
+            }
+
+            // CV Section accordions
+            var cvSectionMenu = document.getElementsByClassName("cv-section-menu");
+            var cvSectionPanel = document.getElementsByClassName('cv-section-panel');
+            for (var i = 0; i < cvSectionMenu.length; i++) {
+                cvSectionMenu[i].onclick = function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    panel.classList.toggle("show");
+                }
+            }
+        });
+
+        // Leistungen Accordion Functionality
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var leistungenMenu = document.getElementsByClassName("leistungen-accordion-menu");
+            var leistungenPanel = document.getElementsByClassName('leistungen-accordion-panel');
+            for (var i = 0; i < leistungenMenu.length; i++) {
+                leistungenMenu[i].onclick = function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    panel.classList.toggle("show");
                 }
             }
         });
