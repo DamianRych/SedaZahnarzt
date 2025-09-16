@@ -542,6 +542,40 @@
             transform: translateY(0);
         }
 
+        /* Override fade-in behavior when parent has fade class */
+        .fade .fade-in {
+            opacity: 0 !important;
+            transform: translateY(-20px) !important;
+            transition: opacity 0.5s ease, transform 0.5s ease !important;
+        }
+
+        .fade .fade-in.visible-content {
+            opacity: 0 !important;
+            transform: translateY(-20px) !important;
+        }
+
+        /* Ensure fade-in elements work normally when main page is visible */
+        .visible .fade-in.visible-content {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Hide sections immediately when main page has fade class - highest specificity */
+        #main_page.fade section,
+        #main_page.fade.hidden section,
+        #main_page.fade.gone section {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+
+        /* Show sections when main page is visible */
+        #main_page.visible section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
         .google-maps {
             width: 100%;
             height: 20rem;
@@ -1034,8 +1068,32 @@
             /* Add fade-in animation */
         }
 
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.visible {
+            display: block;
+        }
+
+        .modal-overlay.hidden.gone {
+            display: none;
+        }
+
         .fade {
             transition: opacity 0.5s ease;
+        }
+
+        /* Override transition for main page fade to allow immediate hiding */
+        #main_page.fade {
+            transition: none !important;
         }
 
         #impressum_section div,
@@ -2703,115 +2761,116 @@
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
-
-    <!-- Anfahrt Section -->
-    <section class="fade-in" id="Anfahrt">
-        <div>
-            <div class="anfahrt_flex">
-                <div class="content_half">
-                    <div class="flex-row" style="margin-bottom: 0.5rem;">
-                        <span style="width: 1.5rem;height: 1.5rem;" class="">
-                            <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
-                                aria-hidden="true" viewBox="0 0 32 35" fill="#000">
-                                <path
-                                    d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
-                                    fill="#000"></path>
-                            </svg>
-                        </span>
-                        <h2 data-translate="anfahrt_opening_hours">Öffnungszeiten</h2>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b data-translate="anfahrt_monday">Montag</b></p>
-                        <p>08:00 - 15:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b data-translate="anfahrt_tuesday">Dienstag</b></p>
-                        <p>09:00 - 19:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b data-translate="anfahrt_wednesday">Mittwoch</b></p>
-                        <p>08:00 - 15:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b data-translate="anfahrt_thursday">Donnerstag</b></p>
-                        <p>09:00 - 19:00</p>
-                    </div>
-                    <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b data-translate="anfahrt_friday">Freitag</b></p>
-                        <p data-translate="anfahrt_friday_by_appointment">Nach Vereinbarung</p>
-                    </div>
-                </div>
-                <div class="content_half">
-                    <div class="google-container">
-                        <div class="google-maps">
-                            <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
-                                marginheight="0" marginwidth="0" id="gmap_canvas"
-                                data-src="https://maps.google.com/maps?hl=de&amp;q=Eisenacher Str.+108+10777+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                                loading="lazy">
-                            </iframe>
+        </section>
+        <!-- Anfahrt Section -->
+        <section class="fade-in" id="Anfahrt">
+            <div>
+                <div class="anfahrt_flex">
+                    <div class="content_half">
+                        <div class="flex-row" style="margin-bottom: 0.5rem;">
+                            <span style="width: 1.5rem;height: 1.5rem;" class="">
+                                <svg style="max-width: 1.5rem;max-height: 1.5rem;" class="" focusable="false"
+                                    aria-hidden="true" viewBox="0 0 32 35" fill="#000">
+                                    <path
+                                        d="M16 4.28613C9.373 4.28613 4 9.65913 4 16.2861C4 22.9131 9.373 28.2861 16 28.2861C22.627 28.2861 28 22.9131 28 16.2861C28 9.65913 22.627 4.28613 16 4.28613ZM17 17.2861H8.995C8.445 17.2861 8 16.8411 8 16.2911V16.2801C8 15.7311 8.445 15.2861 8.995 15.2861H15V7.28113C15 6.73113 15.445 6.28613 15.995 6.28613H16.006C16.555 6.28613 17 6.73113 17 7.28113V17.2861Z"
+                                        fill="#000"></path>
+                                </svg>
+                            </span>
+                            <h2 data-translate="anfahrt_opening_hours">Öffnungszeiten</h2>
                         </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b data-translate="anfahrt_monday">Montag</b></p>
+                            <p>08:00 - 15:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b data-translate="anfahrt_tuesday">Dienstag</b></p>
+                            <p>09:00 - 19:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b data-translate="anfahrt_wednesday">Mittwoch</b></p>
+                            <p>08:00 - 15:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b data-translate="anfahrt_thursday">Donnerstag</b></p>
+                            <p>09:00 - 19:00</p>
+                        </div>
+                        <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
+                            <p style="width: 10rem;"><b data-translate="anfahrt_friday">Freitag</b></p>
+                            <p data-translate="anfahrt_friday_by_appointment">Nach Vereinbarung</p>
+                        </div>
+                    </div>
+                    <div class="content_half">
+                        <div class="google-container">
+                            <div class="google-maps">
+                                <iframe title="Google Maps" width="100%" height="100%" frameborder="0" scrolling="no"
+                                    marginheight="0" marginwidth="0" id="gmap_canvas"
+                                    data-src="https://maps.google.com/maps?hl=de&amp;q=Eisenacher Str.+108+10777+Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-                <div class="content_half">
-                    <div class="center_flex_element">
-                        <img height="50" width="40"
-                            data-src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/" alt="bus"
-                            loading="lazy">
-                        <h4 data-translate="anfahrt_public_transport">Öffentliche Verkehrsmittel</h4>
+                    <div class="content_half">
+                        <div class="center_flex_element">
+                            <img height="50" width="40"
+                                data-src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/" alt="bus"
+                                loading="lazy">
+                            <h4 data-translate="anfahrt_public_transport">Öffentliche Verkehrsmittel</h4>
+                        </div>
+                        <p style="text-align: justify;" data-translate="anfahrt_public_transport_content">Mit den
+                            ÖVPN haben
+                            Sie mehrere Möglichkeiten, unsere Praxis zu
+                            erreichen. Unweit der Praxis
+                            finden
+                            Sie den U-Bhf Nollendorfplatz sowie Viktoria-Luise-Platz. Als auch den S-Bhf York Str.
+                            Ebenso haben Sie die Möglichkeit
+                            zur
+                            Anfahrt mit dem Bus. Nicht weit weg unseren Praxistüren befinden sich die Haltestationen
+                            Hohenstaufenstr. und Motzstr.</p>
+                        <div class="flex_row_anfahrt">
+                            <img alt="U-Bahn" data-src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/"
+                                width="38" height="38" loading="lazy">
+                            <p>U1,U2,U3,U4,U7</p>
+                        </div>
+                        <!-- <div class="flex_row_anfahrt">
+                                <img alt="Tram" data-src="https://ucarecdn.com/67bc4cc6-f82b-4315-b854-465b5753fc20/" width="38"
+                                    height="38" loading="lazy">
+                                <p>U5</p>
+                            </div> -->
+                        <div class="flex_row_anfahrt">
+                            <img alt="S-Bahn" data-src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/"
+                                width="38" height="38" loading="lazy">
+                            <p>S1</p>
+                        </div>
+                        <div class="flex_row_anfahrt">
+                            <img alt="Bus" data-src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/"
+                                width="38" height="38" loading="lazy">
+                            <p>M46, 204</p>
+                        </div>
                     </div>
-                    <p style="text-align: justify;" data-translate="anfahrt_public_transport_content">Mit den ÖVPN haben
-                        Sie mehrere Möglichkeiten, unsere Praxis zu
-                        erreichen. Unweit der Praxis
-                        finden
-                        Sie den U-Bhf Nollendorfplatz sowie Viktoria-Luise-Platz. Als auch den S-Bhf York Str.
-                        Ebenso haben Sie die Möglichkeit
-                        zur
-                        Anfahrt mit dem Bus. Nicht weit weg unseren Praxistüren befinden sich die Haltestationen
-                        Hohenstaufenstr. und Motzstr.</p>
-                    <div class="flex_row_anfahrt">
-                        <img alt="U-Bahn" data-src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/"
-                            width="38" height="38" loading="lazy">
-                        <p>U1,U2,U3,U4,U7</p>
+                    <div class="content_half">
+                        <div class="center_flex_element">
+                            <img height="50" width="40"
+                                data-src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/" alt="bus"
+                                loading="lazy">
+                            <h4 data-translate="anfahrt_by_car">Mit dem Auto</h4>
+                        </div>
+                        <p style="text-align: justify;" data-translate="anfahrt_by_car_content">Sie finden unsere
+                            Praxis in
+                            der
+                            Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den
+                            anliegenden
+                            Straßen viele
+                            Parkmöglichkeiten für die Anfahrt mit dem Auto.</p>
                     </div>
-                    <!-- <div class="flex_row_anfahrt">
-                        <img alt="Tram" data-src="https://ucarecdn.com/67bc4cc6-f82b-4315-b854-465b5753fc20/" width="38"
-                            height="38" loading="lazy">
-                        <p>U5</p>
-                    </div> -->
-                    <div class="flex_row_anfahrt">
-                        <img alt="S-Bahn" data-src="https://ucarecdn.com/74e1f2b1-0e01-4302-b082-96462e4fa62c/"
-                            width="38" height="38" loading="lazy">
-                        <p>S1</p>
-                    </div>
-                    <div class="flex_row_anfahrt">
-                        <img alt="Bus" data-src="https://ucarecdn.com/acc5248f-e0ce-443f-bc02-7fc085ebfff9/" width="38"
-                            height="38" loading="lazy">
-                        <p>M46, 204</p>
-                    </div>
-                </div>
-                <div class="content_half">
-                    <div class="center_flex_element">
-                        <img height="50" width="40"
-                            data-src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/" alt="bus"
-                            loading="lazy">
-                        <h4 data-translate="anfahrt_by_car">Mit dem Auto</h4>
-                    </div>
-                    <p style="text-align: justify;" data-translate="anfahrt_by_car_content">Sie finden unsere Praxis in
-                        der
-                        Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den anliegenden
-                        Straßen viele
-                        Parkmöglichkeiten für die Anfahrt mit dem Auto.</p>
                 </div>
             </div>
-        </div>
 
-    </section>
+        </section>
     </div>
 
-    <div id="datenschutz_page" class="hidden gone">
+    <div id="datenschutz_page" class="hidden gone modal-overlay">
         <section id="datenschutz_section">
 
             <div style="display: flex; align-items: center; gap: 1rem;">
@@ -2935,7 +2994,7 @@
         </section>
     </div>
 
-    <div id="impressum_page" class="hidden gone">
+    <div id="impressum_page" class="hidden gone modal-overlay">
         <section id="impressum_section">
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <svg class="switch_to_main" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -3096,6 +3155,16 @@
                 visiblePage.classList.remove('visible');
                 visiblePage.classList.add('hidden');
 
+                // If switching to a modal page, also add 'gone' class to completely hide main content
+                if (toPage === datenschutzPage || toPage === impressumPage) {
+                    visiblePage.classList.add('gone');
+                    // Ensure all sections inside main page also get the fade behavior
+                    const allSections = visiblePage.querySelectorAll('section');
+                    allSections.forEach(section => {
+                        section.classList.add('fade');
+                    });
+                }
+
 
                 // Delay hiding the old page until the new page is ready
                 setTimeout(() => {
@@ -3110,6 +3179,17 @@
                         toPage.classList.remove('gone');
                         toPage.classList.remove('hidden');
                         toPage.classList.add('visible');
+
+                        // If switching back to main page, remove 'gone' class from all pages
+                        if (toPage === mainPage) {
+                            datenschutzPage.classList.remove('gone');
+                            impressumPage.classList.remove('gone');
+                            // Remove fade class from all sections in main page
+                            const allSections = toPage.querySelectorAll('section');
+                            allSections.forEach(section => {
+                                section.classList.remove('fade');
+                            });
+                        }
 
 
                         // Trigger the fade-in after the page is displayed
