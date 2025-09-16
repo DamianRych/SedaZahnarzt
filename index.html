@@ -158,7 +158,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #a1985e 0%, #34656D 100%);
+            background: linear-gradient(135deg, #4a90a4 0%, #2c5f73 100%);
             z-index: 1;
         }
 
@@ -275,7 +275,8 @@
 
         #das-team {
             padding: 1rem 0 4rem 0;
-            background: #fffbdf;
+            background: #6bb6cc;
+            color: white;
         }
 
         .footer {
@@ -430,7 +431,7 @@
             width: 40px;
             height: 40px;
             border: 3px solid #e9ecef;
-            border-top: 3px solid #a1985e;
+            border-top: 3px solid #4a90a4;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -571,8 +572,9 @@
 
         /* CV Section Styling */
         #lebenslauf {
-            background-color: #fffbdf;
+            background-color: #5ba3b8;
             padding: 3rem 0;
+            color: white;
         }
 
         /* Leistungen Accordion Styling */
@@ -657,7 +659,7 @@
         }
 
         .leistungen-subsection h4 {
-            color: #a1985e;
+            color: #4a90a4;
             margin-bottom: 1rem;
             font-size: 1.2em;
             font-weight: 600;
@@ -685,7 +687,7 @@
         }
 
         .leistungen-subsection h5 {
-            color: #a1985e;
+            color: #4a90a4;
             margin-bottom: 0.8rem;
             font-size: 1.1em;
             font-weight: 600;
@@ -706,7 +708,7 @@
 
         .cv-content h3 {
             text-align: center;
-            color: #a1985e;
+            color: #2c5f73;
             margin-bottom: 2rem;
             font-size: 1.8em;
         }
@@ -849,7 +851,7 @@
         }
 
         .cv-year {
-            background: #a1985e;
+            background: #4a90a4;
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
@@ -896,7 +898,8 @@
             background: #f8f9fa;
             padding: 1rem 1.2rem;
             border-radius: 10px;
-            border-left: 4px solid #a1985e;
+            border-left: 4px solid #4a90a4;
+            color: #2c5f73;
         }
 
         .specialty-icon {
@@ -909,7 +912,7 @@
             background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 10px;
-            border-left: 4px solid #a1985e;
+            border-left: 4px solid #4a90a4;
         }
 
         .cv-personal-note p {
@@ -923,15 +926,16 @@
             background: #f8f9fa;
             padding: 0.8rem 1.2rem;
             border-radius: 10px;
-            border-left: 4px solid #a1985e;
+            border-left: 4px solid #4a90a4;
             font-weight: 500;
             color: #333;
         }
 
         /* Praxis Section Styling */
         #praxis {
-            background-color: #f8f9fa;
+            background-color: #4a90a4;
             padding: 3rem 0;
+            color: white;
         }
 
         .praxis-container {
@@ -963,11 +967,11 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #a1985e;
+            border-left: 4px solid #4a90a4;
         }
 
         .praxis-description h3 {
-            color: #a1985e;
+            color: #2c5f73;
             margin-bottom: 1rem;
             font-size: 1.5em;
         }
@@ -1236,12 +1240,13 @@
         }
 
         #leistungen {
-            background-color: #a1985e;
+            background-color: #2c5f73;
             color: white;
         }
 
         #Anfahrt {
-            background-color: #fffbdf;
+            background-color: #e8f4f8;
+            color: #2c5f73;
         }
 
         .nav-links a {
@@ -1266,6 +1271,399 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Comprehensive Mobile Responsiveness */
+        @media (max-width: 768px) {
+
+            /* Accordion menu improvements for mobile */
+            .leistungen-accordion-menu {
+                padding: 15px 20px;
+                font-size: 0.9em;
+                line-height: 1.4;
+                word-wrap: break-word;
+                hyphens: auto;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+
+            .leistungen-accordion-menu:after {
+                font-size: 1em;
+                padding-right: 5px;
+                flex-shrink: 0;
+            }
+
+            /* Ensure accordion items don't overflow */
+            .leistungen-accordion-item {
+                margin: 1rem 0;
+                overflow: hidden;
+            }
+
+            /* Improve text wrapping in accordion content */
+            .leistungen-content {
+                padding: 1rem;
+            }
+
+            .leistungen-subsection h4,
+            .leistungen-subsection h5 {
+                font-size: 1.1em;
+                line-height: 1.3;
+                word-wrap: break-word;
+            }
+
+            .leistungen-subsection p {
+                font-size: 0.95em;
+                line-height: 1.5;
+            }
+
+            /* CV section mobile improvements */
+            .cv-content {
+                padding: 1.5rem;
+            }
+
+            .cv-content h3 {
+                font-size: 1.5em;
+                margin-bottom: 1.5rem;
+            }
+
+            .cv-specialty-item {
+                padding: 0.8rem 1rem;
+                font-size: 0.9em;
+            }
+
+            .cv-year {
+                font-size: 0.8em;
+                padding: 0.4rem 0.8rem;
+                min-width: 100px;
+            }
+
+            /* CV accordion menu improvements for mobile */
+            .cv-main-menu {
+                padding: 15px 20px;
+                font-size: 0.9em;
+                line-height: 1.4;
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .cv-main-menu:after {
+                font-size: 1em;
+                padding-right: 5px;
+            }
+
+            .cv-section-menu {
+                padding: 12px 18px;
+                font-size: 0.85em;
+                line-height: 1.3;
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .cv-section-menu:after {
+                font-size: 0.9em;
+                padding-right: 5px;
+            }
+
+            /* Praxis section mobile improvements */
+            .praxis-description h3 {
+                font-size: 1.3em;
+            }
+
+            .praxis-description p {
+                font-size: 0.95em;
+            }
+
+            /* Team section mobile improvements */
+            .card-content h3 {
+                font-size: 1.2em;
+            }
+
+            .card-content p {
+                font-size: 0.9em;
+            }
+
+            /* General mobile improvements */
+            .center_text {
+                font-size: 1.8em;
+                padding: 0 1rem;
+            }
+
+            /* Ensure proper spacing on mobile */
+            section {
+                padding: 2rem 0;
+            }
+
+            /* Improve button and interactive element sizing */
+            .button_shape {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            /* Flag switcher mobile improvements */
+            .flag-language-switcher {
+                gap: 8px;
+            }
+
+            .flag-icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Extra small screens */
+            .leistungen-accordion-menu {
+                padding: 12px 15px;
+                font-size: 0.85em;
+                line-height: 1.3;
+                word-wrap: break-word;
+                hyphens: auto;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+
+            .leistungen-accordion-menu:after {
+                font-size: 0.9em;
+                padding-right: 3px;
+                flex-shrink: 0;
+            }
+
+            .center_text {
+                font-size: 1.6em;
+            }
+
+            .cv-content {
+                padding: 1rem;
+            }
+
+            .cv-content h3 {
+                font-size: 1.3em;
+            }
+
+            /* CV accordion improvements for extra small screens */
+            .cv-main-menu {
+                padding: 12px 15px;
+                font-size: 0.85em;
+            }
+
+            .cv-section-menu {
+                padding: 10px 15px;
+                font-size: 0.8em;
+            }
+
+            .praxis-description {
+                padding: 1rem;
+            }
+
+            .praxis-description h3 {
+                font-size: 1.2em;
+            }
+
+            .leistungen-content {
+                padding: 0.8rem;
+            }
+
+            .leistungen-subsection h4 {
+                font-size: 1em;
+            }
+
+            .leistungen-subsection h5 {
+                font-size: 0.95em;
+            }
+
+            .leistungen-subsection p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Galaxy Z Fold 5 and similar wide screens */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            header {
+                padding: 8px 10px;
+                max-width: 100%;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            header img {
+                height: 50px;
+                max-width: 180px;
+                object-fit: contain;
+            }
+
+            .flag-language-switcher {
+                gap: 4px;
+                flex-shrink: 0;
+            }
+
+            .flag-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                flex-shrink: 1;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+                white-space: nowrap;
+            }
+
+            /* Ensure navbar doesn't overflow */
+            .navbar {
+                width: 100%;
+                overflow: hidden;
+            }
+        }
+
+        /* Specific Galaxy Z Fold 5 portrait mode */
+        @media (max-width: 400px) {
+            header {
+                padding: 6px 8px;
+            }
+
+            header img {
+                height: 45px;
+                max-width: 160px;
+            }
+
+            .flag-language-switcher {
+                gap: 3px;
+            }
+
+            .flag-icon {
+                width: 22px;
+                height: 22px;
+            }
+
+            .nav-links {
+                gap: 8px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+
+        /* Ultra-wide screens and foldables */
+        @media (min-width: 1025px) and (max-width: 1400px) {
+            header {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 10px 20px;
+            }
+
+            .flag-language-switcher {
+                gap: 8px;
+            }
+
+            .flag-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        /* Very wide screens */
+        @media (min-width: 1401px) {
+            header {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 10px 30px;
+            }
+        }
+
+        /* Specific fix for very long German text */
+        @media (max-width: 600px) {
+            .leistungen-accordion-menu {
+                font-size: 0.85em;
+                line-height: 1.3;
+                padding: 12px 15px;
+                word-wrap: break-word;
+                hyphens: auto;
+                overflow-wrap: break-word;
+                max-width: 100%;
+                box-sizing: border-box;
+                min-height: 50px;
+            }
+
+            .leistungen-accordion-menu:after {
+                font-size: 0.9em;
+                padding-right: 5px;
+                flex-shrink: 0;
+            }
+
+            /* Ensure the accordion item itself doesn't overflow */
+            .leistungen-accordion-item {
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+            }
+        }
+
+        /* Moderate fix for very long text */
+        @media (max-width: 500px) {
+            .leistungen-accordion-menu {
+                font-size: 0.8em;
+                line-height: 1.2;
+                padding: 10px 12px;
+                word-wrap: break-word;
+                hyphens: auto;
+                overflow-wrap: break-word;
+                white-space: normal;
+                min-height: 45px;
+            }
+
+            .leistungen-accordion-menu:after {
+                font-size: 0.85em;
+                padding-right: 3px;
+                flex-shrink: 0;
+            }
+        }
+
+        /* Emergency fix for any remaining overflow issues */
+        @media (max-width: 500px) {
+            header {
+                padding: 5px 5px;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            header img {
+                height: 40px;
+                max-width: 140px;
+                flex-shrink: 1;
+            }
+
+            .flag-language-switcher {
+                gap: 2px;
+                flex-shrink: 0;
+            }
+
+            .flag-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .nav-links {
+                gap: 6px;
+                flex-shrink: 1;
+                min-width: 0;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+                padding: 2px 4px;
+            }
+
+            /* Hide nav links on very small screens if needed */
+            @media (max-width: 350px) {
+                .nav-links {
+                    display: none;
+                }
+            }
         }
 
 
@@ -1374,11 +1772,14 @@
         <img id="switch_to_main" src="logo.webp" alt="Zahnarztpraxis Berlin Schöneberg | Dr. Seda Sanli Logo">
         <nav class="navbar">
             <ul class="nav-links" id="navLinks">
-                <li><a href="#praxis" onclick="scrollToSection('praxis')">Praxis</a></li>
-                <li><a href="#home" onclick="scrollToSection('das-team')">Das Team</a></li>
-                <li><a href="#about" onclick="scrollToSection('lebenslauf')">Lebenslauf</a></li>
-                <li><a href="#services" onclick="scrollToSection('leistungen')">Leistungen</a></li>
-                <li><a href="#contact" onclick="scrollToSection('Anfahrt')">Anfahrt</a></li>
+                <li><a href="#praxis" onclick="scrollToSection('praxis')" data-translate="nav_praxis">Praxis</a></li>
+                <li><a href="#home" onclick="scrollToSection('das-team')" data-translate="nav_team">Das Team</a></li>
+                <li><a href="#about" onclick="scrollToSection('lebenslauf')"
+                        data-translate="nav_lebenslauf">Lebenslauf</a></li>
+                <li><a href="#services" onclick="scrollToSection('leistungen')"
+                        data-translate="nav_leistungen">Leistungen</a></li>
+                <li><a href="#contact" onclick="scrollToSection('Anfahrt')" data-translate="nav_anfahrt">Anfahrt</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -1556,7 +1957,7 @@
                 src="https://www.doctolib.de/external_button/doctolib-white-transparent.png" alt="Doctolib Logo" /><a
                 href="https://www.doctolib.de/zahnarztpraxis/berlin/zahnarztpraxis-seda-sanli" target="_blank"
                 rel="noopener noreferrer" aria-label="Termin über Doctolib buchen">
-                Termin buchen
+                <span data-translate="book_appointment">Termin buchen</span>
             </a></div>
 
 
@@ -1580,7 +1981,8 @@
                         <p style="margin: 0;padding: 0;">Eisenacher Str. 108, 10777 Berlin</p>
                     </div>
                     <div class="flex-row">
-                        <h2 style="margin: 0;padding: 0;">Seda Sanli</br>Ihre Zahnärztin in Berlin</br>Schöneberg</h2>
+                        <h2 style="margin: 0;padding: 0;">Seda Sanli</br><span data-translate="hero_title">Ihre
+                                Zahnärztin in Berlin Schöneberg</span></h2>
                     </div>
                     <div class="flex-row" style="margin-bottom: 0;">
 
@@ -1606,17 +2008,19 @@
         <!-- Praxis Section -->
         <section class="fade-in" id="praxis">
             <div>
-                <h2 class="center_text">Praxis</h2>
+                <h2 class="center_text" data-translate="praxis_title">Praxis</h2>
                 <div class="praxis-container">
                     <div class="video-wrapper">
                         <video controls autoplay muted loop preload="none">
                             <source data-src="praxis.mp4" type="video/mp4">
-                            Ihr Browser unterstützt keine Video-Wiedergabe.
+                            <span data-translate="video_not_supported">Ihr Browser unterstützt keine
+                                Video-Wiedergabe.</span>
                         </video>
                     </div>
                     <div class="praxis-description">
-                        <h3>Willkommen in unserer Praxis</h3>
-                        <p>Entdecken Sie unsere moderne Zahnarztpraxis in Berlin Schöneberg. Wir bieten Ihnen eine
+                        <h3 data-translate="welcome_title">Willkommen in unserer Praxis</h3>
+                        <p data-translate="welcome_description">Entdecken Sie unsere moderne Zahnarztpraxis in Berlin
+                            Schöneberg. Wir bieten Ihnen eine
                             angenehme Atmosphäre mit neuester Technologie für Ihre Zahngesundheit.</p>
                     </div>
                 </div>
@@ -1626,7 +2030,7 @@
         <!-- Team Section -->
         <section class="fade-in" id="das-team" class="services">
             <div>
-                <h2 class="center_text">Das Team</h2>
+                <h2 class="center_text" data-translate="team_title">Das Team</h2>
                 <div class="cards">
                     <div class="card">
                         <div class="doctor-image-container">
@@ -1638,8 +2042,8 @@
                         </div>
                         <div class="card-content">
                             <h3>Dr. Seda Sanli</h3>
-                            <span>(Ege-Univers. Izmir)</span>
-                            <p>Zahnärztin</p>
+                            <span data-translate="team_university">(Ege-Univers. Izmir)</span>
+                            <p data-translate="team_dentist">Zahnärztin</p>
                             <!-- <h1>Lebenslauf Hinzufügen</h1> -->
                             <div class="card-footer">
                                 <div class="flags">
@@ -1660,33 +2064,36 @@
         <!-- Lebenslauf Section -->
         <section class="fade-in" id="lebenslauf">
             <div>
-                <h2 class="center_text">Lebenslauf</h2>
+                <h2 class="center_text" data-translate="cv_title">Lebenslauf</h2>
                 <div class="cv-container">
                     <div class="cv-content">
                         <h3>Dr. Seda Sanli</h3>
 
                         <!-- Main CV Accordion -->
                         <div class="cv-main-accordion">
-                            <p class="cv-main-menu">Lebenslauf anzeigen</p>
+                            <p class="cv-main-menu" data-translate="cv_show">Lebenslauf anzeigen</p>
                             <div class="cv-main-panel">
 
                                 <!-- Schwerpunkte Section -->
                                 <div class="cv-section-accordion">
-                                    <p class="cv-section-menu">Schwerpunkte</p>
+                                    <p class="cv-section-menu" data-translate="cv_specialties">Schwerpunkte</p>
                                     <div class="cv-section-panel">
                                         <div class="cv-section">
                                             <div class="cv-specialties">
                                                 <div class="cv-specialty-item">
                                                     <span class="specialty-icon">🦷</span>
-                                                    <span>Implantologie und Oralchirurgie</span>
+                                                    <span data-translate="cv_implantology">Implantologie und
+                                                        Oralchirurgie</span>
                                                 </div>
                                                 <div class="cv-specialty-item">
                                                     <span class="specialty-icon">💻</span>
-                                                    <span>Digitale Zahnmedizin (3D-DVT, CAD-CAM)</span>
+                                                    <span data-translate="cv_digital">Digitale Zahnmedizin (3D-DVT,
+                                                        CAD-CAM)</span>
                                                 </div>
                                                 <div class="cv-specialty-item">
                                                     <span class="specialty-icon">✨</span>
-                                                    <span>Ästhetische Zahnmedizin und Prothetik</span>
+                                                    <span data-translate="cv_aesthetic">Ästhetische Zahnmedizin und
+                                                        Prothetik</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1695,20 +2102,22 @@
 
                                 <!-- Ausbildung Section -->
                                 <div class="cv-section-accordion">
-                                    <p class="cv-section-menu">Ausbildung</p>
+                                    <p class="cv-section-menu" data-translate="cv_education">Ausbildung</p>
                                     <div class="cv-section-panel">
                                         <div class="cv-section">
                                             <div class="cv-item">
                                                 <span class="cv-year">2024-2025</span>
                                                 <div class="cv-details">
-                                                    <strong>Curriculum Implantologie</strong>
+                                                    <strong data-translate="cv_curriculum">Curriculum
+                                                        Implantologie</strong>
                                                     <p>Philipp-Pfaff Institut, Berlin, Deutschland</p>
                                                 </div>
                                             </div>
                                             <div class="cv-item">
                                                 <span class="cv-year">2021</span>
                                                 <div class="cv-details">
-                                                    <strong>Approbation (Anerkennung zur Ausübung der
+                                                    <strong data-translate="cv_approbation">Approbation (Anerkennung zur
+                                                        Ausübung der
                                                         Zahnheilkunde)</strong>
                                                     <p>Landesamt für Gesundheit und Soziales Berlin</p>
                                                 </div>
@@ -1716,7 +2125,8 @@
                                             <div class="cv-item">
                                                 <span class="cv-year">2009-2013</span>
                                                 <div class="cv-details">
-                                                    <strong>Promotion und Fachausbildung im Bereich Prothetik</strong>
+                                                    <strong data-translate="cv_phd">Promotion und Fachausbildung im
+                                                        Bereich Prothetik</strong>
                                                     <p>Ege Universität, Fakultät für Zahnmedizin, Abteilung für
                                                         Prothetik, Izmir, Türkei</p>
                                                 </div>
@@ -1724,7 +2134,7 @@
                                             <div class="cv-item">
                                                 <span class="cv-year">2004-2009</span>
                                                 <div class="cv-details">
-                                                    <strong>Studium der Zahnmedizin</strong>
+                                                    <strong data-translate="cv_study">Studium der Zahnmedizin</strong>
                                                     <p>Universität Istanbul, Fakultät für Zahnmedizin, Istanbul, Türkei
                                                     </p>
                                                 </div>
@@ -1735,20 +2145,22 @@
 
                                 <!-- Beruflicher Werdegang Section -->
                                 <div class="cv-section-accordion">
-                                    <p class="cv-section-menu">Beruflicher Werdegang</p>
+                                    <p class="cv-section-menu" data-translate="cv_career">Beruflicher Werdegang</p>
                                     <div class="cv-section-panel">
                                         <div class="cv-section">
                                             <div class="cv-item">
                                                 <span class="cv-year">2013-2014</span>
                                                 <div class="cv-details">
-                                                    <strong>Fachzahnärztin für Prothetik</strong>
+                                                    <strong data-translate="cv_specialist">Fachzahnärztin für
+                                                        Prothetik</strong>
                                                     <p>Ctg Privates Mund und Zahngesundheitszentrum, Izmir, Türkei</p>
                                                 </div>
                                             </div>
                                             <div class="cv-item">
                                                 <span class="cv-year">2014-2022</span>
                                                 <div class="cv-details">
-                                                    <strong>Fachzahnärztin für Prothetik</strong>
+                                                    <strong data-translate="cv_specialist">Fachzahnärztin für
+                                                        Prothetik</strong>
                                                     <p>Ulukent Private Zahnarztklinik, Izmir, Türkei (eigene
                                                         Zahnarztklinik)</p>
                                                 </div>
@@ -1756,14 +2168,14 @@
                                             <div class="cv-item">
                                                 <span class="cv-year">2022-2024</span>
                                                 <div class="cv-details">
-                                                    <strong>Zahnärztin</strong>
+                                                    <strong data-translate="cv_dentist">Zahnärztin</strong>
                                                     <p>MVZ United Dentists, Reinickendorf, Berlin</p>
                                                 </div>
                                             </div>
                                             <div class="cv-item">
                                                 <span class="cv-year">2024</span>
                                                 <div class="cv-details">
-                                                    <strong>Zahnärztin</strong>
+                                                    <strong data-translate="cv_dentist">Zahnärztin</strong>
                                                     <p>Zahnarztpraxis Dr. Norbert Fischer, Nollendorf, Berlin</p>
                                                 </div>
                                             </div>
@@ -1773,11 +2185,12 @@
 
                                 <!-- Persönliche Note Section -->
                                 <div class="cv-section-accordion">
-                                    <p class="cv-section-menu">Persönliche Note</p>
+                                    <p class="cv-section-menu" data-translate="cv_personal">Persönliche Note</p>
                                     <div class="cv-section-panel">
                                         <div class="cv-section">
                                             <div class="cv-personal-note">
-                                                <p>Seit 16 Jahren begleite ich meine Patientinnen und Patienten mit
+                                                <p data-translate="cv_personal_note">Seit 16 Jahren begleite ich meine
+                                                    Patientinnen und Patienten mit
                                                     Leidenschaft und Einfühlungsvermögen. Mein Fokus liegt auf moderner,
                                                     digital unterstützter Zahnmedizin – von ästhetischen Behandlungen
                                                     bis hin zur Implantologie. Wichtig ist mir, jede Therapie
@@ -1797,13 +2210,14 @@
         <!-- Leistungen Section -->
         <section class="fade-in" id="leistungen">
             <div>
-                <h2 class="center_text">Leistungen</h2>
+                <h2 class="center_text" data-translate="services_title">Leistungen</h2>
                 <div class="leistungen-accordion">
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">BERATUNG</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_consultation">BERATUNG</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
-                                <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg legen wir großen
+                                <p data-translate="consultation_content">In unserer Zahnarztpraxis Dr. Seda Sanli in
+                                    Berlin Schöneberg legen wir großen
                                     Wert darauf, Ihnen zuzuhören und Ihre individuellen Bedürfnisse und Wünsche zu
                                     verstehen. So können wir Ihnen die passenden Behandlungsoptionen anbieten, die
                                     nicht nur zu Ihrer Zahngesundheit, sondern auch zu einem ästhetisch
@@ -1813,12 +2227,13 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">FÜLLUNGEN</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_fillings">FÜLLUNGEN</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
                                 <div class="leistungen-subsection">
-                                    <h4>Direkte Füllungstherapie</h4>
-                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
+                                    <h4 data-translate="fillings_direct">Direkte Füllungstherapie</h4>
+                                    <p data-translate="fillings_direct_content">In unserer Zahnarztpraxis Dr. Seda Sanli
+                                        in Berlin Schöneberg verwenden wir
                                         modernste Materialien für die Behandlung von Karies sowohl im Front- als
                                         auch im Seitenzahnbereich. Für die Seitenzähne setzen wir ästhetische und
                                         kaudruckbeständige Kunststofffüllungen ein, die nach dem neuesten Stand der
@@ -1829,8 +2244,9 @@
                                         erhalten.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Indirekte Füllungstherapie</h4>
-                                    <p>Inlays und Onlays in Ihrer Zahnarztpraxis in Berlin Schöneberg
+                                    <h4 data-translate="fillings_indirect">Indirekte Füllungstherapie</h4>
+                                    <p data-translate="fillings_indirect_content">Inlays und Onlays in Ihrer
+                                        Zahnarztpraxis in Berlin Schöneberg
                                         In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir
                                         Ihnen hochwertige Inlays und Onlays zur Versorgung Ihrer Seitenzähne an.
                                         Inlays sind laborgefertigte oder computergefräste Einlagefüllungen, die
@@ -1846,10 +2262,12 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">WURZELKANALBEHANDLUNG (ENDODONTIE)</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_root_canal">WURZELKANALBEHANDLUNG
+                            (ENDODONTIE)</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
-                                <p>Die Wurzelkanalbehandlung, auch Endodontie genannt, ist notwendig, wenn das
+                                <p data-translate="root_canal_content">Die Wurzelkanalbehandlung, auch Endodontie
+                                    genannt, ist notwendig, wenn das
                                     Gewebe im Inneren des Zahns, die sogenannte Pulpa, durch Karies, Trauma oder
                                     andere Faktoren infiziert ist. Diese Infektion kann starke Schmerzen
                                     verursachen. In solchen Fällen entleert ihre Zahnärztin in Berlin Schöneberg die
@@ -1861,13 +2279,15 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">KIEFERGELENKSBESCHWERDEN (CRANIOMANDIBULÄRE
+                        <p class="leistungen-accordion-menu" data-translate="services_tmj">KIEFERGELENKSBESCHWERDEN
+                            (CRANIOMANDIBULÄRE
                             DYSFUNKTION-CDM)</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
                                 <div class="leistungen-subsection">
-                                    <h4>Funktionsdiagnostik zur Behandlung der CMD</h4>
-                                    <p>CMD (Craniomandibuläre Dysfunktion) ist eine Erkrankung, die die Kiefergelenke
+                                    <h4 data-translate="tmj_diagnosis">Funktionsdiagnostik zur Behandlung der CMD</h4>
+                                    <p data-translate="tmj_diagnosis_content">CMD (Craniomandibuläre Dysfunktion) ist
+                                        eine Erkrankung, die die Kiefergelenke
                                         und die Kaumuskulatur betrifft. Sie äußert sich durch Schmerzen im Bereich
                                         der Kiefergelenke und der Kaumuskulatur, oft begleitet von
                                         Funktionseinschränkungen des Kauorgans. Häufig treten Schmerzen vor den
@@ -1880,8 +2300,9 @@
                                         Kiefergelenke entlasten und die Beschwerden lindern.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Schienentherapie</h4>
-                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg wird die
+                                    <h4 data-translate="tmj_splint">Schienentherapie</h4>
+                                    <p data-translate="tmj_splint_content">In unserer Zahnarztpraxis Dr. Seda Sanli in
+                                        Berlin Schöneberg wird die
                                         Schienentherapie
                                         häufig zur Behandlung von Schmerzen und Verspannungen der Kaumuskulatur
                                         eingesetzt. Zudem schützen die Schienen Ihre Zähne vor Abrasionen der
@@ -1894,29 +2315,37 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">PROFESSIONELLE ZAHNREINIGUNG</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_cleaning">PROFESSIONELLE
+                            ZAHNREINIGUNG</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
                                 <div class="leistungen-subsection">
-                                    <h4>Prophylaxe für Kinder und Erwachsener</h4>
-                                    <p><strong>Gesundes Zahnfleisch und frischer Atem</strong><br>
-                                        Ein gesundes und schönes Lächeln basiert auf der Gesundheit der Zähne und des
-                                        umliegenden Gewebes. Zahnbelag, Zahnstein und ähnliche Ablagerungen können die
-                                        Gesundheit des Zahnfleisches gefährden und zu Rötungen, Blutungen sowie
-                                        unangenehmem Mundgeruch führen, was oft die soziale Kommunikation
-                                        beeinträchtigt. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg
-                                        bieten wir eine professionelle Zahnreinigung an, die mit modernster Technologie
-                                        durchgeführt wird. So verhelfen wir Ihnen zu einem frischen Atem und einem
-                                        strahlend gesunden Lächeln.</p>
+                                    <h4 data-translate="cleaning_prophylaxis">Prophylaxe für Kinder und Erwachsener</h4>
+                                    <p><strong data-translate="cleaning_healthy">Gesundes Zahnfleisch und frischer
+                                            Atem</strong><br>
+                                        <span data-translate="cleaning_content">Ein gesundes und schönes Lächeln basiert
+                                            auf der Gesundheit der Zähne und des
+                                            umliegenden Gewebes. Zahnbelag, Zahnstein und ähnliche Ablagerungen können
+                                            die
+                                            Gesundheit des Zahnfleisches gefährden und zu Rötungen, Blutungen sowie
+                                            unangenehmem Mundgeruch führen, was oft die soziale Kommunikation
+                                            beeinträchtigt. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
+                                            Schöneberg
+                                            bieten wir eine professionelle Zahnreinigung an, die mit modernster
+                                            Technologie
+                                            durchgeführt wird. So verhelfen wir Ihnen zu einem frischen Atem und einem
+                                            strahlend gesunden Lächeln.</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">ANGSTPATIENTEN</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_anxiety">ANGSTPATIENTEN</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
-                                <p>Viele Menschen empfinden Zahnarztbesuche aufgrund der Geräusche und der Erwartung
+                                <p data-translate="anxiety_content">Viele Menschen empfinden Zahnarztbesuche aufgrund
+                                    der Geräusche und der Erwartung
                                     von Schmerzen als stressig. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
                                     Schöneberg nehmen wir uns besonders viel Zeit für Angstpatienten. Wir gehen
                                     gezielt auf Ihre Bedürfnisse ein und gestalten den Behandlungsablauf
@@ -1928,12 +2357,13 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">DIGITALE ZAHNMEDIZIN</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_digital">DIGITALE ZAHNMEDIZIN</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
                                 <div class="leistungen-subsection">
-                                    <h4>Digitale Röntgen</h4>
-                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg setzen wir
+                                    <h4 data-translate="digital_xray">Digitale Röntgen</h4>
+                                    <p data-translate="digital_xray_content">In unserer Zahnarztpraxis Dr. Seda Sanli in
+                                        Berlin Schöneberg setzen wir
                                         modernste
                                         digitale Röntgentechnologie ein, um Ihnen die beste Diagnostik zu bieten.
                                         Die Panoramaaufnahme (2D-OPG) ist ideal, um den gesamten Zustand Ihrer Zähne
@@ -1948,8 +2378,9 @@
                                         neuester Technologie.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Digitale Abformung</h4>
-                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
+                                    <h4 data-translate="digital_impression">Digitale Abformung</h4>
+                                    <p data-translate="digital_impression_content">In unserer Zahnarztpraxis Dr. Seda
+                                        Sanli in Berlin Schöneberg verwenden wir
                                         moderne
                                         3D-Intraoralscanner, um die herkömmliche Abformung zu ersetzen. Diese
                                         digitale Abformung vermeidet die typischen Nachteile der traditionellen
@@ -1960,8 +2391,9 @@
                                         lizenzierter Software arbeiten und hohen Datenschutzstandards entsprechen.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Digitale Smile Design</h4>
-                                    <p>Ein strahlendes Lächeln kann das Selbstvertrauen steigern und den Eindruck, den
+                                    <h4 data-translate="digital_smile">Digitale Smile Design</h4>
+                                    <p data-translate="digital_smile_content">Ein strahlendes Lächeln kann das
+                                        Selbstvertrauen steigern und den Eindruck, den
                                         man bei anderen hinterlässt, deutlich verbessern. In unserer Zahnarztpraxis
                                         Dr. Seda Sanli in Berlin Schöneberg bieten wir modernes digitales Smile
                                         Design an, um ein ästhetisch ansprechendes Lächeln zu schaffen. Mithilfe
@@ -1970,8 +2402,9 @@
                                         perfekte Lächeln zu verleihen.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Implantatchirurgie mit digitaler Führung</h4>
-                                    <p>In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir moderne
+                                    <h4 data-translate="digital_implant">Implantatchirurgie mit digitaler Führung</h4>
+                                    <p data-translate="digital_implant_content">In unserer Zahnarztpraxis Dr. Seda Sanli
+                                        in Berlin Schöneberg bieten wir moderne
                                         Implantatchirurgie mit digitaler Führung an, um eine schnelle Heilung und
                                         optimale ästhetische sowie funktionelle Ergebnisse zu gewährleisten. Durch
                                         die Nutzung von Bohrschablonen, die mithilfe digitaler Messungen und
@@ -1984,10 +2417,12 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">ZAHNAUFHELLUNG (BLEACHING)</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_bleaching">ZAHNAUFHELLUNG
+                            (BLEACHING)</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
-                                <p>Die Zahnaufhellung ist ein effektives Verfahren zur Aufhellung der Zahnfarbe, das
+                                <p data-translate="bleaching_content">Die Zahnaufhellung ist ein effektives Verfahren
+                                    zur Aufhellung der Zahnfarbe, das
                                     unter ärztlicher Aufsicht in unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
                                     Schöneberg durchgeführt wird. Dieses Verfahren eignet sich besonders für Zähne,
                                     die durch Farbstoffe wie Tabak, Kaffee oder Tee verfärbt sind. Auch angeborene
@@ -1999,12 +2434,15 @@
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">ÄSTHETISCHE ZAHNBEHANDLUNG UND SMILE DESIGN</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_aesthetic">ÄSTHETISCHE
+                            ZAHNBEHANDLUNG UND SMILE DESIGN</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
                                 <div class="leistungen-subsection">
-                                    <h4>Ein schöneres und gesünderes Lächeln erreichen</h4>
-                                    <p>Ein schönes Lächeln ist entscheidend für das Selbstvertrauen und die
+                                    <h4 data-translate="aesthetic_achieving">Ein schöneres und gesünderes Lächeln
+                                        erreichen</h4>
+                                    <p data-translate="aesthetic_achieving_content">Ein schönes Lächeln ist entscheidend
+                                        für das Selbstvertrauen und die
                                         Lebensqualität. In
                                         unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir eine
                                         umfassende Behandlung an, die darauf abzielt, verfärbte, abgenutzte, schiefe
@@ -2016,32 +2454,35 @@
                                         ist.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Zahnästhetik (Gesundheit, Form, Farbe und Niveau der Zähne)</h4>
+                                    <h4 data-translate="aesthetic_dental">Zahnästhetik (Gesundheit, Form, Farbe und
+                                        Niveau der Zähne)</h4>
                                     <ul>
-                                        <li>Veneers (Keramikverblendschalen), Kronen und Brücken aus Keramik</li>
-                                        <li>Zahnfarbene Kompositfüllungen</li>
-                                        <li>Bleaching</li>
-                                        <li>Unsichtbare Zahnspangen für kleine Zahnfehlstellungen</li>
+                                        <li data-translate="aesthetic_dental_list">Veneers (Keramikverblendschalen),
+                                            Kronen und Brücken aus Keramik, Zahnfarbene Kompositfüllungen, Bleaching,
+                                            Unsichtbare Zahnspangen für kleine Zahnfehlstellungen</li>
                                     </ul>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Zahnfleischästhetik (Zahnfleischgesundheit, -form und -niveau)</h4>
+                                    <h4 data-translate="aesthetic_gum">Zahnfleischästhetik (Zahnfleischgesundheit, -form
+                                        und -niveau)</h4>
                                     <ul>
-                                        <li>Parodontalchirurgie bei Zahnfleischrückgang (Rezession) oder zu viel
-                                            sichtbarem Zahnfleisch (Gummy Smile)</li>
-                                        <li>Herausnehmbare Zahnfleischmaske bei großen Zahnfleischdefekten</li>
+                                        <li data-translate="aesthetic_gum_list">Parodontalchirurgie bei
+                                            Zahnfleischrückgang (Rezession) oder zu viel sichtbarem Zahnfleisch (Gummy
+                                            Smile), Herausnehmbare Zahnfleischmaske bei großen Zahnfleischdefekten</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="leistungen-accordion-item">
-                        <p class="leistungen-accordion-menu">PROTHETISCHE ZAHNBEHANDLUNGEN</p>
+                        <p class="leistungen-accordion-menu" data-translate="services_prosthetic">PROTHETISCHE
+                            ZAHNBEHANDLUNGEN</p>
                         <div class="leistungen-accordion-panel">
                             <div class="leistungen-content">
                                 <div class="leistungen-subsection">
-                                    <h4>Veneers</h4>
-                                    <p>Veneers sind dünne, aufgeklebte Verblendschalen aus Keramik, die für
+                                    <h4 data-translate="prosthetic_veneers">Veneers</h4>
+                                    <p data-translate="prosthetic_veneers_content">Veneers sind dünne, aufgeklebte
+                                        Verblendschalen aus Keramik, die für
                                         ästhetische Korrekturen an den Zähnen verwendet werden. Mit Veneers lassen
                                         sich leichte Fehlstellungen, Zahnlücken sowie Form- und Farbkorrekturen
                                         effizient beheben. Die ästhetischen Ergebnisse sind beeindruckend und
@@ -2051,8 +2492,9 @@
                                         ermöglichen.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Teilprothese und Kombinationenprothese</h4>
-                                    <p>Teilprothesen sind die ideale Lösung bei teilweisem Zahnverlust. Die
+                                    <h4 data-translate="prosthetic_partial">Teilprothese und Kombinationenprothese</h4>
+                                    <p data-translate="prosthetic_partial_content">Teilprothesen sind die ideale Lösung
+                                        bei teilweisem Zahnverlust. Die
                                         Prothesenbasis liegt auf der Schleimhaut auf und benötigt Halteelemente für
                                         sicheren Halt. Diese Halteelemente können Klammern, Geschiebe oder
                                         Teleskopkronen sein. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin
@@ -2062,8 +2504,9 @@
                                         Passform, die Ihnen sowohl funktionale als auch ästhetische Vorteile bietet.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Totalprothese</h4>
-                                    <p>Eine Totalprothese dient als vollständiger Zahnersatz für den Ober- und/oder
+                                    <h4 data-translate="prosthetic_full">Totalprothese</h4>
+                                    <p data-translate="prosthetic_full_content">Eine Totalprothese dient als
+                                        vollständiger Zahnersatz für den Ober- und/oder
                                         Unterkiefer. Sie besteht aus einem zahnfleischfarbenen Kunststoff und
                                         künstlichen Zähnen. Im Oberkiefer bedeckt die Prothese sowohl den Kieferkamm
                                         als auch den Gaumen, während sie im Unterkiefer nur den Kieferkamm umfasst.
@@ -2072,10 +2515,12 @@
                                         ersetzen und sowohl ästhetische als auch funktionelle Vorteile bieten.</p>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Zahnstützende Krone und Brücke</h4>
+                                    <h4 data-translate="prosthetic_crown_bridge">Zahnstützende Krone und Brücke</h4>
                                     <div class="leistungen-subsection">
-                                        <h5>Metallgestützte Porzellan-Krone/Brücke</h5>
-                                        <p>Die metallgestützte Porzellan-Krone oder Brücke ist eine langlebige und
+                                        <h5 data-translate="prosthetic_metal_porcelain">Metallgestützte
+                                            Porzellan-Krone/Brücke</h5>
+                                        <p data-translate="prosthetic_metal_porcelain_content">Die metallgestützte
+                                            Porzellan-Krone oder Brücke ist eine langlebige und
                                             ästhetische Lösung zur Restauration von Zahndefekten. Diese Form der
                                             Verblendprothese besteht aus einer Chrom-Kobalt-Legierung, die mit Porzellan
                                             beschichtet ist und im Volksmund als „rostfreier Stahl" bekannt ist. Sie
@@ -2087,8 +2532,10 @@
                                             ansprechendes Ergebnis bieten.</p>
                                     </div>
                                     <div class="leistungen-subsection">
-                                        <h5>Zirkoniumoxid-Keramikkronen/Brücken</h5>
-                                        <p>Zirkoniumoxid-Keramikkronen und Brücken sind eine ästhetisch ansprechende
+                                        <h5 data-translate="prosthetic_zirconia">Zirkoniumoxid-Keramikkronen/Brücken
+                                        </h5>
+                                        <p data-translate="prosthetic_zirconia_content">Zirkoniumoxid-Keramikkronen und
+                                            Brücken sind eine ästhetisch ansprechende
                                             Lösung für Zahnersatz, insbesondere wenn die Optik eine wichtige Rolle
                                             spielt. Obwohl Zirkoniumoxid technisch eine Metalllegierung ist, zeichnet es
                                             sich durch seine natürliche weiße Farbe aus und bietet damit eine
@@ -2102,8 +2549,10 @@
                                             natürlichen Zähnen als auch auf Implantaten angewendet werden können.</p>
                                     </div>
                                     <div class="leistungen-subsection">
-                                        <h5>Glaskeramik-Restaurationen (Empress, E-max Press, E-max CAD)</h5>
-                                        <p>Glaskeramik-Restaurationen wie Empress und E-max bieten eine hervorragende
+                                        <h5 data-translate="prosthetic_glass_ceramic">Glaskeramik-Restaurationen
+                                            (Empress, E-max Press, E-max CAD)</h5>
+                                        <p data-translate="prosthetic_glass_ceramic_content">Glaskeramik-Restaurationen
+                                            wie Empress und E-max bieten eine hervorragende
                                             Ästhetik dank ihrer optischen Eigenschaften, die den natürlichen Zähnen sehr
                                             nahe kommen. Diese Hightech-Restaurationen zeichnen sich durch ihre hohe
                                             Lichtdurchlässigkeit und ihr glasartiges Aussehen aus. Sie werden direkt auf
@@ -2118,10 +2567,12 @@
                                     </div>
                                 </div>
                                 <div class="leistungen-subsection">
-                                    <h4>Implantatstützende Zahnersatz-Möglichkeiten</h4>
+                                    <h4 data-translate="prosthetic_implant_supported">Implantatstützende
+                                        Zahnersatz-Möglichkeiten</h4>
                                     <div class="leistungen-subsection">
-                                        <h5>Herausnehmbare Prothese</h5>
-                                        <p>Implantate bieten eine effektive Lösung, um herausnehmbare Totalprothesen zu
+                                        <h5 data-translate="prosthetic_removable">Herausnehmbare Prothese</h5>
+                                        <p data-translate="prosthetic_removable_content">Implantate bieten eine
+                                            effektive Lösung, um herausnehmbare Totalprothesen zu
                                             stabilisieren und die Kaufunktion deutlich zu verbessern. In unserer
                                             Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verwenden wir
                                             verschiedene Stabilisierungssysteme wie Teleskopprothesen, Locator,
@@ -2131,8 +2582,10 @@
                                         </p>
                                     </div>
                                     <div class="leistungen-subsection">
-                                        <h5>All-On-Four-Implantat-Behandlung</h5>
-                                        <p>Die All-On-Four-Implantat-Behandlung bietet eine effektive Lösung für
+                                        <h5 data-translate="prosthetic_all_on_four">All-On-Four-Implantat-Behandlung
+                                        </h5>
+                                        <p data-translate="prosthetic_all_on_four_content">Die
+                                            All-On-Four-Implantat-Behandlung bietet eine effektive Lösung für
                                             Patienten,
                                             die alle Zähne im Ober- oder Unterkiefer verloren haben. Dabei werden
                                             Prothesen auf vier Implantaten befestigt, die speziell für diese Methode
@@ -2149,8 +2602,9 @@
                                             wieder zu einem festen und komfortablen Zahnersatz gelangen.</p>
                                     </div>
                                     <div class="leistungen-subsection">
-                                        <h5>Festsitzender Zahnersatz</h5>
-                                        <p>Bei vollständigem oder teilweisem Zahnverlust bieten wir Ihnen in der
+                                        <h5 data-translate="prosthetic_fixed">Festsitzender Zahnersatz</h5>
+                                        <p data-translate="prosthetic_fixed_content">Bei vollständigem oder teilweisem
+                                            Zahnverlust bieten wir Ihnen in der
                                             Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg eine Lösung mit
                                             festsitzendem Zahnersatz. Mithilfe von Implantaten, die überkront werden,
                                             können Zahnlücken dauerhaft geschlossen werden. Alternativ verwenden wir
@@ -2165,10 +2619,11 @@
                     </div>
                 </div>
                 <div class="leistungen-accordion-item">
-                    <p class="leistungen-accordion-menu">IMPLANTOLOGIE</p>
+                    <p class="leistungen-accordion-menu" data-translate="services_implantology">IMPLANTOLOGIE</p>
                     <div class="leistungen-accordion-panel">
                         <div class="leistungen-content">
-                            <p>Implantate sind künstliche Zahnwurzeln, die meist aus einer Titanlegierung
+                            <p data-translate="implantology_content">Implantate sind künstliche Zahnwurzeln, die meist
+                                aus einer Titanlegierung
                                 bestehen und bei Einzelzahn-, Mehrzahn- oder Ganzkieferdefekten eingesetzt
                                 werden können. Sie ermöglichen festsitzenden Zahnersatz, selbst in völlig
                                 zahnlosen Kiefern, wenn ausreichend Implantate vorhanden sind. Auf diesen
@@ -2183,12 +2638,13 @@
                     </div>
                 </div>
                 <div class="leistungen-accordion-item">
-                    <p class="leistungen-accordion-menu">ORAL CHIRURGIE</p>
+                    <p class="leistungen-accordion-menu" data-translate="services_oral_surgery">ORAL CHIRURGIE</p>
                     <div class="leistungen-accordion-panel">
                         <div class="leistungen-content">
                             <div class="leistungen-subsection">
-                                <h4>Weisheitszahn Extraktionen</h4>
-                                <p>Die Entfernung retinierter oder teilretinierter Weisheitszähne wird in der
+                                <h4 data-translate="oral_wisdom">Weisheitszahn Extraktionen</h4>
+                                <p data-translate="oral_wisdom_content">Die Entfernung retinierter oder teilretinierter
+                                    Weisheitszähne wird in der
                                     Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg mit großer Sorgfalt und
                                     Erfahrung durchgeführt. Mithilfe moderner Chirurgiemotoren und digitaler
                                     Bildgebung (2D- oder 3D-Röntgen) mit sehr geringer Strahlenbelastung sorgen
@@ -2196,8 +2652,10 @@
                                     Eingriff für Sie so komfortabel und sicher wie möglich zu gestalten.</p>
                             </div>
                             <div class="leistungen-subsection">
-                                <h4>Chirurgische Vorbehandlungen für ästhetische und funktionelle Prothese</h4>
-                                <p>Chirurgische Vorbereitungen für festsitzenden und herausnehmbaren Zahnersatz
+                                <h4 data-translate="oral_preparation">Chirurgische Vorbehandlungen für ästhetische und
+                                    funktionelle Prothese</h4>
+                                <p data-translate="oral_preparation_content">Chirurgische Vorbereitungen für
+                                    festsitzenden und herausnehmbaren Zahnersatz
                                     ermöglichen es uns, funktionellere, stabilere und ästhetisch ansprechendere
                                     Ergebnisse für unsere Patienten zu erzielen. Zu diesen Behandlungen zählen
                                     Eingriffe wie die Entfernung des Lippenbändchens (Frenektomie), die
@@ -2211,11 +2669,13 @@
                     </div>
                 </div>
                 <div class="leistungen-accordion-item">
-                    <p class="leistungen-accordion-menu">PARADONTOLOGIE und PARADONTAL CHIRURGIE</p>
+                    <p class="leistungen-accordion-menu" data-translate="services_periodontics">PARADONTOLOGIE und
+                        PARADONTAL CHIRURGIE</p>
                     <div class="leistungen-accordion-panel">
                         <div class="leistungen-content">
                             <div class="leistungen-subsection">
-                                <p>Parodontitis ist eine Entzündung des Zahnhalteapparates, die unbehandelt zum
+                                <p data-translate="periodontics_content">Parodontitis ist eine Entzündung des
+                                    Zahnhalteapparates, die unbehandelt zum
                                     Knochenabbau führen kann. Die Grundlage jeder Therapie besteht in der
                                     gründlichen Reinigung der von Bakterien besiedelten Zahnoberflächen und der
                                     Entfernung des entzündeten Gewebes. Diese Reinigungsbehandlungen werden in der
@@ -2223,9 +2683,12 @@
                                     durchgeführt, um die Gesundheit des Zahnhalteapparates wiederherzustellen und
                                     weiteren Knochenverlust zu verhindern.</p>
                                 <ul>
-                                    <li>Nichtchirurgische Parodontitisbehandlung (geschlossene Kurettage)</li>
-                                    <li>Chirurgische Parodontitisbehandlung (offene Kurettage)</li>
-                                    <li>Regenerative Maßnahmen (eine Membran gesteuerte Geweberegeneration mit dem
+                                    <li data-translate="periodontics_non_surgical">Nichtchirurgische
+                                        Parodontitisbehandlung (geschlossene Kurettage)</li>
+                                    <li data-translate="periodontics_surgical">Chirurgische Parodontitisbehandlung
+                                        (offene Kurettage)</li>
+                                    <li data-translate="periodontics_regenerative">Regenerative Maßnahmen (eine Membran
+                                        gesteuerte Geweberegeneration mit dem
                                         Knochenersatzmaterial oder eine biologisch gesteuerte Regeneration mit einer
                                         Schmelzproteinmatrix)</li>
                                 </ul>
@@ -2251,27 +2714,27 @@
                                     fill="#000"></path>
                             </svg>
                         </span>
-                        <h2>Öffnungszeiten</h2>
+                        <h2 data-translate="anfahrt_opening_hours">Öffnungszeiten</h2>
                     </div>
                     <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Montag</b></p>
+                        <p style="width: 10rem;"><b data-translate="anfahrt_monday">Montag</b></p>
                         <p>08:00 - 15:00</p>
                     </div>
                     <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Dienstag</b></p>
+                        <p style="width: 10rem;"><b data-translate="anfahrt_tuesday">Dienstag</b></p>
                         <p>09:00 - 19:00</p>
                     </div>
                     <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Mittwoch</b></p>
+                        <p style="width: 10rem;"><b data-translate="anfahrt_wednesday">Mittwoch</b></p>
                         <p>08:00 - 15:00</p>
                     </div>
                     <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Donnerstag</b></p>
+                        <p style="width: 10rem;"><b data-translate="anfahrt_thursday">Donnerstag</b></p>
                         <p>09:00 - 19:00</p>
                     </div>
                     <div class="flex_opening_hour_days" style="margin-bottom: 0rem;">
-                        <p style="width: 10rem;"><b>Freitag</b></p>
-                        <p>Nach Vereinbarung</p>
+                        <p style="width: 10rem;"><b data-translate="anfahrt_friday">Freitag</b></p>
+                        <p data-translate="anfahrt_friday_by_appointment">Nach Vereinbarung</p>
                     </div>
                 </div>
                 <div class="content_half">
@@ -2291,9 +2754,10 @@
                         <img height="50" width="40"
                             data-src="https://ucarecdn.com/34c8ccfa-32c6-4b0b-8ca2-7d08d1ed4686/" alt="bus"
                             loading="lazy">
-                        <h4>Öffentliche Verkehrsmittel</h4>
+                        <h4 data-translate="anfahrt_public_transport">Öffentliche Verkehrsmittel</h4>
                     </div>
-                    <p style="text-align: justify;">Mit den ÖVPN haben Sie mehrere Möglichkeiten, unsere Praxis zu
+                    <p style="text-align: justify;" data-translate="anfahrt_public_transport_content">Mit den ÖVPN haben
+                        Sie mehrere Möglichkeiten, unsere Praxis zu
                         erreichen. Unweit der Praxis
                         finden
                         Sie den U-Bhf Nollendorfplatz sowie Viktoria-Luise-Platz. Als auch den S-Bhf York Str.
@@ -2304,7 +2768,7 @@
                     <div class="flex_row_anfahrt">
                         <img alt="U-Bahn" data-src="https://ucarecdn.com/dcabc12d-8b91-4b34-9c1f-ea3f86405c5b/"
                             width="38" height="38" loading="lazy">
-                        <p>U1,U2,U3,U4</p>
+                        <p>U1,U2,U3,U4,U7</p>
                     </div>
                     <!-- <div class="flex_row_anfahrt">
                         <img alt="Tram" data-src="https://ucarecdn.com/67bc4cc6-f82b-4315-b854-465b5753fc20/" width="38"
@@ -2327,9 +2791,10 @@
                         <img height="50" width="40"
                             data-src="https://ucarecdn.com/71931acb-ac0e-45b1-8351-06c579269301/" alt="bus"
                             loading="lazy">
-                        <h4>Mit dem Auto</h4>
+                        <h4 data-translate="anfahrt_by_car">Mit dem Auto</h4>
                     </div>
-                    <p style="text-align: justify;">Sie finden unsere Praxis in der
+                    <p style="text-align: justify;" data-translate="anfahrt_by_car_content">Sie finden unsere Praxis in
+                        der
                         Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den anliegenden
                         Straßen viele
                         Parkmöglichkeiten für die Anfahrt mit dem Auto.</p>
@@ -2763,6 +3228,9 @@
 
 
     </script>
+
+    <!-- Translation System -->
+    <script src="data/translations.js"></script>
 
 </body>
 
