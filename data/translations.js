@@ -60,6 +60,9 @@ const translations = {
         cleaning_content: "Ein gesundes und schönes Lächeln basiert auf der Gesundheit der Zähne und des umliegenden Gewebes. Zahnbelag, Zahnstein und ähnliche Ablagerungen können die Gesundheit des Zahnfleisches gefährden und zu Rötungen, Blutungen sowie unangenehmem Mundgeruch führen, was oft die soziale Kommunikation beeinträchtigt. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg bieten wir eine professionelle Zahnreinigung an, die mit modernster Technologie durchgeführt wird. So verhelfen wir Ihnen zu einem frischen Atem und einem strahlend gesunden Lächeln.",
         // Anxiety content
         anxiety_content: "Viele Menschen empfinden Zahnarztbesuche aufgrund der Geräusche und der Erwartung von Schmerzen als stressig. In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg nehmen wir uns besonders viel Zeit für Angstpatienten. Wir gehen gezielt auf Ihre Bedürfnisse ein und gestalten den Behandlungsablauf individuell, um Ängste zu reduzieren. Mit modernen Geräten sorgen wir für eine schnelle, schmerzfreie und effektive Behandlung. Unser Ziel ist es, in einer ruhigen Atmosphäre Stressfaktoren wie Lärm und Schmerzen auszuschalten und eine vertrauensvolle Beziehung zu unseren Patienten aufzubauen.",
+        // Eigenlabor content
+        services_eigenlabor: "EIGENLABOR",
+        eigenlabor_content: "In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg verfügen wir über ein hauseigenes Dentallabor mit modernstem digitalen Workflow. Mit unserem Sirona CEREC System, dem Primeprint 3D-Drucker und der PrimeMill Fräsmaschine können wir maßgeschneiderten Zahnersatz direkt in der Praxis herstellen – von Kronen, Brücken, Veneers Inlays und Onlays bis hin zu Bohrschablonen und provisorische Prothese.<br><br><strong>Ihre Vorteile:</strong><br><ul style='margin: 10px 0; padding-left: 20px;'><li><strong>Schnelligkeit:</strong> Viele Versorgungen können noch am selben Tag fertiggestellt werden.</li><li><strong>Präzision:</strong> Digitale Abformung und CAD/CAM-Technologie gewährleisten passgenauen Zahnersatz.</li><li><strong>Ästhetik:</strong> Hochwertige Materialien und digitale Designmethoden für natürliche, strahlende Ergebnisse.</li><li><strong>Komfort:</strong> Weniger Termine durch interne Fertigung und direkte Kontrolle über Qualität und Anpassung.</li></ul>Dank des digitalen Workflows kombinieren wir modernste Technik mit handwerklicher Präzision – für funktionalen, langlebigen und ästhetisch hochwertigen Zahnersatz, der genau auf Ihre Bedürfnisse abgestimmt ist.",
         // Digital content
         digital_xray: "Digitale Röntgen",
         digital_xray_content: "In unserer Zahnarztpraxis Dr. Seda Sanli in Berlin Schöneberg setzen wir modernste digitale Röntgentechnologie ein, um Ihnen die beste Diagnostik zu bieten. Die Panoramaaufnahme (2D-OPG) ist ideal, um den gesamten Zustand Ihrer Zähne und des Kiefers zu beurteilen. Sie ermöglicht es uns, retinierte Zähne, Karies oder die Position von Implantaten in Bezug auf benachbarte anatomische Strukturen zu erkennen. Für detaillierte Informationen, wie z.B. Entzündungen an der Wurzelspitze oder die Beurteilung von Wurzelkanalfüllungen, nutzen wir periapikale Einzelaufnahmen. Bei komplexen Fällen, wie dem Einsetzen von Implantaten oder der Diagnose von Wurzelfrakturen, bietet uns die 3D-Diagnostik (DVT) ein präzises Bild. Alle diese Aufnahmen erfolgen bei uns mit minimaler Strahlenbelastung und neuester Technologie.",
@@ -143,7 +146,7 @@ const translations = {
         nav_praxis: "Practice",
         nav_team: "The Team",
         nav_lebenslauf: "Resume",
-        nav_leistungen: "Services",
+        nav_leistungen: "Treatments",
         nav_anfahrt: "Directions",
         hero_title: "Your Dentist in Berlin Schöneberg",
         team_title: "The Team",
@@ -165,7 +168,7 @@ const translations = {
         cv_specialist: "Specialist Dentist for Prosthetics",
         cv_dentist: "Dentist",
         cv_personal_note: "For 16 years, I have been passionately and empathetically accompanying my patients. My focus is on modern, digitally supported dentistry – from aesthetic treatments to implantology. It is important to me to design each therapy individually and in a trusting atmosphere.",
-        services_title: "Services",
+        services_title: "Treatments",
         services_consultation: "CONSULTATION",
         services_fillings: "FILLINGS",
         services_root_canal: "ROOT CANAL TREATMENT (ENDODONTICS)",
@@ -178,11 +181,11 @@ const translations = {
         consultation_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we place great emphasis on listening to you and understanding your individual needs and wishes. This way we can offer you the right treatment options that lead not only to your dental health, but also to an aesthetically appealing result. Your dentist in Berlin ensures that you are comprehensively advised and cared for in the best possible way.",
         // Fillings content
         fillings_direct: "Direct Filling Therapy",
-        fillings_direct_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we use the most modern materials for the treatment of caries in both the front and side tooth areas. For the side teeth, we use aesthetic and pressure-resistant plastic fillings that have been developed according to the latest state of the art. In the front tooth area, highly developed plastic fillings with nanotechnology are used to offer you optimal aesthetic results. Trust in the expertise of your dentist in Berlin Schöneberg to maintain your dental health and your smile.",
+        fillings_direct_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we use the most modern materials for the treatment of caries in both the front and side tooth areas. For the side teeth, we use aesthetic and pressure-resistant composite fillings that have been developed according to the latest state of the art. In the front tooth area, highly developed composite fillings with nanotechnology are used to offer you optimal aesthetic results. Trust in the expertise of your dentist in Berlin Schöneberg to maintain your dental health and your smile.",
         fillings_indirect: "Indirect Filling Therapy",
-        fillings_indirect_content: "Inlays and Onlays at your dental practice in Berlin Schöneberg. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer you high-quality inlays and onlays for the care of your side teeth. Inlays are laboratory-made or computer-milled inlay fillings that are precisely fitted after removal of caries or defective fillings into the tooth cavity. We use durable materials such as plastic that hardens under heat, light and pressure in the laboratory, as well as aesthetic ceramics that precisely restores your tooth shape. Larger inlays that also include the tooth cusps are called onlays. We provide these in a second session and glue them securely into the tooth to optimize your dental health.",
+        fillings_indirect_content: "Inlays and Onlays at your dental practice in Berlin Schöneberg. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer you high-quality inlays and onlays for the care of your side teeth. Inlays are laboratory-made or computer-milled inlay fillings that are precisely fitted after removal of caries or defective fillings into the tooth cavity. We use durable materials such as plastic that hardens under heat, light and pressure in the laboratory, as well as aesthetic ceramics that precisely restores your tooth shape. Larger inlays that also include the tooth cusps are called onlays. We provide these in a second session and fasten them securely into the tooth to optimize your dental health.",
         // Root canal content
-        root_canal_content: "Root canal treatment, also called endodontics, is necessary when the tissue inside the tooth, the so-called pulp, is infected by caries, trauma or other factors. This infection can cause severe pain. In such cases, your dentist in Berlin Schöneberg empties the pulp canals, shapes them and fills them with special filling material to save the tooth. Our dental practice Dr. Seda Sanli uses the most modern digital imaging systems and high-precision devices to ensure successful treatment.",
+        root_canal_content: "Root canal treatment, also called endodontics, is necessary when the tissue inside the tooth, the so-called pulp, is infected by caries, trauma or other factors. This infection can cause severe pain. In such cases, your dentist in Berlin Schöneberg empties the pulp canals, shapes them and fills them with special filling material to save the tooth. Our dental practice Dr. Seda Sanli uses the most modern systems and high-precision devices to ensure successful treatment.",
         // TMJ content
         tmj_diagnosis: "Functional Diagnostics for CMD Treatment",
         tmj_diagnosis_content: "CMD (Craniomandibular Dysfunction) is a disease that affects the jaw joints and chewing muscles. It manifests itself through pain in the area of the jaw joints and chewing muscles, often accompanied by functional limitations of the chewing organ. Pain often occurs in front of the ears, which can intensify when chewing or moving the lower jaw. Other symptoms can be limited mouth opening, noises in the jaw joint (grinding or cracking) as well as severe wear of the teeth, pronounced chewing muscles or head and facial pain. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, CMD therapy is primarily carried out by adjusting bite splints that relieve the jaw joints and alleviate the symptoms.",
@@ -194,15 +197,18 @@ const translations = {
         cleaning_content: "A healthy and beautiful smile is based on the health of the teeth and surrounding tissue. Plaque, tartar and similar deposits can endanger the health of the gums and lead to redness, bleeding and unpleasant bad breath, which often impairs social communication. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer professional dental cleaning that is performed with the most modern technology. This way we help you achieve fresh breath and a radiantly healthy smile.",
         // Anxiety content
         anxiety_content: "Many people find dental visits stressful due to the sounds and expectation of pain. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we take extra time for anxious patients. We specifically address your needs and design the treatment process individually to reduce fears. With modern equipment, we ensure a fast, pain-free and effective treatment. Our goal is to eliminate stress factors such as noise and pain in a calm atmosphere and build a trusting relationship with our patients.",
+        // Eigenlabor content
+        services_eigenlabor: "IN-HOUSE DENTAL LABORATORY",
+        eigenlabor_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we have an in-house dental laboratory with the most advanced digital workflow. Using our Sirona CEREC system, the Primeprint 3D printer, and the PrimeMill milling machine, we can produce customized dental restorations directly in the practice – from crowns, bridges, veneers, inlays, and onlays to surgical guides and temporary prostheses.<br><br><strong>Your Benefits:</strong><br><ul style='margin: 10px 0; padding-left: 20px;'><li><strong>Speed:</strong> Many restorations can be completed on the same day.</li><li><strong>Precision:</strong> Digital impressions and CAD/CAM technology ensure perfectly fitting restorations.</li><li><strong>Aesthetics:</strong> High-quality materials and digital design methods provide natural, radiant results.</li><li><strong>Comfort:</strong> Fewer appointments thanks to in-house production and direct control over quality and adjustments.</li></ul>Thanks to the digital workflow, we combine state-of-the-art technology with craftsmanship – for functional, durable, and highly aesthetic dental restorations tailored precisely to your needs.",
         // Digital content
         digital_xray: "Digital X-ray",
         digital_xray_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we use the most modern digital X-ray technology to offer you the best diagnostics. The panoramic image (2D-OPG) is ideal for assessing the overall condition of your teeth and jaw. It allows us to detect impacted teeth, caries or the position of implants in relation to adjacent anatomical structures. For detailed information, such as inflammation at the root tip or the assessment of root canal fillings, we use periapical individual images. In complex cases, such as implant placement or diagnosis of root fractures, 3D diagnostics (CBCT) provides us with a precise image. All these images are taken with minimal radiation exposure and the latest technology.",
         digital_impression: "Digital Impression",
-        digital_impression_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we use modern 3D intraoral scanners to replace conventional impressions. This digital impression avoids the typical disadvantages of the traditional method, such as time consumption and the gag reflex. Another advantage is the minimization of human errors: with conventional impressions, deformations can occur during transport. With digital impressions, all data is stored precisely and securely on computers that work with licensed software and meet high data protection standards.",
+        digital_impression_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we use modern intraoral scanners to replace conventional impressions. This digital impression avoids the typical disadvantages of the traditional method, such as time consumption and the gag reflex. Another advantage is the minimization of human errors: with conventional impressions, deformations can occur during transport. With digital impressions, all data is stored precisely and securely on computers that work with licensed software and meet high data protection standards.",
         digital_smile: "Digital Smile Design",
         digital_smile_content: "A radiant smile can boost self-confidence and significantly improve the impression you leave on others. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer modern digital smile design to create an aesthetically appealing smile. Using the most modern technologies and digital simulation methods, we design not only the teeth but also the surrounding tissue to give you the perfect smile.",
         digital_implant: "Implant Surgery with Digital Guidance",
-        digital_implant_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer modern implant surgery with digital guidance to ensure rapid healing and optimal aesthetic and functional results. By using drilling templates created with the help of digital measurements and 3D tomographies (CBCT) as well as intraoral scanners, we enable incision-free operations. This precise method ensures a pain-free healing process and perfect, well-fitting prostheses - both functional and aesthetic.",
+        digital_implant_content: "At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer modern implant surgery with digital guidance to ensure rapid healing and optimal aesthetic and functional results. By using drilling templates created with the help of digital measurements and 3D tomographies (DVT) as well as intraoral scanners, we enable incision-free operations. This precise method ensures a pain-free healing process and perfect, well-fitting prostheses - both functional and aesthetic.",
         // Bleaching content
         bleaching_content: "Teeth whitening is an effective procedure for lightening tooth color that is performed under medical supervision at our dental practice Dr. Seda Sanli in Berlin Schöneberg. This procedure is particularly suitable for teeth that are discolored by colorants such as tobacco, coffee or tea. Congenital tooth colors that are genetically determined can also be lightened.",
         // Additional services
@@ -213,10 +219,10 @@ const translations = {
         services_periodontics: "PERIODONTICS AND PERIODONTAL SURGERY",
         // Aesthetic treatment content
         aesthetic_achieving: "Achieving a More Beautiful and Healthier Smile",
-        aesthetic_achieving_content: "A beautiful smile is crucial for self-confidence and quality of life. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer comprehensive treatment aimed at correcting discolored, worn, crooked or disfigured teeth, flabby gums and reduced lip support due to tooth positioning problems. This holistic treatment can improve one or more of these conditions that affect the smile and social life. Using the most modern technology and digital simulation methods, we design a smile that is both beautiful and healthy.",
+        aesthetic_achieving_content: "A beautiful smile is crucial for self-confidence and quality of life. At our dental practice Dr. Seda Sanli in Berlin Schöneberg, we offer comprehensive treatment aimed at correcting discolored, worn, crooked or disfigured teeth, gummy smile and reduced lip support due to tooth positioning problems. This holistic treatment can improve one or more of these conditions that affect the smile and social life. Using the most modern technology and digital simulation methods, we design a smile that is both beautiful and healthy.",
         aesthetic_dental: "Dental Aesthetics (Health, Shape, Color and Level of Teeth)",
         aesthetic_gum: "Gum Aesthetics (Gum Health, Shape and Level)",
-        aesthetic_dental_list: "Veneers (Ceramic veneers), Crowns and Bridges made of Ceramic, Tooth-colored Composite Fillings, Bleaching, Invisible Braces for Minor Tooth Misalignments",
+        aesthetic_dental_list: "Veneers (Ceramic veneers), Crowns and Bridges made of Ceramic, Tooth-colored Composite Fillings, Bleaching, Invisible Aligners for Minor Tooth Misalignments",
         aesthetic_gum_list: "Periodontal Surgery for Gum Recession or Too Much Visible Gum (Gummy Smile), Removable Gum Mask for Large Gum Defects",
         // Prosthetic content
         prosthetic_veneers: "Veneers",
@@ -270,8 +276,8 @@ const translations = {
     },
     tr: {
         // Turkish translations
-        welcome_title: "Pratikimize Hoş Geldiniz",
-        welcome_description: "Berlin Schöneberg'deki modern diş hekimliği pratiğimizi keşfedin. Diş sağlığınız için en son teknoloji ile size hoş bir atmosfer sunuyoruz.",
+        welcome_title: "Kliniğimize Hoş Geldiniz",
+        welcome_description: "Berlin Schöneberg'deki modern diş hekimliği muayenehanemizi keşfedin. Diş sağlığınız için en son teknoloji ile size hoş bir atmosfer sunuyoruz.",
         praxis_title: "Pratik",
         video_not_supported: "Tarayıcınız video oynatmayı desteklemiyor.",
         nav_praxis: "Pratik",
@@ -292,15 +298,15 @@ const translations = {
         cv_implantology: "İmplantoloji ve Ağız Cerrahisi",
         cv_digital: "Dijital Diş Hekimliği (3D-DVT, CAD-CAM)",
         cv_aesthetic: "Estetik Diş Hekimliği ve Protez",
-        cv_curriculum: "İmplantoloji Müfredatı",
-        cv_approbation: "Diş Hekimliği Uygulama Ruhsatı",
-        cv_phd: "Protez Alanında Doktora ve Uzmanlık",
+        cv_curriculum: "İmplantoloji Eğitimi",
+        cv_approbation: "Diş Hekimliği Mesleki Denklik",
+        cv_phd: "Doktora ve Uzmanlık: Protetik Diş Tedavileri",
         cv_study: "Diş Hekimliği Eğitimi",
-        cv_specialist: "Protez Uzman Diş Hekimi",
+        cv_specialist: "Protez Uzmanı Diş Hekimi",
         cv_dentist: "Diş Hekimi",
         cv_personal_note: "16 yıldır hastalarımı tutku ve empati ile takip ediyorum. Odağım modern, dijital destekli diş hekimliği – estetik tedavilerden implantolojiye kadar. Her terapiyi bireysel ve güven verici bir atmosferde tasarlamak benim için önemli.",
-        services_title: "Hizmetler",
-        services_consultation: "DANIŞMANLIK",
+        services_title: "Hizmetler - Tedavi̇ Seçenekleri̇",
+        services_consultation: "DANIŞMANLIK - MUAYENE",
         services_fillings: "DOLGULAR",
         services_root_canal: "KANAL TEDAVİSİ (ENDODONTİ)",
         services_tmj: "ÇENE EKLEMİ RAHATSIZLIKLARI (KRANİOMANDİBULER DİSFONKSİYON-CMD)",
@@ -328,6 +334,9 @@ const translations = {
         cleaning_content: "Sağlıklı ve güzel bir gülümseme, dişlerin ve çevre dokuların sağlığına dayanır. Diş plağı, diş taşı ve benzeri birikintiler diş eti sağlığını tehdit edebilir ve kızarıklık, kanama ve hoş olmayan ağız kokusuna yol açabilir, bu da sıklıkla sosyal iletişimi etkiler. Berlin Schöneberg'deki diş hekimliği pratiğimiz Dr. Seda Sanli'de en modern teknoloji ile gerçekleştirilen profesyonel diş temizliği sunuyoruz. Bu şekilde taze nefes ve parlak sağlıklı bir gülümseme elde etmenize yardımcı oluyoruz.",
         // Anxiety content
         anxiety_content: "Birçok insan sesler ve ağrı beklentisi nedeniyle diş hekimi ziyaretlerini stresli bulur. Berlin Schöneberg'deki diş hekimliği pratiğimiz Dr. Seda Sanli'de korkulu hastalar için özellikle fazla zaman ayırıyoruz. İhtiyaçlarınızı hedefli olarak ele alıyoruz ve korkuları azaltmak için tedavi sürecini bireysel olarak tasarlıyoruz. Modern cihazlarla hızlı, ağrısız ve etkili tedavi sağlıyoruz. Amacımız sakin bir atmosferde gürültü ve ağrı gibi stres faktörlerini ortadan kaldırmak ve hastalarımızla güven verici bir ilişki kurmaktır.",
+        // Eigenlabor content
+        services_eigenlabor: "DİŞ LABORATUVARIMIZ",
+        eigenlabor_content: "Berlin Schöneberg’deki Dr. Seda Sanli Diş Kliniğimizde, dijital iş akışına sahip kendi diş laboratuvarımız bulunmaktadır. Sirona CEREC sistemi, Primeprint 3D yazıcı ve PrimeMill freze makinesi sayesinde kron, köprü, veneer, inlay ve onlaylardan cerrahi rehberler ve geçici protezlere kadar kişiye özel diş restorasyonlarını doğrudan klinikte üretebiliyoruz.<br><br><strong>Avantajlarınız:</strong><br><ul style='margin: 10px 0; padding-left: 20px;'><li><strong>Hız:</strong> Birçok restorasyon aynı gün tamamlanabilir.</li><li><strong>Hassasiyet:</strong> Dijital ölçü ve CAD/CAM teknolojisi, mükemmel uyumlu restorasyonlar sağlar.</li><li><strong>Estetik:</strong> Yüksek kaliteli malzemeler ve dijital tasarım yöntemleri doğal ve parlak sonuçlar sunar.</li><li><strong>Konfor:</strong> Dahili üretim ve kalite ile uyum kontrolü sayesinde daha az randevu gerekir.</li></ul>Dijital iş akışı sayesinde en yeni teknolojiyi el işçiliği ile birleştiriyoruz – fonksiyonel, dayanıklı ve estetik açıdan yüksek kaliteli diş restorasyonları sunarak ihtiyaçlarınıza tam olarak uyum sağlıyoruz.",
         // Digital content
         digital_xray: "Dijital Röntgen",
         digital_xray_content: "Berlin Schöneberg'deki diş hekimliği pratiğimiz Dr. Seda Sanli'de size en iyi tanıyı sunmak için en modern dijital röntgen teknolojisini kullanıyoruz. Panoramik görüntü (2D-OPG) dişlerinizin ve çenenizin genel durumunu değerlendirmek için idealdir. Gömülü dişleri, çürükleri veya komşu anatomik yapılara göre implantların konumunu tespit etmemizi sağlar. Kök ucundaki iltihap veya kök kanalı dolgularının değerlendirilmesi gibi detaylı bilgiler için periapikal tek görüntüler kullanıyoruz. İmplant yerleştirme veya kök kırığı tanısı gibi karmaşık durumlarda 3D tanı (DVT) bize hassas bir görüntü sunar. Tüm bu görüntüler minimal radyasyon maruziyeti ve en son teknoloji ile alınır.",
@@ -438,6 +447,8 @@ class TranslationManager {
 
             if (element.tagName === 'INPUT' && element.type === 'text') {
                 element.placeholder = translation;
+            } else if (element.getAttribute('data-translate') === 'eigenlabor_content') {
+                element.innerHTML = translation;
             } else {
                 element.textContent = translation;
             }
