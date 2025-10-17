@@ -358,6 +358,11 @@
             max-height: 1.5rem;
         }
 
+        /* Telephone number button styling */
+        .button_shape {
+            font-size: 1.1rem;
+        }
+
         section>div {
             margin: auto;
             max-width: 60rem;
@@ -514,21 +519,26 @@
 
 
         .hero_content {
-            position: relative;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             z-index: 3;
             color: white;
             padding: 20px;
+            padding-bottom: 60px;
             background: rgba(0, 0, 0, 0.3);
             width: 100%;
-            height: 100%;
             box-sizing: border-box;
         }
 
         .center_flex {
             position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -45%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
         }
 
         .fade-in {
@@ -641,6 +651,9 @@
             background-color: #f6f6f6;
             transition: background-color 0.3s ease;
             font-size: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .leistungen-accordion-menu:hover {
@@ -653,11 +666,10 @@
 
         .leistungen-accordion-menu:after {
             content: '\2795';
-            padding-right: 10px;
-            color: rgba(0, 0, 0, 0);
-            text-shadow: 0 0 #000;
-            float: right;
+            color: #000;
             font-size: 1.1em;
+            flex-shrink: 0;
+            margin-left: 10px;
         }
 
         .leistungen-accordion-menu.active:after {
@@ -676,7 +688,7 @@
 
         .leistungen-accordion-panel.show {
             opacity: 1;
-            max-height: 2000px;
+            max-height: 4000px;
             padding: 20px 25px;
         }
 
@@ -1160,7 +1172,20 @@
             .hero {
                 height: 60vh;
                 height: 60svh;
+            }
 
+            .hero_content {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 60%;
+                z-index: 3;
+                color: white;
+                padding: 15px;
+                background: rgba(0, 0, 0, 0.3);
+                width: 100%;
+                box-sizing: border-box;
             }
         }
 
@@ -1349,18 +1374,26 @@
                 hyphens: auto;
                 overflow-wrap: break-word;
                 white-space: normal;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .leistungen-accordion-menu:after {
                 font-size: 1em;
-                padding-right: 5px;
                 flex-shrink: 0;
+                margin-left: 10px;
             }
 
             /* Ensure accordion items don't overflow */
             .leistungen-accordion-item {
                 margin: 1rem 0;
                 overflow: hidden;
+            }
+
+            /* Add padding to the leistungen section on mobile */
+            #leistungen {
+                padding: 1px 15px;
             }
 
             /* Improve text wrapping in accordion content */
@@ -1485,12 +1518,15 @@
                 hyphens: auto;
                 overflow-wrap: break-word;
                 white-space: normal;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .leistungen-accordion-menu:after {
                 font-size: 0.9em;
-                padding-right: 3px;
                 flex-shrink: 0;
+                margin-left: 8px;
             }
 
             .center_text {
@@ -1651,12 +1687,15 @@
                 max-width: 100%;
                 box-sizing: border-box;
                 min-height: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .leistungen-accordion-menu:after {
                 font-size: 0.9em;
-                padding-right: 5px;
                 flex-shrink: 0;
+                margin-left: 8px;
             }
 
             /* Ensure the accordion item itself doesn't overflow */
@@ -1664,6 +1703,7 @@
                 width: 100%;
                 max-width: 100%;
                 overflow: hidden;
+                margin: 1rem 0;
             }
         }
 
@@ -1678,12 +1718,15 @@
                 overflow-wrap: break-word;
                 white-space: normal;
                 min-height: 45px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .leistungen-accordion-menu:after {
                 font-size: 0.85em;
-                padding-right: 3px;
                 flex-shrink: 0;
+                margin-left: 6px;
             }
         }
 
@@ -1849,8 +1892,108 @@
     </header>
 
     <script>
+        // Function to adjust hero text font sizes based on screen size
+        function adjustHeroTextSizes() {
+            const heroContent = document.querySelector('.hero_content');
+            if (!heroContent) return;
+
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const isMobile = screenWidth <= 768;
+            const isSmallMobile = screenWidth <= 480;
+
+            if (isMobile) {
+                // Mobile adjustments
+                const nameElement = heroContent.querySelector('h1');
+                const titleElement = heroContent.querySelector('h2');
+                const addressElement = heroContent.querySelector('p');
+                const buttonElement = heroContent.querySelector('.button_shape');
+
+                if (nameElement) {
+                    if (isSmallMobile) {
+                        nameElement.style.fontSize = '1rem';
+                        nameElement.style.lineHeight = '1.1';
+                    } else {
+                        nameElement.style.fontSize = '1.2rem';
+                        nameElement.style.lineHeight = '1.2';
+                    }
+                }
+
+                if (titleElement) {
+                    if (isSmallMobile) {
+                        titleElement.style.fontSize = '0.8rem';
+                        titleElement.style.lineHeight = '1.1';
+                    } else {
+                        titleElement.style.fontSize = '0.9rem';
+                        titleElement.style.lineHeight = '1.2';
+                    }
+                }
+
+                if (addressElement) {
+                    if (isSmallMobile) {
+                        addressElement.style.fontSize = '0.7rem';
+                    } else {
+                        addressElement.style.fontSize = '0.8rem';
+                    }
+                }
+
+                if (buttonElement) {
+                    if (isSmallMobile) {
+                        buttonElement.style.fontSize = '0.7rem';
+                        buttonElement.style.padding = '6px 10px';
+                    } else {
+                        buttonElement.style.fontSize = '0.8rem';
+                        buttonElement.style.padding = '8px 12px';
+                    }
+                }
+
+                // Adjust spacing between elements
+                const centerFlex = heroContent.querySelector('.center_flex');
+                if (centerFlex) {
+                    if (isSmallMobile) {
+                        centerFlex.style.gap = '0.3rem';
+                    } else {
+                        centerFlex.style.gap = '0.5rem';
+                    }
+                }
+            } else {
+                // Desktop - reset to default
+                const nameElement = heroContent.querySelector('h1');
+                const titleElement = heroContent.querySelector('h2');
+                const addressElement = heroContent.querySelector('p');
+                const buttonElement = heroContent.querySelector('.button_shape');
+
+                if (nameElement) {
+                    nameElement.style.fontSize = '';
+                    nameElement.style.lineHeight = '';
+                }
+                if (titleElement) {
+                    titleElement.style.fontSize = '';
+                    titleElement.style.lineHeight = '';
+                }
+                if (addressElement) {
+                    addressElement.style.fontSize = '';
+                }
+                if (buttonElement) {
+                    buttonElement.style.fontSize = '';
+                    buttonElement.style.padding = '';
+                }
+                const centerFlex = heroContent.querySelector('.center_flex');
+                if (centerFlex) {
+                    centerFlex.style.gap = '';
+                }
+            }
+        }
+
+        // Adjust text sizes on window resize
+        window.addEventListener('resize', function () {
+            adjustHeroTextSizes();
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Adjust hero text sizes on page load
+            adjustHeroTextSizes();
+
             const burger = document.getElementById('burger');
             const navLinks = document.getElementById('navLinks');
 
@@ -2032,7 +2175,13 @@
             <div class="hero_content">
                 <div class="center_flex">
 
-                    <div class="flex-row">
+
+                    <div class="flex-row" style="margin-bottom: 1rem;">
+                        <h1 style="margin: 0;padding: 0;">Seda Sanli</br>(Ege Univers-Izmir)</br><span
+                                data-translate="hero_title">Ihre
+                                Zahnärztin in Berlin Schöneberg</span></h2>
+                    </div>
+                    <div class="flex-row" style="margin-bottom: 1rem;">
                         <div class="hero_address_pin">
                             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1r65xhm" focusable="false"
                                 aria-hidden="true" viewBox="0 0 20 26">
@@ -2042,17 +2191,13 @@
                                 </path>
                             </svg>
                         </div>
-                        <p style="margin: 0;padding: 0;">Eisenacher Str. 108, 10777 Berlin</p>
-                    </div>
-                    <div class="flex-row">
-                        <h2 style="margin: 0;padding: 0;">Seda Sanli</br><span data-translate="hero_title">Ihre
-                                Zahnärztin in Berlin Schöneberg</span></h2>
+                        <h2 style="margin: 0;padding: 0;">Eisenacher Str. 108, 10777 Berlin</h3>
                     </div>
                     <div class="flex-row" style="margin-bottom: 0;">
 
                         <a href="tel:+493021750660">
 
-                            <button class="button_shape">
+                            <button class="button_shape" style="letter-spacing: 0.05em;">
                                 <span class="button_icon">
                                     <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -2417,6 +2562,14 @@
                                     schnelle, schmerzfreie und effektive Behandlung. Unser Ziel ist es, in einer
                                     ruhigen Atmosphäre Stressfaktoren wie Lärm und Schmerzen auszuschalten und eine
                                     vertrauensvolle Beziehung zu unseren Patienten aufzubauen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leistungen-accordion-item">
+                        <p class="leistungen-accordion-menu" data-translate="services_eigenlabor">EIGENLABOR</p>
+                        <div class="leistungen-accordion-panel">
+                            <div class="leistungen-content">
+                                <p data-translate="eigenlabor_content"></p>
                             </div>
                         </div>
                     </div>
