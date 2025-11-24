@@ -111,6 +111,7 @@
             align-items: center;
             height: 80px;
             box-sizing: border-box;
+            width: 100%;
         }
 
         header img {
@@ -1698,8 +1699,7 @@
         /* Ultra-wide screens and foldables */
         @media (min-width: 1025px) and (max-width: 1400px) {
             header {
-                max-width: 1200px;
-                margin: 0 auto;
+                width: 100%;
                 padding: 10px 20px;
             }
 
@@ -1716,8 +1716,7 @@
         /* Very wide screens */
         @media (min-width: 1401px) {
             header {
-                max-width: 1400px;
-                margin: 0 auto;
+                width: 100%;
                 padding: 10px 30px;
             }
         }
@@ -3563,24 +3562,76 @@
     <script src="data/translations.js"></script>
 
     <!-- Urlaub (Vacation) Feature -->
-    <script type="module">
-        import { 
-            loadUrlaubData, 
-            formatDateForDisplay, 
-            shouldShowBanner,
-            isUrlaubEmpty
-        } from './src/urlaub.ts';
+    <script>
+        // Urlaub (Vacation) utility functions
+
+        /**
+         * Load vacation data from urlaub.json
+         */
+        async function loadUrlaubData() {
+            try {
+                const response = await fetch('/data/urlaub.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load urlaub.json');
+                }
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error loading urlaub data:', error);
+                // Return empty data as fallback
+                return { von: '', bis: '', anzeigen_ab: '' };
+            }
+        }
+
+        /**
+         * Format date from yyyy-mm-dd to dd.mm.yyyy for display
+         */
+        function formatDateForDisplay(date) {
+            if (!date || date === '') return '';
+            const parts = date.split('-');
+            if (parts.length !== 3) return date;
+            return `${parts[2]}.${parts[1]}.${parts[0]}`;
+        }
+
+        /**
+         * Check if vacation data is empty
+         */
+        function isUrlaubEmpty(data) {
+            return (!data.von || data.von === '') &&
+                (!data.bis || data.bis === '') &&
+                (!data.anzeigen_ab || data.anzeigen_ab === '');
+        }
+
+        /**
+         * Check if banner should be displayed
+         * Banner shows if: anzeigen_ab <= today <= von
+         */
+        function shouldShowBanner(data) {
+            if (isUrlaubEmpty(data)) return false;
+            if (!data.anzeigen_ab || !data.von) return false;
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const anzeigenAb = new Date(data.anzeigen_ab);
+            anzeigenAb.setHours(0, 0, 0, 0);
+
+            const von = new Date(data.von);
+            von.setHours(0, 0, 0, 0);
+
+            return today >= anzeigenAb && today <= von;
+        }
 
         // Banner functionality
         async function updateBanner() {
             const banner = document.getElementById('urlaub-banner');
             const bannerText = document.getElementById('urlaub-banner-text');
-            
+
             if (!banner || !bannerText) return;
 
             try {
                 const data = await loadUrlaubData();
-                
+
                 if (shouldShowBanner(data) && !isUrlaubEmpty(data)) {
                     const vonFormatted = formatDateForDisplay(data.von);
                     const bisFormatted = formatDateForDisplay(data.bis);
@@ -3597,11 +3648,6 @@
             }
         }
 
-        // Function to update banner when language changes
-        function onLanguageChange() {
-            updateBanner();
-        }
-
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', async () => {
             // Update banner
@@ -3610,7 +3656,7 @@
             // Listen for language changes
             if (window.translationManager) {
                 const originalSetLanguage = window.translationManager.setLanguage;
-                window.translationManager.setLanguage = function(language) {
+                window.translationManager.setLanguage = function (language) {
                     originalSetLanguage.call(this, language);
                     updateBanner();
                 };
