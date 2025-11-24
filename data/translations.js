@@ -135,6 +135,9 @@ const translations = {
         anfahrt_by_car_content: "Sie finden unsere Praxis in der Eisenacher Str. 108 im Bezirk Schöneberg. Um die Praxis herum finden Sie in den anliegenden Straßen viele Parkmöglichkeiten für die Anfahrt mit dem Auto.",
         // Doctolib widget
         book_appointment: "Termin<br>buchen",
+        // Urlaub banner
+        urlaub_banner_prefix: "Wir sind im Urlaub vom",
+        urlaub_banner_bis: "bis zum",
         // Add more German translations here as needed
     },
     en: {
@@ -272,6 +275,9 @@ const translations = {
         anfahrt_by_car_content: "You will find our clinic at Eisenacher Str. 108 in the Schöneberg district. Around the clinic you will find many parking options in the adjacent streets for arrival by car.",
         // Doctolib widget
         book_appointment: "Book<br>Appointment",
+        // Urlaub banner
+        urlaub_banner_prefix: "We are on vacation from",
+        urlaub_banner_bis: "until",
         // Add more English translations here as needed
     },
     tr: {
@@ -409,6 +415,9 @@ const translations = {
         anfahrt_by_car_content: "Pratiğimizi Schöneberg bölgesinde Eisenacher Str. 108 adresinde bulacaksınız. Pratik çevresinde araba ile geliş için bitişik sokaklarda birçok park yeri bulacaksınız.",
         // Doctolib widget
         book_appointment: "Randevu<br>Al",
+        // Urlaub banner
+        urlaub_banner_prefix: "Tatildeyiz",
+        urlaub_banner_bis: "kadar",
         // Add more Turkish translations here as needed
     }
 };
