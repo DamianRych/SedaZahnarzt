@@ -276,7 +276,7 @@ const translations = {
         // Doctolib widget
         book_appointment: "Book<br>Appointment",
         // Urlaub banner
-        urlaub_banner_prefix: "Dear patients. Our practice is closed from",
+        urlaub_banner_prefix: "Dear patients. Our clinic is closed from",
         urlaub_banner_bis: "until",
         // Add more English translations here as needed
     },
@@ -416,7 +416,7 @@ const translations = {
         // Doctolib widget
         book_appointment: "Randevu<br>Al",
         // Urlaub banner
-        urlaub_banner_prefix: "Sevgili hastalar. Pratiğimiz kapalı",
+        urlaub_banner_prefix: "Sevgili hastalar. Kliniğimiz kapalı",
         urlaub_banner_bis: "tarihine kadar",
         // Add more Turkish translations here as needed
     }
