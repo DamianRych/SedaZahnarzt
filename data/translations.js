@@ -136,8 +136,8 @@ const translations = {
         // Doctolib widget
         book_appointment: "Termin<br>buchen",
         // Urlaub banner
-        urlaub_banner_prefix: "Wir sind im Urlaub vom",
-        urlaub_banner_bis: "bis zum",
+        urlaub_banner_prefix: "Liebe Patienten / innen. Unsere Praxis ist geschlossen von",
+        urlaub_banner_bis: "bis",
         // Add more German translations here as needed
     },
     en: {
@@ -276,7 +276,7 @@ const translations = {
         // Doctolib widget
         book_appointment: "Book<br>Appointment",
         // Urlaub banner
-        urlaub_banner_prefix: "We are on vacation from",
+        urlaub_banner_prefix: "Dear patients. Our practice is closed from",
         urlaub_banner_bis: "until",
         // Add more English translations here as needed
     },
@@ -416,8 +416,8 @@ const translations = {
         // Doctolib widget
         book_appointment: "Randevu<br>Al",
         // Urlaub banner
-        urlaub_banner_prefix: "Tatildeyiz",
-        urlaub_banner_bis: "kadar",
+        urlaub_banner_prefix: "Sevgili hastalar. Pratiğimiz kapalı",
+        urlaub_banner_bis: "tarihine kadar",
         // Add more Turkish translations here as needed
     }
 };
