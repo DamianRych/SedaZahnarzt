@@ -3637,7 +3637,7 @@
                     const bisFormatted = formatDateForDisplay(data.bis);
                     const prefix = window.translationManager ? window.translationManager.getTranslation('urlaub_banner_prefix') : 'Liebe Patienten / innen. Unsere Praxis ist geschlossen von';
                     const bis = window.translationManager ? window.translationManager.getTranslation('urlaub_banner_bis') : 'bis';
-                    bannerText.innerHTML = `${prefix} <span class="urlaub-banner-dates">${vonFormatted}</span> ${bis} <span class="urlaub-banner-dates">${bisFormatted}</span>.`;
+                    bannerText.innerHTML = `${prefix}<br><span class="urlaub-banner-dates">${vonFormatted}</span> ${bis} <span class="urlaub-banner-dates">${bisFormatted}</span>.`;
                     banner.style.display = 'block';
                 } else {
                     banner.style.display = 'none';
